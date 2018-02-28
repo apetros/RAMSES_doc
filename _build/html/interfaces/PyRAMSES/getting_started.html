@@ -1,0 +1,318 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3.3.1. Getting started &mdash; RAMSES 4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="RAMSES 4 documentation" href="../../index.html"/>
+        <link rel="up" title="3.3. Python Interface" href="../PyRAMSES.html"/>
+        <link rel="next" title="3.3.2. Test-case description" href="case.html"/>
+        <link rel="prev" title="3.3. Python Interface" href="../PyRAMSES.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> RAMSES
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">RAMSES</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data.html">1. Data and scenario description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../codegen.html">2. Modelling new components</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../interfaces.html">3. RAMSES Interface</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../cmd.html">3.1. Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gui.html">3.2. Java Interface</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../PyRAMSES.html">3.3. Python Interface</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">3.3.1. Getting started</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#installing-pyramses">3.3.1.1. Installing PyRAMSES</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#updating-ramses-dynamic-library">3.3.1.2. Updating RAMSES dynamic library</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="case.html">3.3.2. Test-case description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simul.html">3.3.3. Simulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html">3.3.4. Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="code_documentation.html">3.3.5. Documentation of the Code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">RAMSES</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../interfaces.html">3. RAMSES Interface</a> &raquo;</li>
+        
+          <li><a href="../PyRAMSES.html">3.3. Python Interface</a> &raquo;</li>
+        
+      <li>3.3.1. Getting started</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="getting-started">
+<span id="start"></span><h1>3.3.1. Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="installing-pyramses">
+<span id="start-installing-pyramses"></span><h2>3.3.1.1. Installing PyRAMSES<a class="headerlink" href="#installing-pyramses" title="Permalink to this headline">¶</a></h2>
+<p>You may already have PyRAMSES installed – you can check by doing:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="o">-</span><span class="n">c</span> <span class="s1">&#39;import PyRAMSES&#39;</span>
+</pre></div>
+</div>
+<p>If that fails grab the latest version of PyRAMSES module and install it with:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="updating-ramses-dynamic-library">
+<span id="start-update-dll"></span><h2>3.3.1.2. Updating RAMSES dynamic library<a class="headerlink" href="#updating-ramses-dynamic-library" title="Permalink to this headline">¶</a></h2>
+<p>PyRAMSES is a wrapper around the dynamic library of RAMSES. The .dll and .so
+files are located inside the libs/ directory of the module. When a new version
+of RAMSES is available, the libraries can be updated
+by simply replacing the files along with the header file (ramses.h).</p>
+<p>The header file is important as PyRAMSES automatically parses this file, compares
+against the dynamic library routines and creates the necessary interface. An example
+header file is shown below:</p>
+<div class="highlight-c"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">ramses</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">cmd</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">out</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">get_volt_mag</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">bus_name</span><span class="p">,</span> <span class="kt">double</span> <span class="o">*</span><span class="n">bus_volt</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">get_line_pow</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">line_name</span><span class="p">,</span> <span class="kt">double</span> <span class="o">*</span><span class="n">p_orig</span><span class="p">,</span> <span class="kt">double</span> <span class="o">*</span><span class="n">q_orig</span><span class="p">,</span> <span class="kt">double</span> <span class="o">*</span><span class="n">p_extr</span><span class="p">,</span> <span class="kt">double</span> <span class="o">*</span><span class="n">q_extr</span><span class="p">);</span>
+<span class="kt">double</span> <span class="nf">get_sim_time</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="kt">double</span> <span class="nf">get_huge_double</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">get_mxprm</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">get_comp_prm_names</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">comp_type</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">comp_name</span><span class="p">,</span> <span class="kt">int</span> <span class="n">mxprm</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">names</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">define_SS</span><span class="p">(</span><span class="kt">int</span> <span class="n">ssID</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">filter1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">num1</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">filter2</span><span class="p">,</span> <span class="kt">int</span> <span class="n">num2</span><span class="p">,</span><span class="kt">char</span> <span class="o">*</span><span class="n">filter3</span><span class="p">,</span> <span class="kt">int</span> <span class="n">num3</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">get_SS</span><span class="p">(</span><span class="kt">int</span> <span class="n">ssID</span><span class="p">,</span> <span class="kt">int</span> <span class="n">mxreclen</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">busNames</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">get_transformer_in_SS</span><span class="p">(</span><span class="kt">int</span> <span class="n">ssID</span><span class="p">,</span> <span class="kt">int</span> <span class="n">location</span><span class="p">,</span> <span class="kt">int</span> <span class="n">in_service</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">rettype</span><span class="p">,</span> <span class="kt">int</span> <span class="n">mxreclen</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">retString</span><span class="p">,</span> <span class="kt">double</span> <span class="o">*</span><span class="n">retdp</span><span class="p">,</span> <span class="kt">int</span> <span class="o">*</span><span class="n">retint</span><span class="p">,</span> <span class="kt">int</span> <span class="o">*</span><span class="n">elem</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">get_nbbus</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">get_bus_name</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">get_nbsync</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">get_sync_name</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">get_nbinj</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">get_inj_name</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">get_nbdctl</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">get_dctl_name</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">get_nbbra</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">get_branch_name</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">get_nbtwop</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">get_twop_name</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">get_nbshunt</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">get_shunt_name</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">get_nbload</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">get_load_name</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">name</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">set_pause_time</span><span class="p">(</span><span class="kt">double</span> <span class="n">c_pause_time</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">continue_simul</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">set_to_backup</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">set_end_simul</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">add_disturb</span><span class="p">(</span><span class="kt">double</span> <span class="n">disturbtime</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">disturbdesc</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">get_named_prm</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">comp_type</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">comp_name</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">prm_name</span><span class="p">,</span> <span class="kt">double</span> <span class="o">*</span><span class="n">prm_value</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">get_named_obs</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">comp_type</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">comp_name</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">prm_name</span><span class="p">,</span> <span class="kt">double</span> <span class="o">*</span><span class="n">prm_value</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">initObserv</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">traj_filenm</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">addObserv</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">string</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">finalObserv</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="case.html" class="btn btn-neutral float-right" title="3.3.2. Test-case description" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../PyRAMSES.html" class="btn btn-neutral" title="3.3. Python Interface" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Petros Aristidou.
+      Last updated on Jan 26, 2018.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

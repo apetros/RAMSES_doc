@@ -1,0 +1,864 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>PyRAMSES.simulator &mdash; RAMSES 4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="RAMSES 4 documentation" href="../../index.html"/>
+        <link rel="up" title="Module code" href="../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> RAMSES
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">RAMSES</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data.html">1. Data and scenario description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../codegen.html">2. Modelling new components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../interfaces.html">3. RAMSES Interface</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">RAMSES</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>PyRAMSES.simulator</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for PyRAMSES.simulator</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;Python module for RAMSES dynamic simulator. It provides an interface through Python to</span>
+<span class="sd">perform dynamic simulations and extract data from RAMSES.&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">ctypes</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="kn">from</span> <span class="nn">.cases</span> <span class="k">import</span> <span class="n">cfg</span>
+<span class="kn">from</span> <span class="nn">.globals</span> <span class="k">import</span> <span class="n">RAMSESError</span><span class="p">,</span> <span class="n">CustomWarning</span><span class="p">,</span> <span class="n">__libdir__</span>
+
+<div class="viewcode-block" id="sim"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim">[docs]</a><span class="k">class</span> <span class="nc">sim</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Simulation class.&quot;&quot;&quot;</span>
+
+    <span class="n">warnings</span><span class="o">.</span><span class="n">showwarning</span> <span class="o">=</span> <span class="n">CustomWarning</span>
+
+    <span class="n">ramsesCount</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Provides a sum of all instances of Ramses running</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span>
+        <span class="s2">&quot;KMP_DUPLICATE_LIB_OK&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;TRUE&quot;</span>  <span class="c1"># This allows to run even if 2 versions of MKL are present on the computer</span>
+
+    <span class="c1">#    print __libdir__</span>
+    <span class="c1">#    print os.path.join(__libdir__,&quot;libramses.so&quot;)</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Initialize the DLL libraries.&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;win32&#39;</span><span class="p">,</span> <span class="s1">&#39;cygwin&#39;</span><span class="p">):</span>
+                <span class="c1"># self._KLUlib = ctypes.CDLL(os.path.join(__libdir__, &quot;KLU_DLL.dll&quot;), mode=ctypes.RTLD_GLOBAL)</span>
+                <span class="c1"># self._KLUZlib = ctypes.CDLL(os.path.join(__libdir__, &quot;KLU_DLL_Z.dll&quot;), mode=ctypes.RTLD_GLOBAL)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">CDLL</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">__libdir__</span><span class="p">,</span> <span class="s2">&quot;ramses.dll&quot;</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># if (not find_library(&#39;iomp5&#39;)):</span>
+                <span class="c1"># self._omplib = ctypes.CDLL(os.path.join(__libdir__, &quot;libiomp5.so&quot;), mode=ctypes.RTLD_GLOBAL)</span>
+                <span class="c1"># self._mkllib = ctypes.CDLL(os.path.join(__libdir__, &quot;libmkl.so&quot;), mode=ctypes.RTLD_GLOBAL)</span>
+                <span class="c1"># self._KLUlib = ctypes.CDLL(os.path.join(__libdir__, &quot;libKLU_DLL.so&quot;), mode=ctypes.RTLD_GLOBAL)</span>
+                <span class="c1"># self._KLUZlib = ctypes.CDLL(os.path.join(__libdir__, &quot;libKLU_DLL_Z.so&quot;), mode=ctypes.RTLD_GLOBAL)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">CDLL</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">__libdir__</span><span class="p">,</span> <span class="s2">&quot;libramses.so&quot;</span><span class="p">))</span>
+        <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="s1">&#39;RAMSES: &#39;</span> <span class="o">+</span> <span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
+
+        <span class="n">sim</span><span class="o">.</span><span class="n">ramsesCount</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ramsesNum</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">ramsesCount</span>  <span class="c1"># This is the current instance of Ramses</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_setcalls</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Simulator with number </span><span class="si">%i</span><span class="s2"> was deleted.&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramsesNum</span><span class="p">)</span>
+        <span class="n">sim</span><span class="o">.</span><span class="n">ramsesCount</span> <span class="o">-=</span> <span class="mi">1</span>
+
+    <span class="k">def</span> <span class="nf">_c_func_wrapper</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cdecl_text</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Read the ramses.h file and sets the necessary call types for Python.&quot;&quot;&quot;</span>
+
+        <span class="k">def</span> <span class="nf">move_pointer_and_strip</span><span class="p">(</span><span class="n">type_def</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+            <span class="k">if</span> <span class="s1">&#39;*&#39;</span> <span class="ow">in</span> <span class="n">name</span><span class="p">:</span>
+                <span class="n">type_def</span> <span class="o">+=</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">name</span><span class="p">[:</span><span class="n">name</span><span class="o">.</span><span class="n">rindex</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">return</span> <span class="n">type_def</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span> <span class="n">name</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+        <span class="k">def</span> <span class="nf">type_lookup</span><span class="p">(</span><span class="n">type_def</span><span class="p">):</span>
+            <span class="sd">&#39;&#39;&#39;Supported C variable types and their ctypes equivalents.&#39;&#39;&#39;</span>
+            <span class="n">types</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;void&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="s1">&#39;char *&#39;</span><span class="p">:</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_char_p</span><span class="p">,</span>
+                <span class="s1">&#39;int&#39;</span><span class="p">:</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">,</span>
+                <span class="s1">&#39;int *&#39;</span><span class="p">:</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">POINTER</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">),</span>
+                <span class="s1">&#39;void *&#39;</span><span class="p">:</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_void_p</span><span class="p">,</span>
+                <span class="s1">&#39;size_t&#39;</span><span class="p">:</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_size_t</span><span class="p">,</span>
+                <span class="s1">&#39;size_t *&#39;</span><span class="p">:</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">POINTER</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_size_t</span><span class="p">),</span>
+                <span class="s1">&#39;double&#39;</span><span class="p">:</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_double</span><span class="p">,</span>
+                <span class="s1">&#39;double *&#39;</span><span class="p">:</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">POINTER</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_double</span><span class="p">)</span>
+            <span class="p">}</span>
+            <span class="n">type_def_without_const</span> <span class="o">=</span> <span class="n">type_def</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;const &#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">type_def_without_const</span> <span class="ow">in</span> <span class="n">types</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">types</span><span class="p">[</span><span class="n">type_def_without_const</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="p">(</span><span class="n">type_def_without_const</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;*&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">type_def_without_const</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="n">types</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">POINTER</span><span class="p">(</span><span class="n">types</span><span class="p">[</span><span class="n">type_def_without_const</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="n">type_def</span><span class="p">)</span>
+
+        <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">cdecl_text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;(&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span>
+        <span class="n">params</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s1">&#39;)&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">rtn_type</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">move_pointer_and_strip</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="n">param_spec</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">param</span> <span class="ow">in</span> <span class="n">params</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">param</span> <span class="o">!=</span> <span class="s1">&#39;void&#39;</span><span class="p">:</span>
+                <span class="n">param_spec</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">move_pointer_and_strip</span><span class="p">(</span><span class="o">*</span><span class="n">param</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">func</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>  <span class="c1"># get the function from the dll</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="s1">&#39;restype&#39;</span><span class="p">,</span> <span class="n">type_lookup</span><span class="p">(</span><span class="n">rtn_type</span><span class="p">))</span>  <span class="c1"># set the return type</span>
+            <span class="nb">setattr</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="s1">&#39;argtypes&#39;</span><span class="p">,</span> <span class="p">[</span><span class="n">type_lookup</span><span class="p">(</span><span class="n">type_def</span><span class="p">)</span> <span class="k">for</span> <span class="n">type_def</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">param_spec</span><span class="p">])</span>  <span class="c1"># set the argument types</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span>
+                <span class="s1">&#39;RAMSES: Function </span><span class="si">%s</span><span class="s1"> is listed in ramses.h but cannot be found in the library.&#39;</span> <span class="o">+</span> <span class="n">e</span> <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">_setcalls</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Define the argument types and returning types for the routines in RAMSES&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">__libdir__</span><span class="p">,</span> <span class="s2">&quot;ramses.h&quot;</span><span class="p">),</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">_C_HEADER</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+                <span class="k">for</span> <span class="n">cdecl_text</span> <span class="ow">in</span> <span class="n">_C_HEADER</span><span class="o">.</span><span class="n">splitlines</span><span class="p">():</span>
+                    <span class="k">if</span> <span class="n">cdecl_text</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">_c_func_wrapper</span><span class="p">(</span><span class="n">cdecl_text</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">IOError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">IOError</span><span class="p">(</span><span class="s2">&quot;RAMSES: Cannot open ramses.h files&quot;</span> <span class="o">+</span> <span class="n">e</span><span class="p">)</span>
+
+<div class="viewcode-block" id="sim.getCompName"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim.getCompName">[docs]</a>    <span class="k">def</span> <span class="nf">getCompName</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comp_type</span><span class="p">,</span> <span class="n">num</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the name of the num :superscript:`th` component of type comp_type.</span>
+
+<span class="sd">        :param str comp_type: the component type (BUS, SYNC, INJ, DCTL, BRANCH, TWOP, SHUNT, LOAD)</span>
+<span class="sd">        :param int num: The number of the component to be fetched</span>
+<span class="sd">        :returns: The component name</span>
+<span class="sd">        :rtype: srt</span>
+
+<span class="sd">        :Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; import PyRAMSES</span>
+<span class="sd">        &gt;&gt;&gt; ram = PyRAMSES.sim()</span>
+<span class="sd">        &gt;&gt;&gt; case = PyRAMSES.cfg(&quot;cmd.txt&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; ram.execSim(case, 0) # start simulation paused</span>
+<span class="sd">        &gt;&gt;&gt; ram.getCompName(&quot;BUS&quot;,1)</span>
+<span class="sd">        &#39;B1&#39;</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">get_name_func</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;BUS&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">get_bus_name</span><span class="p">,</span>
+            <span class="s1">&#39;SYNC&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">get_sync_name</span><span class="p">,</span>
+            <span class="s1">&#39;INJ&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">get_inj_name</span><span class="p">,</span>
+            <span class="s1">&#39;DCTL&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">get_dctl_name</span><span class="p">,</span>
+            <span class="s1">&#39;BRANCH&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">get_branch_name</span><span class="p">,</span>
+            <span class="s1">&#39;TWOP&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">get_twop_name</span><span class="p">,</span>
+            <span class="s1">&#39;SHUNT&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">get_shunt_name</span><span class="p">,</span>
+            <span class="s1">&#39;LOAD&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">get_load_name</span>
+        <span class="p">}</span>
+
+        <span class="n">name</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">create_string_buffer</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">retval</span> <span class="o">=</span> <span class="n">get_name_func</span><span class="p">[</span><span class="n">comp_type</span><span class="p">](</span><span class="n">num</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="n">retval</span> <span class="o">=</span> <span class="mi">1</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">retval</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">RAMSESError</span><span class="p">(</span>
+                <span class="s1">&#39;RAMSES: Function getCompName(</span><span class="si">%s</span><span class="s1">,</span><span class="si">%i</span><span class="s1">) failed. Does this component exist?&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">comp_type</span><span class="p">,</span> <span class="n">num</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">name</span><span class="o">.</span><span class="n">value</span></div>
+
+<div class="viewcode-block" id="sim.getAllCompNames"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim.getAllCompNames">[docs]</a>    <span class="k">def</span> <span class="nf">getAllCompNames</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comp_type</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get list of all components of comp_type</span>
+
+<span class="sd">        :param str comp_type: the component type (BUS, SYNC, INJ, DCTL, BRANCH, TWOP, SHUNT, LOAD)</span>
+<span class="sd">        :returns: list of component names</span>
+<span class="sd">        :rtype: list of str</span>
+
+<span class="sd">        :Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; import PyRAMSES</span>
+<span class="sd">        &gt;&gt;&gt; ram = PyRAMSES.sim()</span>
+<span class="sd">        &gt;&gt;&gt; case = PyRAMSES.cfg(&quot;cmd.txt&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; ram.execSim(case, 0) # start simulation paused</span>
+<span class="sd">        &gt;&gt;&gt; ram.getAllCompNames(&quot;BUS&quot;)</span>
+<span class="sd">        [&#39;B1&#39;,</span>
+<span class="sd">        &#39;B2&#39;,</span>
+<span class="sd">        &#39;B3&#39;]</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">get_nb_func</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;BUS&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">get_nbbus</span><span class="p">,</span>
+            <span class="s1">&#39;SYNC&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">get_nbsync</span><span class="p">,</span>
+            <span class="s1">&#39;INJ&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">get_nbinj</span><span class="p">,</span>
+            <span class="s1">&#39;DCTL&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">get_nbdctl</span><span class="p">,</span>
+            <span class="s1">&#39;BRANCH&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">get_nbbra</span><span class="p">,</span>
+            <span class="s1">&#39;TWOP&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">get_nbtwop</span><span class="p">,</span>
+            <span class="s1">&#39;SHUNT&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">get_nbshunt</span><span class="p">,</span>
+            <span class="s1">&#39;LOAD&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">get_nbload</span>
+        <span class="p">}</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">Nb</span> <span class="o">=</span> <span class="n">get_nb_func</span><span class="p">[</span><span class="n">comp_type</span><span class="p">]()</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">RAMSESError</span><span class="p">(</span>
+                <span class="s1">&#39;RAMSES: Function getAllCompName(</span><span class="si">%s</span><span class="s1">) failed. Does this component type exists?&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">comp_type</span><span class="p">))</span>
+
+        <span class="n">names</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="n">Nb</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">comp</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">Nb</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="n">names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getCompName</span><span class="p">(</span><span class="n">comp_type</span><span class="p">,</span> <span class="n">comp</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">names</span></div>
+
+<div class="viewcode-block" id="sim.execSim"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim.execSim">[docs]</a>    <span class="k">def</span> <span class="nf">execSim</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">pause</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Run a simulation.</span>
+
+<span class="sd">        :param cmd: provides the case description</span>
+<span class="sd">        :type cmd: type(:class:`.cfg`)</span>
+<span class="sd">        :param t_pause: pause time (optional). If not given, the simulation will run until the end as discribed in the dst file.</span>
+<span class="sd">        :type t_pause: float</span>
+
+<span class="sd">        .. note:: If you have an existing command file, you can pass it to the simulator as PyRAMSES.cfg(&quot;cmd.txt&quot;)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">cfg</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;RAMSES: Function execSim because the command file is not of type PyRAMSES.cfg()&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">pause</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pauseSim</span><span class="p">(</span><span class="n">pause</span><span class="p">)</span>
+        <span class="n">cmdfilename</span> <span class="o">=</span> <span class="n">cmd</span><span class="o">.</span><span class="n">writeCmdFile</span><span class="p">()</span>
+        <span class="n">retval</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">ramses</span><span class="p">(</span><span class="n">cmdfilename</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span> <span class="n">cmd</span><span class="o">.</span><span class="n">_out</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">retval</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">retval</span> <span class="o">!=</span> <span class="mi">112</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">RAMSESError</span><span class="p">(</span><span class="s1">&#39;RAMSES: Function execSim(</span><span class="si">%s</span><span class="s1">) failed with the flag </span><span class="si">%i</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">cmdfilename</span><span class="p">,</span> <span class="n">retval</span><span class="p">))</span>
+        <span class="k">return</span> <span class="mi">0</span></div>
+
+<div class="viewcode-block" id="sim.contSim"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim.contSim">[docs]</a>    <span class="k">def</span> <span class="nf">contSim</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pause</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Continue the simulation until the given time.</span>
+
+<span class="sd">        The pause argument is optional and it gives the time until the simulation will stop.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">pause</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">pauseSim</span><span class="p">(</span><span class="n">pause</span><span class="p">)</span>
+        <span class="n">retval</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">continue_simul</span><span class="p">()</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">retval</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">retval</span> <span class="o">!=</span> <span class="mi">112</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">RAMSESError</span><span class="p">(</span><span class="s1">&#39;RAMSES: Function contSim() failed with the flag </span><span class="si">%i</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">retval</span><span class="p">))</span>
+        <span class="k">return</span> <span class="mi">0</span></div>
+
+<div class="viewcode-block" id="sim.getBusVolt"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim.getBusVolt">[docs]</a>    <span class="k">def</span> <span class="nf">getBusVolt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">busNames</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the voltage magnitude of a list of buses</span>
+
+<span class="sd">        :param busNames: the names of buses</span>
+<span class="sd">        :type busNames: list of str</span>
+<span class="sd">        :returns: list of bus voltage magnitudes</span>
+<span class="sd">        :rtype: list of floats</span>
+
+<span class="sd">        :Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; import PyRAMSES</span>
+<span class="sd">        &gt;&gt;&gt; ram = PyRAMSES.sim()</span>
+<span class="sd">        &gt;&gt;&gt; case = PyRAMSES.cfg(&quot;cmd.txt&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; ram.execSim(case, 10.0) # simulate until 10 seconds and pause</span>
+<span class="sd">        &gt;&gt;&gt; buses = [&#39;g1&#39;,&#39;g2&#39;,&#39;g3&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; ram.getBusVolt(buses)</span>
+<span class="sd">        [1.0736851673414456,</span>
+<span class="sd">         1.0615442362180327,</span>
+<span class="sd">         1.064702686997689]</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">volts</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">bus_volt</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_double</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">bus</span> <span class="ow">in</span> <span class="n">busNames</span><span class="p">:</span>
+            <span class="n">retval</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">get_volt_mag</span><span class="p">(</span><span class="n">bus</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span> <span class="n">bus_volt</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">retval</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="n">RAMSESError</span><span class="p">(</span>
+                    <span class="s1">&#39;RAMSES: Function getBusVolt(</span><span class="si">%s</span><span class="s1">) failed with the flag </span><span class="si">%i</span><span class="s1">.  Does the bus exist?&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">bus</span><span class="p">,</span> <span class="n">retval</span><span class="p">))</span>
+            <span class="n">volts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bus_volt</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">volts</span></div>
+
+<div class="viewcode-block" id="sim.endSim"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim.endSim">[docs]</a>    <span class="k">def</span> <span class="nf">endSim</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;End the simulation&quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">set_end_simul</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">contSim</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getInfTime</span><span class="p">())</span></div>
+
+<div class="viewcode-block" id="sim.getSimTime"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim.getSimTime">[docs]</a>    <span class="k">def</span> <span class="nf">getSimTime</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get the current simulation time</span>
+
+<span class="sd">        :returns: current simulation time in RAMSES.</span>
+<span class="sd">        :rtype: float</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">get_sim_time</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="sim.getInfTime"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim.getInfTime">[docs]</a>    <span class="k">def</span> <span class="nf">getInfTime</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get the maximum representable double from the simulator ()</span>
+
+<span class="sd">        :returns: maximum representable double</span>
+<span class="sd">        :rtype: float</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">get_huge_double</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="sim.initObserv"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim.initObserv">[docs]</a>    <span class="k">def</span> <span class="nf">initObserv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">traj_filenm</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Initialize observable selection (structure and trajectory file)</span>
+
+<span class="sd">        :param traj_filenm: the file to save the trajectory at</span>
+<span class="sd">        :type traj_filenm: str</span>
+
+<span class="sd">        :Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; import PyRAMSES</span>
+<span class="sd">        &gt;&gt;&gt; ram = PyRAMSES.sim()</span>
+<span class="sd">        &gt;&gt;&gt; case = PyRAMSES.cfg(&quot;cmd.txt&quot;) # command file without any observables</span>
+<span class="sd">        &gt;&gt;&gt; ram.execSim(case, 0.0) # start</span>
+<span class="sd">        &gt;&gt;&gt; traj_filenm = &#39;obs.trj&#39;</span>
+<span class="sd">        &gt;&gt;&gt; ram.initObserv(traj_filenm)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">initObserv</span><span class="p">(</span><span class="n">traj_filenm</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="sim.addObserv"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim.addObserv">[docs]</a>    <span class="k">def</span> <span class="nf">addObserv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">string</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Add an element to be observed</span>
+
+<span class="sd">        :param string: the element with proper format</span>
+<span class="sd">        :type string: str</span>
+
+<span class="sd">        :Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; import PyRAMSES</span>
+<span class="sd">        &gt;&gt;&gt; ram = PyRAMSES.sim()</span>
+<span class="sd">        &gt;&gt;&gt; case = PyRAMSES.cfg(&quot;cmd.txt&quot;) # command file without any observables</span>
+<span class="sd">        &gt;&gt;&gt; ram.execSim(case, 0.0) # start</span>
+<span class="sd">        &gt;&gt;&gt; traj_filenm = &#39;obs.trj&#39;</span>
+<span class="sd">        &gt;&gt;&gt; ram.initObserv(traj_filenm)</span>
+<span class="sd">        &gt;&gt;&gt; string = &#39;BUS *&#39; # monitor all buses</span>
+<span class="sd">        &gt;&gt;&gt; ram.addObserv(string)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">addObserv</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="sim.finalObserv"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim.finalObserv">[docs]</a>    <span class="k">def</span> <span class="nf">finalObserv</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Finalize observable selection, allocate buffer, and write header of trajectory file</span>
+
+<span class="sd">        :Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; import PyRAMSES</span>
+<span class="sd">        &gt;&gt;&gt; ram = PyRAMSES.sim()</span>
+<span class="sd">        &gt;&gt;&gt; case = PyRAMSES.cfg(&quot;cmd.txt&quot;) # command file without any observables</span>
+<span class="sd">        &gt;&gt;&gt; ram.execSim(case, 0.0) # start</span>
+<span class="sd">        &gt;&gt;&gt; traj_filenm = &#39;obs.trj&#39;</span>
+<span class="sd">        &gt;&gt;&gt; ram.initObserv(traj_filenm)</span>
+<span class="sd">        &gt;&gt;&gt; string = &#39;BUS *&#39; # monitor all buses</span>
+<span class="sd">        &gt;&gt;&gt; ram.addObserv(string)</span>
+<span class="sd">        &gt;&gt;&gt; ram.finalObserv()</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">finalObserv</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="sim.getPrm"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim.getPrm">[docs]</a>    <span class="k">def</span> <span class="nf">getPrm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comp_type</span><span class="p">,</span> <span class="n">comp_name</span><span class="p">,</span> <span class="n">prm_name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get the value of a named parameter</span>
+
+<span class="sd">        :param comp_type: the types of components (EXC, TOR, INJ, DCTL, TWOP)</span>
+<span class="sd">        :type comp_type: list of str</span>
+<span class="sd">        :param comp_name: the names of components</span>
+<span class="sd">        :type comp_name: list of str</span>
+<span class="sd">        :param prm_name: the names of parameters</span>
+<span class="sd">        :type prm_name: list of str</span>
+
+<span class="sd">        :returns: list of parameter values</span>
+<span class="sd">        :rtype: list of floats</span>
+
+<span class="sd">        :Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; import PyRAMSES</span>
+<span class="sd">        &gt;&gt;&gt; ram = PyRAMSES.sim()</span>
+<span class="sd">        &gt;&gt;&gt; case = PyRAMSES.cfg(&quot;cmd.txt&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; ram.execSim(case, 10.0) # simulate until 10 seconds and pause</span>
+<span class="sd">        &gt;&gt;&gt; comp_type = [&#39;EXC&#39;,&#39;EXC&#39;,&#39;EXC&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; comp_name = [&#39;g1&#39;,&#39;g2&#39;,&#39;g3&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; prm_name = [&#39;V0&#39;,&#39;V0&#39;,&#39;V0&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; ram.getPrm(comp_type,comp_name, prm_name)</span>
+<span class="sd">        [1.0736851673414456,</span>
+<span class="sd">         1.0615442362180327,</span>
+<span class="sd">         1.064702686997689]</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">comp_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wrapToList</span><span class="p">(</span><span class="n">comp_type</span><span class="p">)</span>
+        <span class="n">comp_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wrapToList</span><span class="p">(</span><span class="n">comp_name</span><span class="p">)</span>
+        <span class="n">prm_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wrapToList</span><span class="p">(</span><span class="n">prm_name</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">comp_type</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">comp_name</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">prm_name</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;RAMSES: Function getPrm failed because the lists are not equal!&#39;</span><span class="p">)</span>
+        <span class="n">prm_values</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">comp_type</span><span class="p">,</span> <span class="n">comp_name</span><span class="p">,</span> <span class="n">prm_name</span><span class="p">):</span>
+            <span class="n">prm_value</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_double</span><span class="p">()</span>
+            <span class="n">retval</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">get_named_prm</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span> <span class="n">b</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span> <span class="n">c</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span>
+                                                   <span class="n">prm_value</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">retval</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">RAMSESError</span><span class="p">(</span>
+                    <span class="s1">&#39;RAMSES: Function getPrm(</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">) failed with the flag </span><span class="si">%i</span><span class="s1">. Does the parameter or equipment exist?&#39;</span>
+                    <span class="o">%</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">retval</span><span class="p">))</span>
+            <span class="n">prm_values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">prm_value</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">prm_values</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">prm_values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">prm_values</span></div>
+
+<div class="viewcode-block" id="sim.defineSS"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim.defineSS">[docs]</a>    <span class="k">def</span> <span class="nf">defineSS</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ssID</span><span class="p">,</span> <span class="n">filter1</span><span class="p">,</span> <span class="n">filter2</span><span class="p">,</span> <span class="n">filter3</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Define a subsytem using three filters. The resulting list is an intersection of the filters.</span>
+
+<span class="sd">        :param ssID: Number of the SS</span>
+<span class="sd">        :type ssID: int</span>
+<span class="sd">        :param filter1: Voltage levels to be included</span>
+<span class="sd">        :type filter1: list of str or str</span>
+<span class="sd">        :param filter2: Zones (which zone/zones will be included)</span>
+<span class="sd">        :type filter2: list of str or str</span>
+<span class="sd">        :param filter3: Bus names to be included</span>
+<span class="sd">        :type filter3: list of str or str</span>
+
+<span class="sd">        :Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; import PyRAMSES</span>
+<span class="sd">        &gt;&gt;&gt; ram = PyRAMSES.sim()</span>
+<span class="sd">        &gt;&gt;&gt; case = PyRAMSES.cfg(&quot;cmd.txt&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; ram.execSim(case, 0.0)</span>
+<span class="sd">        &gt;&gt;&gt; ram.defineSS(1, [&#39;735&#39;], [], []) # SS 1 with all buses at 735 kV, no zones, no list of buses</span>
+
+<span class="sd">        .. note:: An empty filter means it is deactivated and discarded.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">filter1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wrapToList</span><span class="p">(</span><span class="n">filter1</span><span class="p">)</span>
+        <span class="n">filter2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wrapToList</span><span class="p">(</span><span class="n">filter2</span><span class="p">)</span>
+        <span class="n">filter3</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wrapToList</span><span class="p">(</span><span class="n">filter3</span><span class="p">)</span>
+
+        <span class="n">strF1</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">filter1</span><span class="p">)</span>
+        <span class="n">strF2</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">filter2</span><span class="p">)</span>
+        <span class="n">strF3</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">filter3</span><span class="p">)</span>
+
+        <span class="n">retval</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">define_SS</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">(</span><span class="n">ssID</span><span class="p">),</span> <span class="n">strF1</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">filter1</span><span class="p">)),</span>
+                                           <span class="n">strF2</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">filter2</span><span class="p">)),</span> <span class="n">strF3</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span>
+                                           <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">filter3</span><span class="p">)))</span>
+        <span class="k">if</span> <span class="n">retval</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">RAMSESError</span><span class="p">(</span><span class="s1">&#39;RAMSES: Function define_SS(</span><span class="si">%i</span><span class="s1">,...) failed with the flag </span><span class="si">%i</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">ssID</span><span class="p">,</span> <span class="n">retval</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="sim.getSS"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim.getSS">[docs]</a>    <span class="k">def</span> <span class="nf">getSS</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ssID</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Retrieve the buses of a subsytem.</span>
+
+<span class="sd">        :param ssID: Number of the SS</span>
+<span class="sd">        :type ssID: int</span>
+
+<span class="sd">        :returns: list of buses</span>
+<span class="sd">        :rtype: list of str</span>
+
+<span class="sd">        :Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; import PyRAMSES</span>
+<span class="sd">        &gt;&gt;&gt; ram = PyRAMSES.sim()</span>
+<span class="sd">        &gt;&gt;&gt; case = PyRAMSES.cfg(&quot;cmd.txt&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; ram.execSim(case, 0.0)</span>
+<span class="sd">        &gt;&gt;&gt; ram.defineSS(1, [&#39;735&#39;], [], []) # SS 1 with all buses at 735 kV</span>
+<span class="sd">        &gt;&gt;&gt; ram.getSS(1) # get list of buses in SS 1</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">mxreclen</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">get_nbbus</span><span class="p">()</span>
+        <span class="n">string_buffer</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">create_string_buffer</span><span class="p">(</span><span class="mi">19</span> <span class="o">*</span> <span class="n">mxreclen</span><span class="p">)</span>
+
+        <span class="n">retval</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">get_SS</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">(</span><span class="n">ssID</span><span class="p">),</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">(</span><span class="n">mxreclen</span><span class="p">),</span> <span class="n">string_buffer</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">retval</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">RAMSESError</span><span class="p">(</span><span class="s1">&#39;RAMSES: Function getSS(</span><span class="si">%i</span><span class="s1">) failed with the flag </span><span class="si">%i</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">ssID</span><span class="p">,</span> <span class="n">retval</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">string_buffer</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">split</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="sim.getTrfoSS"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim.getTrfoSS">[docs]</a>    <span class="k">def</span> <span class="nf">getTrfoSS</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ssID</span><span class="p">,</span> <span class="n">location</span><span class="p">,</span> <span class="n">in_service</span><span class="p">,</span> <span class="n">rettype</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Retrieve transformer information of subsystem after applying some filters</span>
+
+<span class="sd">        :param ssID: Number of the SS</span>
+<span class="sd">        :type ssID: int</span>
+<span class="sd">        :param location: 1 – both buses inside SS, 2 - tie transformers, 3 – 1 &amp; 2</span>
+<span class="sd">        :type location: int</span>
+<span class="sd">        :param in_service: 1 – transformers in service, 2 - all transformers</span>
+<span class="sd">        :type in_service: int</span>
+<span class="sd">        :param rettype: Type of response (NAME, From, To, Status, Tap, Currentf, Currentt, Pf, Qf, Pt, Qt).</span>
+<span class="sd">        :type rettype: str</span>
+
+<span class="sd">        :returns: list of transformer names</span>
+<span class="sd">        :rtype: list of str</span>
+
+<span class="sd">        :Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; import PyRAMSES</span>
+<span class="sd">        &gt;&gt;&gt; ram = PyRAMSES.sim()</span>
+<span class="sd">        &gt;&gt;&gt; case = PyRAMSES.cfg(&quot;cmd.txt&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; ram.execSim(case, 0.0)</span>
+<span class="sd">        &gt;&gt;&gt; ram.defineSS(1, [&#39;735&#39;], [], []) # SS 1 with all buses at 735 kV</span>
+<span class="sd">        &gt;&gt;&gt; ram.getTrfoSS(1,3,2,&#39;Status&#39;)</span>
+
+<span class="sd">        .. note:: Tap is not implemented yet.</span>
+
+<span class="sd">        .. todo:: Implement Taps after discussing with Lester.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">rettype</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;NAME&#39;</span><span class="p">,</span> <span class="s1">&#39;From&#39;</span><span class="p">,</span> <span class="s1">&#39;To&#39;</span><span class="p">,</span> <span class="s1">&#39;Status&#39;</span><span class="p">,</span> <span class="s1">&#39;Tap&#39;</span><span class="p">,</span> <span class="s1">&#39;Currentf&#39;</span><span class="p">,</span> <span class="s1">&#39;Currentt&#39;</span><span class="p">,</span> <span class="s1">&#39;Pf&#39;</span><span class="p">,</span> <span class="s1">&#39;Qf&#39;</span><span class="p">,</span> <span class="s1">&#39;Pt&#39;</span><span class="p">,</span> <span class="s1">&#39;Qt&#39;</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="n">RAMSESError</span><span class="p">(</span><span class="s1">&#39;RAMSES: Function getTrfoSS(</span><span class="si">%i</span><span class="s1">,</span><span class="si">%i</span><span class="s1">,</span><span class="si">%i</span><span class="s1">,</span><span class="si">%s</span><span class="s1">): rettype is not valid!&#39;</span> <span class="o">%</span> <span class="p">(</span>
+                <span class="n">ssID</span><span class="p">,</span> <span class="n">location</span><span class="p">,</span> <span class="n">in_service</span><span class="p">,</span> <span class="n">rettype</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="n">location</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="n">RAMSESError</span><span class="p">(</span><span class="s1">&#39;RAMSES: Function getTrfoSS(</span><span class="si">%i</span><span class="s1">,</span><span class="si">%i</span><span class="s1">,</span><span class="si">%i</span><span class="s1">,</span><span class="si">%s</span><span class="s1">): location is not valid!&#39;</span> <span class="o">%</span> <span class="p">(</span>
+                <span class="n">ssID</span><span class="p">,</span> <span class="n">location</span><span class="p">,</span> <span class="n">in_service</span><span class="p">,</span> <span class="n">rettype</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="n">in_service</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="n">RAMSESError</span><span class="p">(</span><span class="s1">&#39;RAMSES: Function getTrfoSS(</span><span class="si">%i</span><span class="s1">,</span><span class="si">%i</span><span class="s1">,</span><span class="si">%i</span><span class="s1">,</span><span class="si">%s</span><span class="s1">): in_service is not valid!&#39;</span> <span class="o">%</span> <span class="p">(</span>
+                <span class="n">ssID</span><span class="p">,</span> <span class="n">location</span><span class="p">,</span> <span class="n">in_service</span><span class="p">,</span> <span class="n">rettype</span><span class="p">))</span>
+
+        <span class="n">mxreclen</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">get_nbbra</span><span class="p">()</span>
+        <span class="n">string_buffer</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">create_string_buffer</span><span class="p">(</span><span class="mi">21</span> <span class="o">*</span> <span class="n">mxreclen</span><span class="p">)</span>
+        <span class="n">dp_vec</span> <span class="o">=</span> <span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_double</span> <span class="o">*</span> <span class="n">mxreclen</span><span class="p">)()</span>
+        <span class="n">dp_int</span> <span class="o">=</span> <span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span> <span class="o">*</span> <span class="n">mxreclen</span><span class="p">)()</span>
+        <span class="n">elem</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">()</span>
+
+        <span class="n">retval</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">get_transformer_in_SS</span><span class="p">(</span><span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">(</span><span class="n">ssID</span><span class="p">),</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">(</span><span class="n">location</span><span class="p">),</span>
+                                                       <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">(</span><span class="n">in_service</span><span class="p">),</span> <span class="n">rettype</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span>
+                                                       <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">(</span><span class="n">mxreclen</span><span class="p">),</span> <span class="n">string_buffer</span><span class="p">,</span> <span class="n">dp_vec</span><span class="p">,</span> <span class="n">dp_int</span><span class="p">,</span> <span class="n">elem</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">retval</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">RAMSESError</span><span class="p">(</span><span class="s1">&#39;RAMSES: Function getTrfoSS(</span><span class="si">%i</span><span class="s1">,</span><span class="si">%i</span><span class="s1">,</span><span class="si">%i</span><span class="s1">,</span><span class="si">%s</span><span class="s1">) failed with the flag </span><span class="si">%i</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="p">(</span>
+                <span class="n">ssID</span><span class="p">,</span> <span class="n">location</span><span class="p">,</span> <span class="n">in_service</span><span class="p">,</span> <span class="n">rettype</span><span class="p">,</span> <span class="n">retval</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">elem</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+        <span class="k">elif</span> <span class="n">rettype</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Tap&#39;</span><span class="p">,</span> <span class="s1">&#39;Status&#39;</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">dp_int</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">elem</span><span class="o">.</span><span class="n">value</span><span class="p">)]</span>
+        <span class="k">elif</span> <span class="n">rettype</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;Currentf&#39;</span><span class="p">,</span> <span class="s1">&#39;Currentt&#39;</span><span class="p">,</span> <span class="s1">&#39;Pf&#39;</span><span class="p">,</span> <span class="s1">&#39;Qf&#39;</span><span class="p">,</span> <span class="s1">&#39;Pt&#39;</span><span class="p">,</span> <span class="s1">&#39;Qt&#39;</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">dp_vec</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">elem</span><span class="o">.</span><span class="n">value</span><span class="p">)]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">string_buffer</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">split</span><span class="p">()</span></div>
+
+    <span class="k">def</span> <span class="nf">wrapToList</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">item</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">item</span>
+
+<div class="viewcode-block" id="sim.getPrmNames"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim.getPrmNames">[docs]</a>    <span class="k">def</span> <span class="nf">getPrmNames</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comp_type</span><span class="p">,</span> <span class="n">comp_name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get the named parameters of a model</span>
+
+<span class="sd">        :param comp_type: the types of components (EXC, TOR, INJ, DCTL, TWOP)</span>
+<span class="sd">        :type comp_type: list of str or str</span>
+<span class="sd">        :param comp_name: the names of component instances</span>
+<span class="sd">        :type comp_name: list of str or str</span>
+
+<span class="sd">        :returns: list of parameter names</span>
+<span class="sd">        :rtype: list of lists of strings</span>
+
+<span class="sd">        :Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; import PyRAMSES</span>
+<span class="sd">        &gt;&gt;&gt; ram = PyRAMSES.sim()</span>
+<span class="sd">        &gt;&gt;&gt; case = PyRAMSES.cfg(&quot;cmd.txt&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; ram.execSim(case, 0.0) # initialize and wait</span>
+<span class="sd">        &gt;&gt;&gt; comp_type = [&#39;EXC&#39;,&#39;EXC&#39;,&#39;EXC&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; comp_name = [&#39;g1&#39;,&#39;g2&#39;,&#39;g3&#39;] # name of synchronous machines</span>
+<span class="sd">        &gt;&gt;&gt; ram.getPrmNames(comp_type,comp_name)</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">comp_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wrapToList</span><span class="p">(</span><span class="n">comp_type</span><span class="p">)</span>
+        <span class="n">comp_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wrapToList</span><span class="p">(</span><span class="n">comp_name</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">comp_type</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">comp_name</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;RAMSES: Function getPrmNames failed because the lists are not equal!&#39;</span><span class="p">)</span>
+        <span class="n">prm_names</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">mxprm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">get_mxprm</span><span class="p">()</span>  <span class="c1"># get maximum number of parameters in any model</span>
+        <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">comp_type</span><span class="p">,</span> <span class="n">comp_name</span><span class="p">):</span>
+            <span class="n">string_buffer</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">create_string_buffer</span><span class="p">(</span><span class="mi">11</span> <span class="o">*</span> <span class="n">mxprm</span><span class="p">)</span>
+            <span class="n">retval</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">get_comp_prm_names</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span> <span class="n">b</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_int</span><span class="p">(</span><span class="n">mxprm</span><span class="p">),</span>
+                                                        <span class="n">string_buffer</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">retval</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">RAMSESError</span><span class="p">(</span>
+                    <span class="s1">&#39;RAMSES: Function getPrm(</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">) failed with the flag </span><span class="si">%i</span><span class="s1">. Does the parameter or equipment exist?&#39;</span>
+                    <span class="o">%</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">retval</span><span class="p">))</span>
+            <span class="n">prm_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">string_buffer</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">prm_names</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">prm_names</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">prm_names</span></div>
+
+<div class="viewcode-block" id="sim.getObs"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim.getObs">[docs]</a>    <span class="k">def</span> <span class="nf">getObs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comp_type</span><span class="p">,</span> <span class="n">comp_name</span><span class="p">,</span> <span class="n">obs_name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get the value of a named observable</span>
+
+<span class="sd">        :param comp_type: the types of components (EXC, TOR, INJ, DCTL, TWOP)</span>
+<span class="sd">        :type comp_type: list of str</span>
+<span class="sd">        :param comp_name: the names of components</span>
+<span class="sd">        :type comp_name: list of str</span>
+<span class="sd">        :param obs_name: the names of observables</span>
+<span class="sd">        :type obs_name: list of str</span>
+
+<span class="sd">        :returns: list of observable values</span>
+<span class="sd">        :rtype: list of floats</span>
+
+<span class="sd">        :Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; import PyRAMSES</span>
+<span class="sd">        &gt;&gt;&gt; ram = PyRAMSES.sim()</span>
+<span class="sd">        &gt;&gt;&gt; case = PyRAMSES.cfg(&quot;cmd.txt&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; ram.execSim(case, 10.0) # simulate until 10 seconds and pause</span>
+<span class="sd">        &gt;&gt;&gt; comp_type = [&#39;INJ&#39;,&#39;EXC&#39;,&#39;TOR&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; comp_name = [&#39;L_11&#39;,&#39;g2&#39;,&#39;g3&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; obs_name = [&#39;P&#39;,&#39;vf&#39;,&#39;Pm&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; ram.getObs(comp_type,comp_name, obs_name)</span>
+<span class="sd">        [199.73704732259995,</span>
+<span class="sd">        1.3372945282585218,</span>
+<span class="sd">        0.816671075203357]</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">comp_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wrapToList</span><span class="p">(</span><span class="n">comp_type</span><span class="p">)</span>
+        <span class="n">comp_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wrapToList</span><span class="p">(</span><span class="n">comp_name</span><span class="p">)</span>
+        <span class="n">obs_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wrapToList</span><span class="p">(</span><span class="n">obs_name</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">comp_type</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">comp_name</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">obs_name</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;RAMSES: Function getObs failed because the lists are not equal!&#39;</span><span class="p">)</span>
+        <span class="n">obs_values</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">comp_type</span><span class="p">,</span> <span class="n">comp_name</span><span class="p">,</span> <span class="n">obs_name</span><span class="p">):</span>
+            <span class="n">obs_value</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_double</span><span class="p">()</span>
+            <span class="n">retval</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">get_named_obs</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span> <span class="n">b</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span> <span class="n">c</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span>
+                                                   <span class="n">obs_value</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">retval</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">RAMSESError</span><span class="p">(</span>
+                    <span class="s1">&#39;RAMSES: Function getObs(</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">) failed with the flag </span><span class="si">%i</span><span class="s1">. Does the observable or equipment exist?&#39;</span>
+                    <span class="o">%</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">retval</span><span class="p">))</span>
+            <span class="n">obs_values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">obs_value</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">obs_values</span></div>
+
+<div class="viewcode-block" id="sim.pauseSim"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim.pauseSim">[docs]</a>    <span class="k">def</span> <span class="nf">pauseSim</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t_pause</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Pause the simulation at the t_pause time</span>
+
+<span class="sd">        :param t_pause: pause time</span>
+<span class="sd">        :type t_pause: float</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">set_pause_time</span><span class="p">(</span><span class="n">t_pause</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="sim.addDisturb"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim.addDisturb">[docs]</a>    <span class="k">def</span> <span class="nf">addDisturb</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t_dist</span><span class="p">,</span> <span class="n">disturb</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Add a new disturbance at a specific time. Follows the same structure as the disturbances in the dst files.</span>
+
+<span class="sd">        :param t_dist: time of the disturbance</span>
+<span class="sd">        :type t_dist: float</span>
+<span class="sd">        :param disturb: description of disturbance</span>
+<span class="sd">        :type disturb: str</span>
+
+<span class="sd">        :Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; import PyRAMSES</span>
+<span class="sd">        &gt;&gt;&gt; ram = PyRAMSES.sim()</span>
+<span class="sd">        &gt;&gt;&gt; case = PyRAMSES.cfg(&quot;cmd.txt&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; ram.execSim(case, 80.0) # simulate until 80 seconds and pause</span>
+<span class="sd">        &gt;&gt;&gt; ram.addDisturb(100.000, &#39;CHGPRM DCTL 1-1041  Vsetpt -0.05 0&#39;) # Decrease the setpoint of the DCTL by 0.015 pu, at t=100 s</span>
+<span class="sd">        &gt;&gt;&gt; ram.addDisturb(100.000, &#39;CHGPRM DCTL 2-1042  Vsetpt -0.05 0&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; ram.addDisturb(100.000, &#39;CHGPRM DCTL 3-1043  Vsetpt -0.05 0&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; ram.addDisturb(100.000, &#39;CHGPRM DCTL 4-1044  Vsetpt -0.05 0&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; ram.addDisturb(100.000, &#39;CHGPRM DCTL 5-1045  Vsetpt -0.05 0&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; ram.contSim(ram.getInfTime()) # continue the simulation</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">add_disturb</span><span class="p">(</span><span class="n">t_dist</span><span class="p">,</span> <span class="n">disturb</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span></div></div>
+</pre></div>
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Petros Aristidou.
+      Last updated on Jan 26, 2018.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

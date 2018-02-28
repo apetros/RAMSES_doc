@@ -1,0 +1,64 @@
+.. _index:
+   
+RAMSES
+======
+
+Welcome to RAMSES documentation!
+
+.. _start_installing-runtime-libraries:
+
+Installing runtime libraries
+============================
+
+The simulator depends on the Intel redistributable libraries. You can install
+the runtime libraries for your system from `Intel <https://software.intel.com/en-us/articles/intelr-composer-redistributable-libraries-by-version>`_.
+
+At the current version PyRAMSES version, you should select for Windows::
+
+   Parallel Studio XE 2015 (all Editions) ->
+   Redistributable libraries of Intel® Fortran Compiler for Windows ->
+   Update 2
+
+or for Linux::
+
+   Parallel Studio XE 2015 (all Editions) ->
+   Redistributable libraries of Intel® Fortran Compiler for Linux ->
+   Update 2
+
+.. _start_install_gnuplot:
+
+Installing Gnuplot
+==================
+
+To display the runtime observables, gnuplot should be installed and available in the path. You can install
+gnuplot from `the official website <http://www.gnuplot.info/>`_.
+
+Under Linux, you can install with your package manager. For example, under Ubuntu or Debian:
+
+.. code-block:: bash
+
+   sudo apt-get install gnuplot-x11
+
+
+.. toctree::
+   :hidden:
+   :maxdepth: 2
+   :numbered:
+   :caption: Table of Contents
+
+   self
+   data
+   codegen
+   interfaces
+
+   
+
+.. rubric:: Suggested References for RAMSES
+
+.. [AVC2015]  P. Aristidou, T. Van Cutsem, "A Parallel Processing Approach to Dynamic Simulations of Combined Transmission and Distribution Systems", In International Journal of Electrical Power & Energy Systems, vol. 72, pp. 58-65, 2015.
+
+.. [ALVC2015] P. Aristidou, S. Lebeau, T. Van Cutsem, "Power System Dynamic Simulations using a Parallel Two-level Schur-complement Decomposition", In IEEE Transactions on Power Systems (in press), 2015.
+
+.. [AFVC2014] P. Aristidou, D. Fabozzi, T. Van Cutsem, "A Schur Complement Method for DAE Systems in Power System Dynamic Simulations", Chapter in Domain Decomposition Methods in Science and Engineering XXI, Springer International Publishing, vol. 98, pp. 719-727, 2014.
+
+.. [AFVC2013] P. Aristidou, D. Fabozzi, T. Van Cutsem, "Dynamic Simulation of Large-scale Power Systems Using a Parallel Schur-complement-based Decomposition Method", In IEEE Transactions on Parallel and Distributed Systems, IEEE Computer Society, vol. 25, no. 10, Los Alamitos, CA, USA, pp. 2561-2570, 2013.

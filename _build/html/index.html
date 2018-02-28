@@ -1,0 +1,301 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>RAMSES &mdash; RAMSES 4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="RAMSES 4 documentation" href="#"/>
+        <link rel="next" title="1. Data and scenario description" href="data.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="#" class="icon icon-home"> RAMSES
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">RAMSES</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data.html">1. Data and scenario description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codegen.html">2. Modelling new components</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interfaces.html">3. RAMSES Interface</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">RAMSES</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#">Docs</a> &raquo;</li>
+        
+      <li>RAMSES</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ramses">
+<span id="index"></span><h1>RAMSES<a class="headerlink" href="#ramses" title="Permalink to this headline">¶</a></h1>
+<p>Welcome to RAMSES documentation!</p>
+</div>
+<div class="section" id="installing-runtime-libraries">
+<span id="start-installing-runtime-libraries"></span><h1>Installing runtime libraries<a class="headerlink" href="#installing-runtime-libraries" title="Permalink to this headline">¶</a></h1>
+<p>The simulator depends on the Intel redistributable libraries. You can install
+the runtime libraries for your system from <a class="reference external" href="https://software.intel.com/en-us/articles/intelr-composer-redistributable-libraries-by-version">Intel</a>.</p>
+<p>At the current version PyRAMSES version, you should select for Windows:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>Parallel Studio XE 2015 (all Editions) -&gt;
+Redistributable libraries of Intel® Fortran Compiler for Windows -&gt;
+Update 2
+</pre></div>
+</div>
+<p>or for Linux:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>Parallel Studio XE 2015 (all Editions) -&gt;
+Redistributable libraries of Intel® Fortran Compiler for Linux -&gt;
+Update 2
+</pre></div>
+</div>
+</div>
+<div class="section" id="installing-gnuplot">
+<span id="start-install-gnuplot"></span><h1>Installing Gnuplot<a class="headerlink" href="#installing-gnuplot" title="Permalink to this headline">¶</a></h1>
+<p>To display the runtime observables, gnuplot should be installed and available in the path. You can install
+gnuplot from <a class="reference external" href="http://www.gnuplot.info/">the official website</a>.</p>
+<p>Under Linux, you can install with your package manager. For example, under Ubuntu or Debian:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo apt-get install gnuplot-x11
+</pre></div>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<p class="rubric">Suggested References for RAMSES</p>
+<table class="docutils citation" frame="void" id="avc2015" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[AVC2015]</td><td><ol class="first last upperalpha simple" start="16">
+<li>Aristidou, T. Van Cutsem, “A Parallel Processing Approach to Dynamic Simulations of Combined Transmission and Distribution Systems”, In International Journal of Electrical Power &amp; Energy Systems, vol. 72, pp. 58-65, 2015.</li>
+</ol>
+</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="alvc2015" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[ALVC2015]</td><td><ol class="first last upperalpha simple" start="16">
+<li>Aristidou, S. Lebeau, T. Van Cutsem, “Power System Dynamic Simulations using a Parallel Two-level Schur-complement Decomposition”, In IEEE Transactions on Power Systems (in press), 2015.</li>
+</ol>
+</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="afvc2014" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[AFVC2014]</td><td><ol class="first last upperalpha simple" start="16">
+<li>Aristidou, D. Fabozzi, T. Van Cutsem, “A Schur Complement Method for DAE Systems in Power System Dynamic Simulations”, Chapter in Domain Decomposition Methods in Science and Engineering XXI, Springer International Publishing, vol. 98, pp. 719-727, 2014.</li>
+</ol>
+</td></tr>
+</tbody>
+</table>
+<table class="docutils citation" frame="void" id="afvc2013" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label">[AFVC2013]</td><td><ol class="first last upperalpha simple" start="16">
+<li>Aristidou, D. Fabozzi, T. Van Cutsem, “Dynamic Simulation of Large-scale Power Systems Using a Parallel Schur-complement-based Decomposition Method”, In IEEE Transactions on Parallel and Distributed Systems, IEEE Computer Society, vol. 25, no. 10, Los Alamitos, CA, USA, pp. 2561-2570, 2013.</li>
+</ol>
+</td></tr>
+</tbody>
+</table>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="data.html" class="btn btn-neutral float-right" title="1. Data and scenario description" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Petros Aristidou.
+      Last updated on Jan 26, 2018.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
