@@ -18,4 +18,5 @@ and using PyRAMSES.
    PyRAMSES/case.rst
    PyRAMSES/simul.rst
    PyRAMSES/examples.rst
+   :ref:`PyRAMSES/PyRAMSES.ipynb`
    PyRAMSES/code_documentation.rst

@@ -24,28 +24,19 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="../../genindex.html"/>
-        <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="RAMSES 4 documentation" href="../../index.html"/>
-        <link rel="up" title="3.3. Python Interface" href="../PyRAMSES.html"/>
-        <link rel="next" title="3.3.5. Documentation of the Code" href="code_documentation.html"/>
-        <link rel="prev" title="3.3.3. Simulator" href="simul.html"/> 
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.3.5. Documentation of the Code" href="code_documentation.html" />
+    <link rel="prev" title="3.3.3. Simulator" href="simul.html" /> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -124,7 +115,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">RAMSES</a>
@@ -132,9 +123,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -186,7 +178,7 @@
 <span id="examples-simple-simul"></span><h2>3.3.4.1. Running a simulation<a class="headerlink" href="#running-a-simulation" title="Permalink to this headline">¶</a></h2>
 <p>First, the test case should be defined. We assume to open an ipython command window in the folder containing
 the data and disturbance file:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
 <span class="n">case</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">()</span>
 <span class="n">case</span><span class="o">.</span><span class="n">addOut</span><span class="p">(</span><span class="s1">&#39;output.trace&#39;</span><span class="p">)</span> <span class="c1"># save the simulation output</span>
 <span class="n">case</span><span class="o">.</span><span class="n">addData</span><span class="p">(</span><span class="s1">&#39;dyn_A.dat&#39;</span><span class="p">)</span> <span class="c1"># Dynamic data</span>
@@ -202,11 +194,11 @@ the data and disturbance file:</p>
 </pre></div>
 </div>
 <p>Next, a simulator instance should be initialized:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ram</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">sim</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ram</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">sim</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Finally, the simulation is executed:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ram</span><span class="o">.</span><span class="n">execSim</span><span class="p">(</span><span class="n">case</span><span class="p">)</span> <span class="c1"># run until the end of the simulation</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ram</span><span class="o">.</span><span class="n">execSim</span><span class="p">(</span><span class="n">case</span><span class="p">)</span> <span class="c1"># run until the end of the simulation</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -217,7 +209,7 @@ in parallel. Putting $NBTHREADS to zero, will use all the available computing co
 <div class="section" id="pause-and-continue">
 <h3>3.3.4.1.1. Pause and continue<a class="headerlink" href="#pause-and-continue" title="Permalink to this headline">¶</a></h3>
 <p>The user can pause the simulation at any point. For example:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ram</span><span class="o">.</span><span class="n">execSim</span><span class="p">(</span><span class="n">case</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="c1"># start the simulation paused</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ram</span><span class="o">.</span><span class="n">execSim</span><span class="p">(</span><span class="n">case</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="c1"># start the simulation paused</span>
 <span class="n">ram</span><span class="o">.</span><span class="n">contSim</span><span class="p">(</span><span class="mf">10.0</span><span class="p">)</span> <span class="c1"># simulate until t=10.0 seconds</span>
 <span class="n">ram</span><span class="o">.</span><span class="n">contSim</span><span class="p">(</span><span class="n">ram</span><span class="o">.</span><span class="n">getSimTime</span><span class="p">()</span> <span class="o">+</span> <span class="mf">60.0</span><span class="p">)</span> <span class="c1"># simulate until t=t+60.0=70.0 seconds. getSimTime() returns the current simulation time</span>
 <span class="n">ram</span><span class="o">.</span><span class="n">contSim</span><span class="p">(</span><span class="n">ram</span><span class="o">.</span><span class="n">getInfTime</span><span class="p">())</span> <span class="c1"># simulate until the end (time horizon was reached or an early stop happened due to system violations or collapse)</span>
@@ -227,7 +219,7 @@ in parallel. Putting $NBTHREADS to zero, will use all the available computing co
 <div class="section" id="get-measurements-from-the-system">
 <h3>3.3.4.1.2. Get measurements from the system<a class="headerlink" href="#get-measurements-from-the-system" title="Permalink to this headline">¶</a></h3>
 <p>When the simulation is paused, we can read the system states:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ram</span><span class="o">.</span><span class="n">execSim</span><span class="p">(</span><span class="n">case</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">)</span> <span class="c1"># start the simulation and pause at t=10.0 seconds</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ram</span><span class="o">.</span><span class="n">execSim</span><span class="p">(</span><span class="n">case</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">)</span> <span class="c1"># start the simulation and pause at t=10.0 seconds</span>
 <span class="n">busNames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;g1&#39;</span><span class="p">,</span> <span class="s1">&#39;g2&#39;</span><span class="p">,</span> <span class="s1">&#39;g3&#39;</span><span class="p">]</span> <span class="c1"># names of buses we want to observe the voltage at</span>
 <span class="n">voltages</span> <span class="o">=</span> <span class="n">ram</span><span class="o">.</span><span class="n">getBusVolt</span><span class="p">(</span><span class="n">busNames</span><span class="p">)</span> <span class="c1"># returns a list of voltages</span>
 <span class="n">comp_type</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;EXC&#39;</span><span class="p">,</span> <span class="s1">&#39;EXC&#39;</span><span class="p">]</span>
@@ -244,7 +236,7 @@ in parallel. Putting $NBTHREADS to zero, will use all the available computing co
 <div class="section" id="modify-parameters">
 <h3>3.3.4.1.3. Modify parameters<a class="headerlink" href="#modify-parameters" title="Permalink to this headline">¶</a></h3>
 <p>At the same time we can modify some parameters of the simulation:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ram</span><span class="o">.</span><span class="n">execSim</span><span class="p">(</span><span class="n">case</span><span class="p">,</span> <span class="mf">80.0</span><span class="p">)</span> <span class="c1"># start the simulation and pause at t=80.0 seconds</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ram</span><span class="o">.</span><span class="n">execSim</span><span class="p">(</span><span class="n">case</span><span class="p">,</span> <span class="mf">80.0</span><span class="p">)</span> <span class="c1"># start the simulation and pause at t=80.0 seconds</span>
 <span class="n">ram</span><span class="o">.</span><span class="n">addDisturb</span><span class="p">(</span><span class="mf">100.000</span><span class="p">,</span> <span class="s1">&#39;CHGPRM DCTL 1-1041  Vsetpt -0.05 0&#39;</span><span class="p">)</span> <span class="c1"># Decrease the setpoint of the DCTL by 0.015 pu, at t=100 s</span>
 <span class="n">ram</span><span class="o">.</span><span class="n">addDisturb</span><span class="p">(</span><span class="mf">100.000</span><span class="p">,</span> <span class="s1">&#39;CHGPRM DCTL 2-1042  Vsetpt -0.05 0&#39;</span><span class="p">)</span>
 <span class="n">ram</span><span class="o">.</span><span class="n">addDisturb</span><span class="p">(</span><span class="mf">100.000</span><span class="p">,</span> <span class="s1">&#39;CHGPRM DCTL 3-1043  Vsetpt -0.05 0&#39;</span><span class="p">)</span>
@@ -258,7 +250,7 @@ in parallel. Putting $NBTHREADS to zero, will use all the available computing co
 <div class="section" id="add-events-disturbances">
 <h3>3.3.4.1.4. Add events/disturbances<a class="headerlink" href="#add-events-disturbances" title="Permalink to this headline">¶</a></h3>
 <p>With the same time we can add other events to the simulation:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ram</span><span class="o">.</span><span class="n">execSim</span><span class="p">(</span><span class="n">case</span><span class="p">,</span> <span class="mf">80.0</span><span class="p">)</span> <span class="c1"># start the simulation and pause at t=80.0 seconds</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ram</span><span class="o">.</span><span class="n">execSim</span><span class="p">(</span><span class="n">case</span><span class="p">,</span> <span class="mf">80.0</span><span class="p">)</span> <span class="c1"># start the simulation and pause at t=80.0 seconds</span>
 <span class="n">ram</span><span class="o">.</span><span class="n">addDisturb</span><span class="p">(</span><span class="mf">100.000</span><span class="p">,</span> <span class="s1">&#39;FAULT BUS 4032 0.&#39;</span><span class="p">)</span> <span class="c1"># simulate 3ph short-circuit to ground</span>
 <span class="n">ram</span><span class="o">.</span><span class="n">addDisturb</span><span class="p">(</span><span class="mf">100.100</span><span class="p">,</span> <span class="s1">&#39;CLEAR BUS 4032&#39;</span><span class="p">)</span> <span class="c1"># clear short-circuit by tripping line 4032-4044</span>
 <span class="n">ram</span><span class="o">.</span><span class="n">addDisturb</span><span class="p">(</span><span class="mf">100.100</span><span class="p">,</span> <span class="s1">&#39;BREAKER BRANCH 4032-4044 0 0&#39;</span><span class="p">)</span>
@@ -270,11 +262,11 @@ in parallel. Putting $NBTHREADS to zero, will use all the available computing co
 </div>
 <div class="section" id="running-multiple-simulations-in-parallel">
 <span id="examples-dsa"></span><h2>3.3.4.2. Running multiple simulations in parallel<a class="headerlink" href="#running-multiple-simulations-in-parallel" title="Permalink to this headline">¶</a></h2>
-<p>Simulations can be performed in parallel by using several instances of <code class="xref py py-class docutils literal"><span class="pre">PyRAMSES.simulator.sim</span></code>. This allows two levels of parallelization.
+<p>Simulations can be performed in parallel by using several instances of <code class="xref py py-class docutils literal notranslate"><span class="pre">PyRAMSES.simulator.sim</span></code>. This allows two levels of parallelization.
 In the Python level, each instance of the simulator should be executed in a different process. In the lower level, inside RAMSES,
 each simulation can be parallelized using the $NBTHREADS solver setting. The latter is implemented with multithreading (OpenMP).</p>
-<p>An example is shown below (<a class="reference download internal" href="../../_downloads/dsa.py" download=""><code class="xref download docutils literal"><span class="pre">dsa.py</span></code></a>), using the package <a class="reference external" href="https://docs.python.org/3.6/library/multiprocessing.html#module-multiprocessing" title="(in Python v3.6)"><code class="xref py py-mod docutils literal"><span class="pre">multiprocessing</span></code></a>:</p>
-<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
+<p>An example is shown below (<a class="reference download internal" download="" href="../../_downloads/037642e2424d514dc214f41a5d113f38/dsa.py"><code class="xref download docutils literal notranslate"><span class="pre">dsa.py</span></code></a>), using the package <a class="reference external" href="https://docs.python.org/3.6/library/multiprocessing.html#module-multiprocessing" title="(in Python v3.6)"><code class="xref py py-mod docutils literal notranslate"><span class="pre">multiprocessing</span></code></a>:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
   2
   3
   4
@@ -488,7 +480,7 @@ each simulation can be parallelized using the $NBTHREADS solver setting. The lat
 </pre></div>
 </td></tr></table></div>
 <p>The script can be copied in the directory where the command files are located and executed as:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ python dsa.py cmd1.txt cmd2.txt cmd3.txt cmd4.txt cmd5.txt cmd6.txt cmd7.txt cmd8.txt
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ python dsa.py cmd1.txt cmd2.txt cmd3.txt cmd4.txt cmd5.txt cmd6.txt cmd7.txt cmd8.txt
 Daemons started and initialized:  4
 Waiting for current jobs to finish
 Waiting for  4  daemons to close
@@ -504,9 +496,7 @@ Finished everything....
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -525,11 +515,11 @@ Finished everything....
   <div role="contentinfo">
     <p>
         &copy; Copyright 2018, Petros Aristidou.
-      Last updated on Jan 26, 2018.
+      Last updated on Oct 09, 2018.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -548,6 +538,7 @@ Finished everything....
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
             VERSION:'4',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -561,19 +552,13 @@ Finished everything....
 
   
 
-  
-  
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

@@ -25,6 +25,8 @@ or for Linux::
    Redistributable libraries of Intel® Fortran Compiler for Linux ->
    Update 2
 
+Alternatively, you can install Anaconda Python which come with MKL library installed.
+
 .. _start_install_gnuplot:
 
 Installing Gnuplot

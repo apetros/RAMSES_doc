@@ -24,28 +24,19 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="../../genindex.html"/>
-        <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="RAMSES 4 documentation" href="../../index.html"/>
-        <link rel="up" title="3.3. Python Interface" href="../PyRAMSES.html"/>
-        <link rel="next" title="3.3.3. Simulator" href="simul.html"/>
-        <link rel="prev" title="3.3.1. Getting started" href="getting_started.html"/> 
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="3.3.3. Simulator" href="simul.html" />
+    <link rel="prev" title="3.3.1. Getting started" href="getting_started.html" /> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -125,7 +116,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">RAMSES</a>
@@ -133,9 +124,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -184,34 +176,34 @@
 <p>A description of the simulation needs to be provided to the simulator.</p>
 <div class="section" id="initializing">
 <h2>3.3.2.1. Initializing<a class="headerlink" href="#initializing" title="Permalink to this headline">¶</a></h2>
-<p>We can initialize an instance of the test-case decriptor by importing PyRAMSES and invoking the <a class="reference internal" href="code_documentation.html#PyRAMSES.cfg" title="PyRAMSES.cfg"><code class="xref py py-class docutils literal"><span class="pre">PyRAMSES.cfg</span></code></a> class of PyRAMSES:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<p>We can initialize an instance of the test-case decriptor by importing PyRAMSES and invoking the <a class="reference internal" href="code_documentation.html#PyRAMSES.cfg" title="PyRAMSES.cfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyRAMSES.cfg</span></code></a> class of PyRAMSES:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
 <span class="n">case</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>The available calls to the <a class="reference internal" href="code_documentation.html#PyRAMSES.cfg" title="PyRAMSES.cfg"><code class="xref py py-class docutils literal"><span class="pre">PyRAMSES.cfg</span></code></a> class are fully documented in <a class="reference internal" href="code_documentation.html#code-cases-doc"><span class="std std-ref">Test-case description</span></a>. The most important
+<p>The available calls to the <a class="reference internal" href="code_documentation.html#PyRAMSES.cfg" title="PyRAMSES.cfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyRAMSES.cfg</span></code></a> class are fully documented in <a class="reference internal" href="code_documentation.html#code-cases-doc"><span class="std std-ref">Test-case description</span></a>. The most important
 are detailed below.</p>
 </div>
 <div class="section" id="loading-and-saving-test-case-to-configuration-file">
 <h2>3.3.2.2. Loading and saving test-case to configuration file<a class="headerlink" href="#loading-and-saving-test-case-to-configuration-file" title="Permalink to this headline">¶</a></h2>
 <p>If a previously saved configuration file exists, it can be used to initialize the descriptor:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
 <span class="n">case</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">(</span><span class="s2">&quot;cmd.txt&quot;</span><span class="p">)</span> <span class="c1"># where cmd.txt is the file with the test-case description</span>
 </pre></div>
 </div>
 <p>Similarly, a test-case can be saved into a configuration file:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">case</span><span class="o">.</span><span class="n">writeCmdFile</span><span class="p">(</span><span class="s1">&#39;cmd.txt&#39;</span><span class="p">)</span> <span class="c1"># where cmd.txt is the file with the test-case description</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">case</span><span class="o">.</span><span class="n">writeCmdFile</span><span class="p">(</span><span class="s1">&#39;cmd.txt&#39;</span><span class="p">)</span> <span class="c1"># where cmd.txt is the file with the test-case description</span>
 </pre></div>
 </div>
 <p>Many files can be loaded as follows:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
 <span class="n">list_of_cases</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">):</span>
    <span class="n">list_of_cases</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">(</span><span class="s1">&#39;cmd&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;.txt&#39;</span><span class="p">))</span> <span class="c1"># loads 12 test-cases from files named &#39;cmd0.txt&#39;, ..., &#39;cmd11.txt&#39;</span>
 </pre></div>
 </div>
 <p>Or saved:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">):</span>
    <span class="n">list_of_cases</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">writeCmdFile</span><span class="p">(</span><span class="s1">&#39;cmd&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;.txt&#39;</span><span class="p">)</span> <span class="c1"># saves 12 test-cases to files named &#39;cmd0.txt&#39;, ..., &#39;cmd11.txt&#39;</span>
 </pre></div>
 </div>
@@ -222,21 +214,21 @@ are detailed below.</p>
 <div class="section" id="data-files">
 <h3>3.3.2.3.1. Data files<a class="headerlink" href="#data-files" title="Permalink to this headline">¶</a></h3>
 <p>The data files provide a description of the system to be simulated, along with the solver parameters. These files have to be defined
-in the <a class="reference internal" href="code_documentation.html#PyRAMSES.cfg" title="PyRAMSES.cfg"><code class="xref py py-class docutils literal"><span class="pre">PyRAMSES.cfg</span></code></a> class:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">case</span><span class="o">.</span><span class="n">addData</span><span class="p">(</span><span class="s1">&#39;data1.dat&#39;</span><span class="p">)</span>
+in the <a class="reference internal" href="code_documentation.html#PyRAMSES.cfg" title="PyRAMSES.cfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">PyRAMSES.cfg</span></code></a> class:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">case</span><span class="o">.</span><span class="n">addData</span><span class="p">(</span><span class="s1">&#39;data1.dat&#39;</span><span class="p">)</span>
 <span class="n">case</span><span class="o">.</span><span class="n">addData</span><span class="p">(</span><span class="s1">&#39;data2.dat&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>A data file can be removed:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">case</span><span class="o">.</span><span class="n">delData</span><span class="p">(</span><span class="s1">&#39;data1.dat&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">case</span><span class="o">.</span><span class="n">delData</span><span class="p">(</span><span class="s1">&#39;data1.dat&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The list of data can be retrieved:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">case</span><span class="o">.</span><span class="n">getData</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">case</span><span class="o">.</span><span class="n">getData</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Or all the data files can be removed:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">case</span><span class="o">.</span><span class="n">clearData</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">case</span><span class="o">.</span><span class="n">clearData</span><span class="p">()</span>
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -247,7 +239,7 @@ in the <a class="reference internal" href="code_documentation.html#PyRAMSES.cfg"
 <div class="section" id="initialization-file">
 <h3>3.3.2.3.2. Initialization file<a class="headerlink" href="#initialization-file" title="Permalink to this headline">¶</a></h3>
 <p>The initialization file is where the simulator will write the initialization procedure output:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">case</span><span class="o">.</span><span class="n">addInit</span><span class="p">(</span><span class="s1">&#39;init.trace&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">case</span><span class="o">.</span><span class="n">addInit</span><span class="p">(</span><span class="s1">&#39;init.trace&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -258,15 +250,15 @@ in the <a class="reference internal" href="code_documentation.html#PyRAMSES.cfg"
 <div class="section" id="disturbance-file">
 <h3>3.3.2.3.3. Disturbance file<a class="headerlink" href="#disturbance-file" title="Permalink to this headline">¶</a></h3>
 <p>The disturbance file is where the disturbance to be simulated is described:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">case</span><span class="o">.</span><span class="n">addDst</span><span class="p">(</span><span class="s1">&#39;events.dst&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">case</span><span class="o">.</span><span class="n">addDst</span><span class="p">(</span><span class="s1">&#39;events.dst&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The disturbance file name can be retrieved:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">case</span><span class="o">.</span><span class="n">getDst</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">case</span><span class="o">.</span><span class="n">getDst</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Or can be cleared:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">case</span><span class="o">.</span><span class="n">clearDst</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">case</span><span class="o">.</span><span class="n">clearDst</span><span class="p">()</span>
 </pre></div>
 </div>
 <div class="admonition warning">
@@ -279,7 +271,7 @@ in the <a class="reference internal" href="code_documentation.html#PyRAMSES.cfg"
 <p>The continuous trace file saves information about the convergence of the solution algorithm
 used inside RAMSES. This is mainly used for debugging reasons and it can slow down the execution
 of the simulation:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">case</span><span class="o">.</span><span class="n">addCont</span><span class="p">(</span><span class="s1">&#39;cont.trace&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">case</span><span class="o">.</span><span class="n">addCont</span><span class="p">(</span><span class="s1">&#39;cont.trace&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -292,7 +284,7 @@ of the simulation:</p>
 <p>The discrete trace file saves information about the discrete events in the system, these may be
 from the discrete controllers, events in the disturbance file, or from discrete variables inside
 the injector, twoport, torque, or exciter models. It’s defined as:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">case</span><span class="o">.</span><span class="n">addDisc</span><span class="p">(</span><span class="s1">&#39;disc.trace&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">case</span><span class="o">.</span><span class="n">addDisc</span><span class="p">(</span><span class="s1">&#39;disc.trace&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -306,27 +298,27 @@ the injector, twoport, torque, or exciter models. It’s defined as:</p>
 available commands are:</p>
 <ul>
 <li><p class="first">BV BUSNAME: Voltage magnitude of bus:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">case</span><span class="o">.</span><span class="n">addRunObs</span><span class="p">(</span><span class="s1">&#39;BV 1041&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">case</span><span class="o">.</span><span class="n">addRunObs</span><span class="p">(</span><span class="s1">&#39;BV 1041&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">MS SYNHRONOUS_MACHINE: Synchronous speed of machine:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">case</span><span class="o">.</span><span class="n">addRunObs</span><span class="p">(</span><span class="s1">&#39;MS g1&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">case</span><span class="o">.</span><span class="n">addRunObs</span><span class="p">(</span><span class="s1">&#39;MS g1&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">RT RT: Real-time vs simulated time plot:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">case</span><span class="o">.</span><span class="n">addRunObs</span><span class="p">(</span><span class="s1">&#39;RT RT&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">case</span><span class="o">.</span><span class="n">addRunObs</span><span class="p">(</span><span class="s1">&#39;RT RT&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">BPE/BQE/BPO/BQO BRANCH_NAME: Branch active (P), reactive (Q) power at the origin (O) or extremity (E) of a branch:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">case</span><span class="o">.</span><span class="n">addRunObs</span><span class="p">(</span><span class="s1">&#39;BPE 1041-01&#39;</span><span class="p">)</span> <span class="c1"># active power at the origin of branch 1041-01</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">case</span><span class="o">.</span><span class="n">addRunObs</span><span class="p">(</span><span class="s1">&#39;BPE 1041-01&#39;</span><span class="p">)</span> <span class="c1"># active power at the origin of branch 1041-01</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">ON INJECTOR_NAME OBSERVABLE_NAME: Monitor a named observable from an injector</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">case</span><span class="o">.</span><span class="n">addRunObs</span><span class="p">(</span><span class="s1">&#39;ON WT1a Pw&#39;</span><span class="p">)</span> <span class="c1"># observable Pw from injector WT1a</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">case</span><span class="o">.</span><span class="n">addRunObs</span><span class="p">(</span><span class="s1">&#39;ON WT1a Pw&#39;</span><span class="p">)</span> <span class="c1"># observable Pw from injector WT1a</span>
 </pre></div>
 </div>
 </li>
@@ -341,9 +333,7 @@ available commands are:</p>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -362,11 +352,11 @@ available commands are:</p>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2018, Petros Aristidou.
-      Last updated on Jan 26, 2018.
+      Last updated on Oct 09, 2018.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -385,6 +375,7 @@ available commands are:</p>
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
             VERSION:'4',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -398,19 +389,13 @@ available commands are:</p>
 
   
 
-  
-  
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

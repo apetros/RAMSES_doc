@@ -24,27 +24,18 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="../../genindex.html"/>
-        <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="RAMSES 4 documentation" href="../../index.html"/>
-        <link rel="up" title="3.3. Python Interface" href="../PyRAMSES.html"/>
-        <link rel="prev" title="3.3.4. Examples" href="examples.html"/> 
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="3.3.4. Examples" href="examples.html" /> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -123,7 +114,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">RAMSES</a>
@@ -131,9 +122,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -204,7 +196,7 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">sim</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">case</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">(</span><span class="s2">&quot;cmd.txt&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">execSim</span><span class="p">(</span><span class="n">case</span><span class="p">,</span> <span class="mf">80.0</span><span class="p">)</span> <span class="c1"># simulate until 80 seconds and pause</span>
@@ -232,7 +224,7 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">sim</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">case</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">(</span><span class="s2">&quot;cmd.txt&quot;</span><span class="p">)</span> <span class="c1"># command file without any observables</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">execSim</span><span class="p">(</span><span class="n">case</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="c1"># start</span>
@@ -271,7 +263,7 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">sim</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">case</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">(</span><span class="s2">&quot;cmd.txt&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">execSim</span><span class="p">(</span><span class="n">case</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
@@ -299,7 +291,7 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>cmd</strong> (type(<a class="reference internal" href="#PyRAMSES.cfg" title="PyRAMSES.cfg"><code class="xref py py-class docutils literal"><span class="pre">cfg</span></code></a>)) – provides the case description</li>
+<li><strong>cmd</strong> (type(<a class="reference internal" href="#PyRAMSES.cfg" title="PyRAMSES.cfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">cfg</span></code></a>)) – provides the case description</li>
 <li><strong>t_pause</strong> (<a class="reference external" href="https://docs.python.org/3.6/library/functions.html#float" title="(in Python v3.6)"><em>float</em></a>) – pause time (optional). If not given, the simulation will run until the end as discribed in the dst file.</li>
 </ul>
 </td>
@@ -324,7 +316,7 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">sim</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">case</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">(</span><span class="s2">&quot;cmd.txt&quot;</span><span class="p">)</span> <span class="c1"># command file without any observables</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">execSim</span><span class="p">(</span><span class="n">case</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="c1"># start</span>
@@ -355,7 +347,7 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">sim</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">case</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">(</span><span class="s2">&quot;cmd.txt&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">execSim</span><span class="p">(</span><span class="n">case</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># start simulation paused</span>
@@ -363,6 +355,37 @@
 <span class="go">[&#39;B1&#39;,</span>
 <span class="go">&#39;B2&#39;,</span>
 <span class="go">&#39;B3&#39;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="PyRAMSES.sim.getBusPha">
+<code class="descname">getBusPha</code><span class="sig-paren">(</span><em>busNames</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/simulator.html#sim.getBusPha"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.sim.getBusPha" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the voltage phase of a list of buses</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>busNames</strong> (<em>list of str</em>) – the names of buses</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">list of bus voltage phase</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list of floats</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">sim</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">case</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">(</span><span class="s2">&quot;cmd.txt&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">execSim</span><span class="p">(</span><span class="n">case</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">)</span> <span class="c1"># simulate until 10 seconds and pause</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">buses</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;g1&#39;</span><span class="p">,</span><span class="s1">&#39;g2&#39;</span><span class="p">,</span><span class="s1">&#39;g3&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">getBusPha</span><span class="p">(</span><span class="n">buses</span><span class="p">)</span>
+<span class="go">[0.0000000000000000,</span>
+<span class="go"> 10.0615442362180327,</span>
+<span class="go"> 11.064702686997689]</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -385,7 +408,7 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">sim</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">case</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">(</span><span class="s2">&quot;cmd.txt&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">execSim</span><span class="p">(</span><span class="n">case</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">)</span> <span class="c1"># simulate until 10 seconds and pause</span>
@@ -422,7 +445,7 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">sim</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">case</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">(</span><span class="s2">&quot;cmd.txt&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">execSim</span><span class="p">(</span><span class="n">case</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># start simulation paused</span>
@@ -473,7 +496,7 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">sim</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">case</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">(</span><span class="s2">&quot;cmd.txt&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">execSim</span><span class="p">(</span><span class="n">case</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">)</span> <span class="c1"># simulate until 10 seconds and pause</span>
@@ -513,7 +536,7 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">sim</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">case</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">(</span><span class="s2">&quot;cmd.txt&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">execSim</span><span class="p">(</span><span class="n">case</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">)</span> <span class="c1"># simulate until 10 seconds and pause</span>
@@ -552,7 +575,7 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">sim</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">case</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">(</span><span class="s2">&quot;cmd.txt&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">execSim</span><span class="p">(</span><span class="n">case</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="c1"># initialize and wait</span>
@@ -581,7 +604,7 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">sim</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">case</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">(</span><span class="s2">&quot;cmd.txt&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">execSim</span><span class="p">(</span><span class="n">case</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
@@ -633,7 +656,7 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">sim</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">case</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">(</span><span class="s2">&quot;cmd.txt&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">execSim</span><span class="p">(</span><span class="n">case</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
@@ -665,7 +688,7 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">sim</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">case</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">(</span><span class="s2">&quot;cmd.txt&quot;</span><span class="p">)</span> <span class="c1"># command file without any observables</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">execSim</span><span class="p">(</span><span class="n">case</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="c1"># start</span>
@@ -715,7 +738,7 @@ of the simulation.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">case1</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">case1</span><span class="o">.</span><span class="n">addCont</span><span class="p">(</span><span class="s2">&quot;cont.trace&quot;</span><span class="p">)</span>
 </pre></div>
@@ -741,7 +764,7 @@ of the simulation.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">case1</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">case1</span><span class="o">.</span><span class="n">addData</span><span class="p">(</span><span class="s2">&quot;dyn_A.dat&quot;</span><span class="p">)</span>
 </pre></div>
@@ -769,7 +792,7 @@ the injector, twoport, torque, or exciter models.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">case1</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">case1</span><span class="o">.</span><span class="n">addDisc</span><span class="p">(</span><span class="s2">&quot;disc.trace&quot;</span><span class="p">)</span>
 </pre></div>
@@ -795,7 +818,7 @@ the injector, twoport, torque, or exciter models.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">case1</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">case1</span><span class="o">.</span><span class="n">addDst</span><span class="p">(</span><span class="s2">&quot;short.dst&quot;</span><span class="p">)</span>
 </pre></div>
@@ -821,7 +844,7 @@ the injector, twoport, torque, or exciter models.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">case1</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">case1</span><span class="o">.</span><span class="n">addInit</span><span class="p">(</span><span class="s2">&quot;init.trace&quot;</span><span class="p">)</span>
 </pre></div>
@@ -846,7 +869,7 @@ the injector, twoport, torque, or exciter models.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">case1</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">case1</span><span class="o">.</span><span class="n">addObs</span><span class="p">(</span><span class="s2">&quot;obs.dat&quot;</span><span class="p">)</span>
 </pre></div>
@@ -867,7 +890,7 @@ the injector, twoport, torque, or exciter models.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">case1</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">case1</span><span class="o">.</span><span class="n">addOut</span><span class="p">(</span><span class="s2">&quot;output.trace&quot;</span><span class="p">)</span>
 </pre></div>
@@ -895,27 +918,27 @@ the injector, twoport, torque, or exciter models.</p>
 </table>
 <ul>
 <li><p class="first">BV BUSNAME: Voltage magnitude of bus:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">case</span><span class="o">.</span><span class="n">addRunObs</span><span class="p">(</span><span class="s1">&#39;BV 1041&#39;</span><span class="p">)</span> <span class="c1"># observe the bus voltage of bus 1041</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">case</span><span class="o">.</span><span class="n">addRunObs</span><span class="p">(</span><span class="s1">&#39;BV 1041&#39;</span><span class="p">)</span> <span class="c1"># observe the bus voltage of bus 1041</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">MS SYNHRONOUS_MACHINE: Synchronous speed of machine:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">case</span><span class="o">.</span><span class="n">addRunObs</span><span class="p">(</span><span class="s1">&#39;MS g1&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">case</span><span class="o">.</span><span class="n">addRunObs</span><span class="p">(</span><span class="s1">&#39;MS g1&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">RT RT: Real-time vs simulated time plot:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">case</span><span class="o">.</span><span class="n">addRunObs</span><span class="p">(</span><span class="s1">&#39;RT RT&#39;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">case</span><span class="o">.</span><span class="n">addRunObs</span><span class="p">(</span><span class="s1">&#39;RT RT&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">BPE/BQE/BPO/BQO BRANCH_NAME: Branch active (P), reactive (Q) power at the origin (O) or extremity (E) of a branch:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">case</span><span class="o">.</span><span class="n">addRunObs</span><span class="p">(</span><span class="s1">&#39;BPE 1041-01&#39;</span><span class="p">)</span> <span class="c1"># active power at the origin of branch 1041-01</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">case</span><span class="o">.</span><span class="n">addRunObs</span><span class="p">(</span><span class="s1">&#39;BPE 1041-01&#39;</span><span class="p">)</span> <span class="c1"># active power at the origin of branch 1041-01</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">ON INJECTOR_NAME OBSERVABLE_NAME: Monitor a named observable from an injector</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">case</span><span class="o">.</span><span class="n">addRunObs</span><span class="p">(</span><span class="s1">&#39;ON WT1a Pw&#39;</span><span class="p">)</span> <span class="c1"># observable Pw from injector WT1a</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">case</span><span class="o">.</span><span class="n">addRunObs</span><span class="p">(</span><span class="s1">&#39;ON WT1a Pw&#39;</span><span class="p">)</span> <span class="c1"># observable Pw from injector WT1a</span>
 </pre></div>
 </div>
 </li>
@@ -936,7 +959,7 @@ the injector, twoport, torque, or exciter models.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">case1</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">case1</span><span class="o">.</span><span class="n">addTrj</span><span class="p">(</span><span class="s2">&quot;output.trj&quot;</span><span class="p">)</span>
 </pre></div>
@@ -1128,9 +1151,7 @@ temporary is created and deleted when the object is destroyed.</td>
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -1147,11 +1168,11 @@ temporary is created and deleted when the object is destroyed.</td>
   <div role="contentinfo">
     <p>
         &copy; Copyright 2018, Petros Aristidou.
-      Last updated on Jan 26, 2018.
+      Last updated on Oct 09, 2018.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -1170,6 +1191,7 @@ temporary is created and deleted when the object is destroyed.</td>
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
             VERSION:'4',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -1183,19 +1205,13 @@ temporary is created and deleted when the object is destroyed.</td>
 
   
 
-  
-  
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

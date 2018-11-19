@@ -24,26 +24,18 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="genindex.html"/>
-        <link rel="search" title="Search" href="search.html"/>
-    <link rel="top" title="RAMSES 4 documentation" href="#"/>
-        <link rel="next" title="1. Data and scenario description" href="data.html"/> 
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1. Data and scenario description" href="data.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -106,7 +98,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="#">RAMSES</a>
@@ -114,9 +106,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -165,24 +158,25 @@
 <p>The simulator depends on the Intel redistributable libraries. You can install
 the runtime libraries for your system from <a class="reference external" href="https://software.intel.com/en-us/articles/intelr-composer-redistributable-libraries-by-version">Intel</a>.</p>
 <p>At the current version PyRAMSES version, you should select for Windows:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>Parallel Studio XE 2015 (all Editions) -&gt;
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Parallel Studio XE 2015 (all Editions) -&gt;
 Redistributable libraries of Intel® Fortran Compiler for Windows -&gt;
 Update 2
 </pre></div>
 </div>
 <p>or for Linux:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>Parallel Studio XE 2015 (all Editions) -&gt;
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Parallel Studio XE 2015 (all Editions) -&gt;
 Redistributable libraries of Intel® Fortran Compiler for Linux -&gt;
 Update 2
 </pre></div>
 </div>
+<p>Alternatively, you can install Anaconda Python which come with MKL library installed.</p>
 </div>
 <div class="section" id="installing-gnuplot">
 <span id="start-install-gnuplot"></span><h1>Installing Gnuplot<a class="headerlink" href="#installing-gnuplot" title="Permalink to this headline">¶</a></h1>
 <p>To display the runtime observables, gnuplot should be installed and available in the path. You can install
 gnuplot from <a class="reference external" href="http://www.gnuplot.info/">the official website</a>.</p>
 <p>Under Linux, you can install with your package manager. For example, under Ubuntu or Debian:</p>
-<div class="highlight-bash"><div class="highlight"><pre><span></span>sudo apt-get install gnuplot-x11
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-get install gnuplot-x11
 </pre></div>
 </div>
 <div class="toctree-wrapper compound">
@@ -228,9 +222,7 @@ gnuplot from <a class="reference external" href="http://www.gnuplot.info/">the o
 
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -247,11 +239,11 @@ gnuplot from <a class="reference external" href="http://www.gnuplot.info/">the o
   <div role="contentinfo">
     <p>
         &copy; Copyright 2018, Petros Aristidou.
-      Last updated on Jan 26, 2018.
+      Last updated on Oct 09, 2018.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -270,6 +262,7 @@ gnuplot from <a class="reference external" href="http://www.gnuplot.info/">the o
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'./',
             VERSION:'4',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -283,19 +276,13 @@ gnuplot from <a class="reference external" href="http://www.gnuplot.info/">the o
 
   
 
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>

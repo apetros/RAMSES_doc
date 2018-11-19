@@ -24,26 +24,17 @@
 
   
 
-  
-  
-    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-  
-
-  
-
-  
-        <link rel="index" title="Index"
-              href="../../genindex.html"/>
-        <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="RAMSES 4 documentation" href="../../index.html"/>
-        <link rel="up" title="Module code" href="../index.html"/> 
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
 
   
   <script src="../../_static/js/modernizr.min.js"></script>
 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
@@ -106,7 +97,7 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
 
       
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+      <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../index.html">RAMSES</a>
@@ -114,9 +105,10 @@
       </nav>
 
 
-      
       <div class="wy-nav-content">
+        
         <div class="rst-content">
+        
           
 
 
@@ -145,8 +137,6 @@
     
     
       <li class="wy-breadcrumbs-aside">
-        
-            
         
       </li>
     
@@ -181,23 +171,20 @@
     <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span>
         <span class="s2">&quot;KMP_DUPLICATE_LIB_OK&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;TRUE&quot;</span>  <span class="c1"># This allows to run even if 2 versions of MKL are present on the computer</span>
 
-    <span class="c1">#    print __libdir__</span>
-    <span class="c1">#    print os.path.join(__libdir__,&quot;libramses.so&quot;)</span>
+    <span class="c1">#print(__libdir__)</span>
+    <span class="c1">#print(os.path.join(__libdir__,&quot;ramses.dll&quot;))</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Initialize the DLL libraries.&quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># print(sys.platform)</span>
             <span class="k">if</span> <span class="n">sys</span><span class="o">.</span><span class="n">platform</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;win32&#39;</span><span class="p">,</span> <span class="s1">&#39;cygwin&#39;</span><span class="p">):</span>
-                <span class="c1"># self._KLUlib = ctypes.CDLL(os.path.join(__libdir__, &quot;KLU_DLL.dll&quot;), mode=ctypes.RTLD_GLOBAL)</span>
-                <span class="c1"># self._KLUZlib = ctypes.CDLL(os.path.join(__libdir__, &quot;KLU_DLL_Z.dll&quot;), mode=ctypes.RTLD_GLOBAL)</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">CDLL</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">__libdir__</span><span class="p">,</span> <span class="s2">&quot;ramses.dll&quot;</span><span class="p">))</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="c1"># if (not find_library(&#39;iomp5&#39;)):</span>
                 <span class="c1"># self._omplib = ctypes.CDLL(os.path.join(__libdir__, &quot;libiomp5.so&quot;), mode=ctypes.RTLD_GLOBAL)</span>
                 <span class="c1"># self._mkllib = ctypes.CDLL(os.path.join(__libdir__, &quot;libmkl.so&quot;), mode=ctypes.RTLD_GLOBAL)</span>
-                <span class="c1"># self._KLUlib = ctypes.CDLL(os.path.join(__libdir__, &quot;libKLU_DLL.so&quot;), mode=ctypes.RTLD_GLOBAL)</span>
-                <span class="c1"># self._KLUZlib = ctypes.CDLL(os.path.join(__libdir__, &quot;libKLU_DLL_Z.so&quot;), mode=ctypes.RTLD_GLOBAL)</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">CDLL</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">__libdir__</span><span class="p">,</span> <span class="s2">&quot;libramses.so&quot;</span><span class="p">))</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">CDLL</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">__libdir__</span><span class="p">,</span> <span class="s2">&quot;ramses.so&quot;</span><span class="p">))</span>
         <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="s1">&#39;RAMSES: &#39;</span> <span class="o">+</span> <span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">)</span>
 
@@ -306,7 +293,7 @@
             <span class="k">raise</span> <span class="n">RAMSESError</span><span class="p">(</span>
                 <span class="s1">&#39;RAMSES: Function getCompName(</span><span class="si">%s</span><span class="s1">,</span><span class="si">%i</span><span class="s1">) failed. Does this component exist?&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">comp_type</span><span class="p">,</span> <span class="n">num</span><span class="p">))</span>
 
-        <span class="k">return</span> <span class="n">name</span><span class="o">.</span><span class="n">value</span></div>
+        <span class="k">return</span> <span class="n">name</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="sim.getAllCompNames"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim.getAllCompNames">[docs]</a>    <span class="k">def</span> <span class="nf">getAllCompNames</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comp_type</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Get list of all components of comp_type</span>
@@ -411,6 +398,37 @@
                     <span class="s1">&#39;RAMSES: Function getBusVolt(</span><span class="si">%s</span><span class="s1">) failed with the flag </span><span class="si">%i</span><span class="s1">.  Does the bus exist?&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">bus</span><span class="p">,</span> <span class="n">retval</span><span class="p">))</span>
             <span class="n">volts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bus_volt</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">volts</span></div>
+
+<div class="viewcode-block" id="sim.getBusPha"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim.getBusPha">[docs]</a>    <span class="k">def</span> <span class="nf">getBusPha</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">busNames</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the voltage phase of a list of buses</span>
+
+<span class="sd">        :param busNames: the names of buses</span>
+<span class="sd">        :type busNames: list of str</span>
+<span class="sd">        :returns: list of bus voltage phase</span>
+<span class="sd">        :rtype: list of floats</span>
+
+<span class="sd">        :Example:</span>
+
+<span class="sd">        &gt;&gt;&gt; import PyRAMSES</span>
+<span class="sd">        &gt;&gt;&gt; ram = PyRAMSES.sim()</span>
+<span class="sd">        &gt;&gt;&gt; case = PyRAMSES.cfg(&quot;cmd.txt&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; ram.execSim(case, 10.0) # simulate until 10 seconds and pause</span>
+<span class="sd">        &gt;&gt;&gt; buses = [&#39;g1&#39;,&#39;g2&#39;,&#39;g3&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; ram.getBusPha(buses)</span>
+<span class="sd">        [0.0000000000000000,</span>
+<span class="sd">         10.0615442362180327,</span>
+<span class="sd">         11.064702686997689]</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">pha</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">bus_pha</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">c_double</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">bus</span> <span class="ow">in</span> <span class="n">busNames</span><span class="p">:</span>
+            <span class="n">retval</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">get_volt_pha</span><span class="p">(</span><span class="n">bus</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">),</span> <span class="n">bus_pha</span><span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">retval</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="n">RAMSESError</span><span class="p">(</span>
+                    <span class="s1">&#39;RAMSES: Function getBusPha(</span><span class="si">%s</span><span class="s1">) failed with the flag </span><span class="si">%i</span><span class="s1">.  Does the bus exist?&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">bus</span><span class="p">,</span> <span class="n">retval</span><span class="p">))</span>
+            <span class="n">pha</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bus_pha</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">pha</span></div>
 
 <div class="viewcode-block" id="sim.endSim"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim.endSim">[docs]</a>    <span class="k">def</span> <span class="nf">endSim</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;End the simulation&quot;&quot;&quot;</span>
@@ -712,7 +730,8 @@
                 <span class="k">raise</span> <span class="n">RAMSESError</span><span class="p">(</span>
                     <span class="s1">&#39;RAMSES: Function getPrm(</span><span class="si">%s</span><span class="s1">,</span><span class="si">%s</span><span class="s1">) failed with the flag </span><span class="si">%i</span><span class="s1">. Does the parameter or equipment exist?&#39;</span>
                     <span class="o">%</span> <span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">retval</span><span class="p">))</span>
-            <span class="n">prm_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">string_buffer</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+            <span class="n">decodedstring</span> <span class="o">=</span> <span class="n">string_buffer</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+            <span class="n">prm_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">decodedstring</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">prm_names</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">prm_names</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
@@ -798,9 +817,7 @@
 </pre></div>
 
            </div>
-           <div class="articleComments">
-            
-           </div>
+           
           </div>
           <footer>
   
@@ -810,11 +827,11 @@
   <div role="contentinfo">
     <p>
         &copy; Copyright 2018, Petros Aristidou.
-      Last updated on Jan 26, 2018.
+      Last updated on Oct 09, 2018.
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -833,6 +850,7 @@
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
             VERSION:'4',
+            LANGUAGE:'None',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true,
@@ -846,19 +864,13 @@
 
   
 
-  
-  
-    <script type="text/javascript" src="../../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
 
-  
-  
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.StickyNav.enable();
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-   
+  </script> 
 
 </body>
 </html>
