@@ -3,7 +3,7 @@
 RAMSES
 ======
 
-Welcome to RAMSES documentation!
+Welcome to RAMSES documentation! RAMSES is time-domain, dynamic, simulator for future electric power systems.
 
 .. _start_installing-runtime-libraries:
 
@@ -13,19 +13,7 @@ Installing runtime libraries
 The simulator depends on the Intel redistributable libraries. You can install
 the runtime libraries for your system from `Intel <https://software.intel.com/en-us/articles/intelr-composer-redistributable-libraries-by-version>`_.
 
-At the current version PyRAMSES version, you should select for Windows::
-
-   Parallel Studio XE 2015 (all Editions) ->
-   Redistributable libraries of Intel® Fortran Compiler for Windows ->
-   Update 2
-
-or for Linux::
-
-   Parallel Studio XE 2015 (all Editions) ->
-   Redistributable libraries of Intel® Fortran Compiler for Linux ->
-   Update 2
-
-Alternatively, you can install Anaconda Python which come with MKL library installed.
+Alternatively, you can install [Anaconda Python](https://www.anaconda.com/download/) which come with MKL library installed. Make sure that Anaconda [is added to the path](https://github.com/mGalarnyk/Installations_Mac_Ubuntu_Windows) so that RAMSES can find the file mkl_rt.dll in Windows or mkl_rt.so in Linux.
 
 .. _start_install_gnuplot:
 

@@ -162,7 +162,7 @@
 <span class="kn">from</span> <span class="nn">.cases</span> <span class="k">import</span> <span class="n">cfg</span>
 <span class="kn">from</span> <span class="nn">.globals</span> <span class="k">import</span> <span class="n">RAMSESError</span><span class="p">,</span> <span class="n">CustomWarning</span><span class="p">,</span> <span class="n">__libdir__</span>
 
-<div class="viewcode-block" id="sim"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim">[docs]</a><span class="k">class</span> <span class="nc">sim</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="sim"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.sim">[docs]</a><span class="k">class</span> <span class="nc">sim</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Simulation class.&quot;&quot;&quot;</span>
 
     <span class="n">warnings</span><span class="o">.</span><span class="n">showwarning</span> <span class="o">=</span> <span class="n">CustomWarning</span>
@@ -253,7 +253,7 @@
         <span class="k">except</span> <span class="ne">IOError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">IOError</span><span class="p">(</span><span class="s2">&quot;RAMSES: Cannot open ramses.h files&quot;</span> <span class="o">+</span> <span class="n">e</span><span class="p">)</span>
 
-<div class="viewcode-block" id="sim.getCompName"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim.getCompName">[docs]</a>    <span class="k">def</span> <span class="nf">getCompName</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comp_type</span><span class="p">,</span> <span class="n">num</span><span class="p">):</span>
+<div class="viewcode-block" id="sim.getCompName"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.sim.getCompName">[docs]</a>    <span class="k">def</span> <span class="nf">getCompName</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comp_type</span><span class="p">,</span> <span class="n">num</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Return the name of the num :superscript:`th` component of type comp_type.</span>
 
 <span class="sd">        :param str comp_type: the component type (BUS, SYNC, INJ, DCTL, BRANCH, TWOP, SHUNT, LOAD)</span>
@@ -295,7 +295,7 @@
 
         <span class="k">return</span> <span class="n">name</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="sim.getAllCompNames"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim.getAllCompNames">[docs]</a>    <span class="k">def</span> <span class="nf">getAllCompNames</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comp_type</span><span class="p">):</span>
+<div class="viewcode-block" id="sim.getAllCompNames"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.sim.getAllCompNames">[docs]</a>    <span class="k">def</span> <span class="nf">getAllCompNames</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comp_type</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Get list of all components of comp_type</span>
 
 <span class="sd">        :param str comp_type: the component type (BUS, SYNC, INJ, DCTL, BRANCH, TWOP, SHUNT, LOAD)</span>
@@ -337,7 +337,7 @@
                 <span class="n">names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getCompName</span><span class="p">(</span><span class="n">comp_type</span><span class="p">,</span> <span class="n">comp</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">names</span></div>
 
-<div class="viewcode-block" id="sim.execSim"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim.execSim">[docs]</a>    <span class="k">def</span> <span class="nf">execSim</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">pause</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="sim.execSim"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.sim.execSim">[docs]</a>    <span class="k">def</span> <span class="nf">execSim</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">pause</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Run a simulation.</span>
 
 <span class="sd">        :param cmd: provides the case description</span>
@@ -357,7 +357,7 @@
             <span class="k">raise</span> <span class="n">RAMSESError</span><span class="p">(</span><span class="s1">&#39;RAMSES: Function execSim(</span><span class="si">%s</span><span class="s1">) failed with the flag </span><span class="si">%i</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">cmdfilename</span><span class="p">,</span> <span class="n">retval</span><span class="p">))</span>
         <span class="k">return</span> <span class="mi">0</span></div>
 
-<div class="viewcode-block" id="sim.contSim"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim.contSim">[docs]</a>    <span class="k">def</span> <span class="nf">contSim</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pause</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="sim.contSim"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.sim.contSim">[docs]</a>    <span class="k">def</span> <span class="nf">contSim</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pause</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Continue the simulation until the given time.</span>
 
 <span class="sd">        The pause argument is optional and it gives the time until the simulation will stop.&quot;&quot;&quot;</span>
@@ -368,7 +368,7 @@
             <span class="k">raise</span> <span class="n">RAMSESError</span><span class="p">(</span><span class="s1">&#39;RAMSES: Function contSim() failed with the flag </span><span class="si">%i</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">retval</span><span class="p">))</span>
         <span class="k">return</span> <span class="mi">0</span></div>
 
-<div class="viewcode-block" id="sim.getBusVolt"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim.getBusVolt">[docs]</a>    <span class="k">def</span> <span class="nf">getBusVolt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">busNames</span><span class="p">):</span>
+<div class="viewcode-block" id="sim.getBusVolt"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.sim.getBusVolt">[docs]</a>    <span class="k">def</span> <span class="nf">getBusVolt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">busNames</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Return the voltage magnitude of a list of buses</span>
 
 <span class="sd">        :param busNames: the names of buses</span>
@@ -399,7 +399,7 @@
             <span class="n">volts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bus_volt</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">volts</span></div>
 
-<div class="viewcode-block" id="sim.getBusPha"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim.getBusPha">[docs]</a>    <span class="k">def</span> <span class="nf">getBusPha</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">busNames</span><span class="p">):</span>
+<div class="viewcode-block" id="sim.getBusPha"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.sim.getBusPha">[docs]</a>    <span class="k">def</span> <span class="nf">getBusPha</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">busNames</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Return the voltage phase of a list of buses</span>
 
 <span class="sd">        :param busNames: the names of buses</span>
@@ -430,13 +430,23 @@
             <span class="n">pha</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bus_pha</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">pha</span></div>
 
-<div class="viewcode-block" id="sim.endSim"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim.endSim">[docs]</a>    <span class="k">def</span> <span class="nf">endSim</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="sim.endSim"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.sim.endSim">[docs]</a>    <span class="k">def</span> <span class="nf">endSim</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;End the simulation&quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">set_end_simul</span><span class="p">()</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">contSim</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getInfTime</span><span class="p">())</span></div>
+    
+<div class="viewcode-block" id="sim.getEndSim"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.sim.getEndSim">[docs]</a>    <span class="k">def</span> <span class="nf">getEndSim</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Check if the simulation has ended</span>
+<span class="sd">        </span>
+<span class="sd">        :returns: 0 -&gt; simulation is still working, 1 -&gt; simulation has ended</span>
+<span class="sd">        :rtype: integer</span>
+<span class="sd">        </span>
+<span class="sd">        &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="sim.getSimTime"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim.getSimTime">[docs]</a>    <span class="k">def</span> <span class="nf">getSimTime</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">get_end_simul</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="sim.getSimTime"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.sim.getSimTime">[docs]</a>    <span class="k">def</span> <span class="nf">getSimTime</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Get the current simulation time</span>
 
 <span class="sd">        :returns: current simulation time in RAMSES.</span>
@@ -445,7 +455,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">get_sim_time</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="sim.getInfTime"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim.getInfTime">[docs]</a>    <span class="k">def</span> <span class="nf">getInfTime</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="sim.getInfTime"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.sim.getInfTime">[docs]</a>    <span class="k">def</span> <span class="nf">getInfTime</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Get the maximum representable double from the simulator ()</span>
 
 <span class="sd">        :returns: maximum representable double</span>
@@ -454,7 +464,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">get_huge_double</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="sim.initObserv"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim.initObserv">[docs]</a>    <span class="k">def</span> <span class="nf">initObserv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">traj_filenm</span><span class="p">):</span>
+<div class="viewcode-block" id="sim.initObserv"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.sim.initObserv">[docs]</a>    <span class="k">def</span> <span class="nf">initObserv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">traj_filenm</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Initialize observable selection (structure and trajectory file)</span>
 
 <span class="sd">        :param traj_filenm: the file to save the trajectory at</span>
@@ -472,7 +482,7 @@
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">initObserv</span><span class="p">(</span><span class="n">traj_filenm</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="sim.addObserv"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim.addObserv">[docs]</a>    <span class="k">def</span> <span class="nf">addObserv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">string</span><span class="p">):</span>
+<div class="viewcode-block" id="sim.addObserv"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.sim.addObserv">[docs]</a>    <span class="k">def</span> <span class="nf">addObserv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">string</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Add an element to be observed</span>
 
 <span class="sd">        :param string: the element with proper format</span>
@@ -492,7 +502,7 @@
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">addObserv</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="sim.finalObserv"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim.finalObserv">[docs]</a>    <span class="k">def</span> <span class="nf">finalObserv</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="sim.finalObserv"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.sim.finalObserv">[docs]</a>    <span class="k">def</span> <span class="nf">finalObserv</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Finalize observable selection, allocate buffer, and write header of trajectory file</span>
 
 <span class="sd">        :Example:</span>
@@ -510,7 +520,7 @@
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">finalObserv</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="sim.getPrm"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim.getPrm">[docs]</a>    <span class="k">def</span> <span class="nf">getPrm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comp_type</span><span class="p">,</span> <span class="n">comp_name</span><span class="p">,</span> <span class="n">prm_name</span><span class="p">):</span>
+<div class="viewcode-block" id="sim.getPrm"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.sim.getPrm">[docs]</a>    <span class="k">def</span> <span class="nf">getPrm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comp_type</span><span class="p">,</span> <span class="n">comp_name</span><span class="p">,</span> <span class="n">prm_name</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Get the value of a named parameter</span>
 
 <span class="sd">        :param comp_type: the types of components (EXC, TOR, INJ, DCTL, TWOP)</span>
@@ -560,7 +570,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">prm_values</span></div>
 
-<div class="viewcode-block" id="sim.defineSS"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim.defineSS">[docs]</a>    <span class="k">def</span> <span class="nf">defineSS</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ssID</span><span class="p">,</span> <span class="n">filter1</span><span class="p">,</span> <span class="n">filter2</span><span class="p">,</span> <span class="n">filter3</span><span class="p">):</span>
+<div class="viewcode-block" id="sim.defineSS"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.sim.defineSS">[docs]</a>    <span class="k">def</span> <span class="nf">defineSS</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ssID</span><span class="p">,</span> <span class="n">filter1</span><span class="p">,</span> <span class="n">filter2</span><span class="p">,</span> <span class="n">filter3</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Define a subsytem using three filters. The resulting list is an intersection of the filters.</span>
 
 <span class="sd">        :param ssID: Number of the SS</span>
@@ -597,7 +607,7 @@
         <span class="k">if</span> <span class="n">retval</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">RAMSESError</span><span class="p">(</span><span class="s1">&#39;RAMSES: Function define_SS(</span><span class="si">%i</span><span class="s1">,...) failed with the flag </span><span class="si">%i</span><span class="s1">.&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">ssID</span><span class="p">,</span> <span class="n">retval</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="sim.getSS"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim.getSS">[docs]</a>    <span class="k">def</span> <span class="nf">getSS</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ssID</span><span class="p">):</span>
+<div class="viewcode-block" id="sim.getSS"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.sim.getSS">[docs]</a>    <span class="k">def</span> <span class="nf">getSS</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ssID</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Retrieve the buses of a subsytem.</span>
 
 <span class="sd">        :param ssID: Number of the SS</span>
@@ -626,7 +636,7 @@
 
         <span class="k">return</span> <span class="n">string_buffer</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">split</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="sim.getTrfoSS"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim.getTrfoSS">[docs]</a>    <span class="k">def</span> <span class="nf">getTrfoSS</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ssID</span><span class="p">,</span> <span class="n">location</span><span class="p">,</span> <span class="n">in_service</span><span class="p">,</span> <span class="n">rettype</span><span class="p">):</span>
+<div class="viewcode-block" id="sim.getTrfoSS"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.sim.getTrfoSS">[docs]</a>    <span class="k">def</span> <span class="nf">getTrfoSS</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ssID</span><span class="p">,</span> <span class="n">location</span><span class="p">,</span> <span class="n">in_service</span><span class="p">,</span> <span class="n">rettype</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Retrieve transformer information of subsystem after applying some filters</span>
 
 <span class="sd">        :param ssID: Number of the SS</span>
@@ -693,7 +703,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">item</span>
 
-<div class="viewcode-block" id="sim.getPrmNames"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim.getPrmNames">[docs]</a>    <span class="k">def</span> <span class="nf">getPrmNames</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comp_type</span><span class="p">,</span> <span class="n">comp_name</span><span class="p">):</span>
+<div class="viewcode-block" id="sim.getPrmNames"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.sim.getPrmNames">[docs]</a>    <span class="k">def</span> <span class="nf">getPrmNames</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comp_type</span><span class="p">,</span> <span class="n">comp_name</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Get the named parameters of a model</span>
 
 <span class="sd">        :param comp_type: the types of components (EXC, TOR, INJ, DCTL, TWOP)</span>
@@ -737,7 +747,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">prm_names</span></div>
 
-<div class="viewcode-block" id="sim.getObs"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim.getObs">[docs]</a>    <span class="k">def</span> <span class="nf">getObs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comp_type</span><span class="p">,</span> <span class="n">comp_name</span><span class="p">,</span> <span class="n">obs_name</span><span class="p">):</span>
+<div class="viewcode-block" id="sim.getObs"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.sim.getObs">[docs]</a>    <span class="k">def</span> <span class="nf">getObs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">comp_type</span><span class="p">,</span> <span class="n">comp_name</span><span class="p">,</span> <span class="n">obs_name</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Get the value of a named observable</span>
 
 <span class="sd">        :param comp_type: the types of components (EXC, TOR, INJ, DCTL, TWOP)</span>
@@ -783,7 +793,7 @@
             <span class="n">obs_values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">obs_value</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">obs_values</span></div>
 
-<div class="viewcode-block" id="sim.pauseSim"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim.pauseSim">[docs]</a>    <span class="k">def</span> <span class="nf">pauseSim</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t_pause</span><span class="p">):</span>
+<div class="viewcode-block" id="sim.pauseSim"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.sim.pauseSim">[docs]</a>    <span class="k">def</span> <span class="nf">pauseSim</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t_pause</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Pause the simulation at the t_pause time</span>
 
 <span class="sd">        :param t_pause: pause time</span>
@@ -792,7 +802,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ramseslib</span><span class="o">.</span><span class="n">set_pause_time</span><span class="p">(</span><span class="n">t_pause</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="sim.addDisturb"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.sim.addDisturb">[docs]</a>    <span class="k">def</span> <span class="nf">addDisturb</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t_dist</span><span class="p">,</span> <span class="n">disturb</span><span class="p">):</span>
+<div class="viewcode-block" id="sim.addDisturb"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.sim.addDisturb">[docs]</a>    <span class="k">def</span> <span class="nf">addDisturb</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t_dist</span><span class="p">,</span> <span class="n">disturb</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Add a new disturbance at a specific time. Follows the same structure as the disturbances in the dst files.</span>
 
 <span class="sd">        :param t_dist: time of the disturbance</span>
@@ -826,8 +836,8 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Petros Aristidou.
-      Last updated on Oct 09, 2018.
+        &copy; Copyright 2018, Petros Aristidou
+      Last updated on Nov 19, 2018.
 
     </p>
   </div>
@@ -846,21 +856,24 @@
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../',
-            VERSION:'4',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../',
+              VERSION:'4',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
 
   
 

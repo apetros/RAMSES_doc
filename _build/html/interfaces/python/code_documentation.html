@@ -1,0 +1,1255 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3.3.5. Documentation of the Code &mdash; RAMSES 4 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="prev" title="3.3.4. Examples" href="examples.html" /> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> RAMSES
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../index.html">RAMSES</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data.html">1. Data and scenario description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../codegen.html">2. Modelling new components</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../interfaces.html">3. RAMSES Interface</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../cmd/cmd.html">3.1. Command Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../java/gui.html">3.2. Java Interface</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="PyRAMSES.html">3.3. Python Interface</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="getting_started.html">3.3.1. Getting started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="case.html">3.3.2. Test-case description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="simul.html">3.3.3. Simulator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="examples.html">3.3.4. Examples</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">3.3.5. Documentation of the Code</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#simulator">3.3.5.1. Simulator</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#test-case-description">3.3.5.2. Test-case description</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">RAMSES</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../interfaces.html">3. RAMSES Interface</a> &raquo;</li>
+        
+          <li><a href="PyRAMSES.html">3.3. Python Interface</a> &raquo;</li>
+        
+      <li>3.3.5. Documentation of the Code</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="documentation-of-the-code">
+<span id="code"></span><h1>3.3.5. Documentation of the Code<a class="headerlink" href="#documentation-of-the-code" title="Permalink to this headline">¶</a></h1>
+<p>The following documentation is extracted automatically from the docstring inside the python files of the PyRAMSES module.</p>
+<div class="section" id="simulator">
+<span id="code-simulator-doc"></span><h2>3.3.5.1. Simulator<a class="headerlink" href="#simulator" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="PyRAMSES.sim">
+<em class="property">class </em><code class="descclassname">PyRAMSES.</code><code class="descname">sim</code><a class="reference internal" href="../../_modules/PyRAMSES/simulator.html#sim"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.sim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simulation class.</p>
+<dl class="method">
+<dt id="PyRAMSES.sim.addDisturb">
+<code class="descname">addDisturb</code><span class="sig-paren">(</span><em>t_dist</em>, <em>disturb</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/simulator.html#sim.addDisturb"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.sim.addDisturb" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a new disturbance at a specific time. Follows the same structure as the disturbances in the dst files.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>t_dist</strong> (<a class="reference external" href="https://docs.python.org/3.7/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – time of the disturbance</li>
+<li><strong>disturb</strong> (<a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – description of disturbance</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">sim</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">case</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">(</span><span class="s2">&quot;cmd.txt&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">execSim</span><span class="p">(</span><span class="n">case</span><span class="p">,</span> <span class="mf">80.0</span><span class="p">)</span> <span class="c1"># simulate until 80 seconds and pause</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">addDisturb</span><span class="p">(</span><span class="mf">100.000</span><span class="p">,</span> <span class="s1">&#39;CHGPRM DCTL 1-1041  Vsetpt -0.05 0&#39;</span><span class="p">)</span> <span class="c1"># Decrease the setpoint of the DCTL by 0.015 pu, at t=100 s</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">addDisturb</span><span class="p">(</span><span class="mf">100.000</span><span class="p">,</span> <span class="s1">&#39;CHGPRM DCTL 2-1042  Vsetpt -0.05 0&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">addDisturb</span><span class="p">(</span><span class="mf">100.000</span><span class="p">,</span> <span class="s1">&#39;CHGPRM DCTL 3-1043  Vsetpt -0.05 0&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">addDisturb</span><span class="p">(</span><span class="mf">100.000</span><span class="p">,</span> <span class="s1">&#39;CHGPRM DCTL 4-1044  Vsetpt -0.05 0&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">addDisturb</span><span class="p">(</span><span class="mf">100.000</span><span class="p">,</span> <span class="s1">&#39;CHGPRM DCTL 5-1045  Vsetpt -0.05 0&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">contSim</span><span class="p">(</span><span class="n">ram</span><span class="o">.</span><span class="n">getInfTime</span><span class="p">())</span> <span class="c1"># continue the simulation</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="PyRAMSES.sim.addObserv">
+<code class="descname">addObserv</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/simulator.html#sim.addObserv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.sim.addObserv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add an element to be observed</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>string</strong> (<a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – the element with proper format</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">sim</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">case</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">(</span><span class="s2">&quot;cmd.txt&quot;</span><span class="p">)</span> <span class="c1"># command file without any observables</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">execSim</span><span class="p">(</span><span class="n">case</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="c1"># start</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">traj_filenm</span> <span class="o">=</span> <span class="s1">&#39;obs.trj&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">initObserv</span><span class="p">(</span><span class="n">traj_filenm</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span> <span class="o">=</span> <span class="s1">&#39;BUS *&#39;</span> <span class="c1"># monitor all buses</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">addObserv</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="PyRAMSES.sim.contSim">
+<code class="descname">contSim</code><span class="sig-paren">(</span><em>pause=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/simulator.html#sim.contSim"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.sim.contSim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Continue the simulation until the given time.</p>
+<p>The pause argument is optional and it gives the time until the simulation will stop.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="PyRAMSES.sim.defineSS">
+<code class="descname">defineSS</code><span class="sig-paren">(</span><em>ssID</em>, <em>filter1</em>, <em>filter2</em>, <em>filter3</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/simulator.html#sim.defineSS"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.sim.defineSS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define a subsytem using three filters. The resulting list is an intersection of the filters.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>ssID</strong> (<a class="reference external" href="https://docs.python.org/3.7/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Number of the SS</li>
+<li><strong>filter1</strong> (<em>list of str</em><em> or </em><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Voltage levels to be included</li>
+<li><strong>filter2</strong> (<em>list of str</em><em> or </em><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Zones (which zone/zones will be included)</li>
+<li><strong>filter3</strong> (<em>list of str</em><em> or </em><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Bus names to be included</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">sim</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">case</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">(</span><span class="s2">&quot;cmd.txt&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">execSim</span><span class="p">(</span><span class="n">case</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">defineSS</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;735&#39;</span><span class="p">],</span> <span class="p">[],</span> <span class="p">[])</span> <span class="c1"># SS 1 with all buses at 735 kV, no zones, no list of buses</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">An empty filter means it is deactivated and discarded.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="PyRAMSES.sim.endSim">
+<code class="descname">endSim</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/simulator.html#sim.endSim"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.sim.endSim" title="Permalink to this definition">¶</a></dt>
+<dd><p>End the simulation</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="PyRAMSES.sim.execSim">
+<code class="descname">execSim</code><span class="sig-paren">(</span><em>cmd</em>, <em>pause=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/simulator.html#sim.execSim"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.sim.execSim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run a simulation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>cmd</strong> (type(<a class="reference internal" href="#PyRAMSES.cfg" title="PyRAMSES.cfg"><code class="xref py py-class docutils literal notranslate"><span class="pre">cfg</span></code></a>)) – provides the case description</li>
+<li><strong>t_pause</strong> (<a class="reference external" href="https://docs.python.org/3.7/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – pause time (optional). If not given, the simulation will run until the end as discribed in the dst file.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you have an existing command file, you can pass it to the simulator as PyRAMSES.cfg(“cmd.txt”)</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="PyRAMSES.sim.finalObserv">
+<code class="descname">finalObserv</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/simulator.html#sim.finalObserv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.sim.finalObserv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finalize observable selection, allocate buffer, and write header of trajectory file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">sim</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">case</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">(</span><span class="s2">&quot;cmd.txt&quot;</span><span class="p">)</span> <span class="c1"># command file without any observables</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">execSim</span><span class="p">(</span><span class="n">case</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="c1"># start</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">traj_filenm</span> <span class="o">=</span> <span class="s1">&#39;obs.trj&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">initObserv</span><span class="p">(</span><span class="n">traj_filenm</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">string</span> <span class="o">=</span> <span class="s1">&#39;BUS *&#39;</span> <span class="c1"># monitor all buses</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">addObserv</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">finalObserv</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="PyRAMSES.sim.getAllCompNames">
+<code class="descname">getAllCompNames</code><span class="sig-paren">(</span><em>comp_type</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/simulator.html#sim.getAllCompNames"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.sim.getAllCompNames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get list of all components of comp_type</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>comp_type</strong> (<a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – the component type (BUS, SYNC, INJ, DCTL, BRANCH, TWOP, SHUNT, LOAD)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">list of component names</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list of str</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">sim</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">case</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">(</span><span class="s2">&quot;cmd.txt&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">execSim</span><span class="p">(</span><span class="n">case</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># start simulation paused</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">getAllCompNames</span><span class="p">(</span><span class="s2">&quot;BUS&quot;</span><span class="p">)</span>
+<span class="go">[&#39;B1&#39;,</span>
+<span class="go">&#39;B2&#39;,</span>
+<span class="go">&#39;B3&#39;]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="PyRAMSES.sim.getBusPha">
+<code class="descname">getBusPha</code><span class="sig-paren">(</span><em>busNames</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/simulator.html#sim.getBusPha"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.sim.getBusPha" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the voltage phase of a list of buses</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>busNames</strong> (<em>list of str</em>) – the names of buses</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">list of bus voltage phase</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list of floats</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">sim</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">case</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">(</span><span class="s2">&quot;cmd.txt&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">execSim</span><span class="p">(</span><span class="n">case</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">)</span> <span class="c1"># simulate until 10 seconds and pause</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">buses</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;g1&#39;</span><span class="p">,</span><span class="s1">&#39;g2&#39;</span><span class="p">,</span><span class="s1">&#39;g3&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">getBusPha</span><span class="p">(</span><span class="n">buses</span><span class="p">)</span>
+<span class="go">[0.0000000000000000,</span>
+<span class="go"> 10.0615442362180327,</span>
+<span class="go"> 11.064702686997689]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="PyRAMSES.sim.getBusVolt">
+<code class="descname">getBusVolt</code><span class="sig-paren">(</span><em>busNames</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/simulator.html#sim.getBusVolt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.sim.getBusVolt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the voltage magnitude of a list of buses</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>busNames</strong> (<em>list of str</em>) – the names of buses</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">list of bus voltage magnitudes</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list of floats</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">sim</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">case</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">(</span><span class="s2">&quot;cmd.txt&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">execSim</span><span class="p">(</span><span class="n">case</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">)</span> <span class="c1"># simulate until 10 seconds and pause</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">buses</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;g1&#39;</span><span class="p">,</span><span class="s1">&#39;g2&#39;</span><span class="p">,</span><span class="s1">&#39;g3&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">getBusVolt</span><span class="p">(</span><span class="n">buses</span><span class="p">)</span>
+<span class="go">[1.0736851673414456,</span>
+<span class="go"> 1.0615442362180327,</span>
+<span class="go"> 1.064702686997689]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="PyRAMSES.sim.getCompName">
+<code class="descname">getCompName</code><span class="sig-paren">(</span><em>comp_type</em>, <em>num</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/simulator.html#sim.getCompName"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.sim.getCompName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the name of the num <sup>th</sup> component of type comp_type.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>comp_type</strong> (<a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – the component type (BUS, SYNC, INJ, DCTL, BRANCH, TWOP, SHUNT, LOAD)</li>
+<li><strong>num</strong> (<a class="reference external" href="https://docs.python.org/3.7/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – The number of the component to be fetched</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The component name</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">srt</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">sim</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">case</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">(</span><span class="s2">&quot;cmd.txt&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">execSim</span><span class="p">(</span><span class="n">case</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># start simulation paused</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">getCompName</span><span class="p">(</span><span class="s2">&quot;BUS&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">&#39;B1&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="PyRAMSES.sim.getEndSim">
+<code class="descname">getEndSim</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/simulator.html#sim.getEndSim"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.sim.getEndSim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the simulation has ended</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">0 -&gt; simulation is still working, 1 -&gt; simulation has ended</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">integer</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="PyRAMSES.sim.getInfTime">
+<code class="descname">getInfTime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/simulator.html#sim.getInfTime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.sim.getInfTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the maximum representable double from the simulator ()</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">maximum representable double</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.7/library/functions.html#float" title="(in Python v3.7)">float</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="PyRAMSES.sim.getObs">
+<code class="descname">getObs</code><span class="sig-paren">(</span><em>comp_type</em>, <em>comp_name</em>, <em>obs_name</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/simulator.html#sim.getObs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.sim.getObs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of a named observable</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>comp_type</strong> (<em>list of str</em>) – the types of components (EXC, TOR, INJ, DCTL, TWOP)</li>
+<li><strong>comp_name</strong> (<em>list of str</em>) – the names of components</li>
+<li><strong>obs_name</strong> (<em>list of str</em>) – the names of observables</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">list of observable values</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">list of floats</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">sim</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">case</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">(</span><span class="s2">&quot;cmd.txt&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">execSim</span><span class="p">(</span><span class="n">case</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">)</span> <span class="c1"># simulate until 10 seconds and pause</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">comp_type</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;INJ&#39;</span><span class="p">,</span><span class="s1">&#39;EXC&#39;</span><span class="p">,</span><span class="s1">&#39;TOR&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">comp_name</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;L_11&#39;</span><span class="p">,</span><span class="s1">&#39;g2&#39;</span><span class="p">,</span><span class="s1">&#39;g3&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">obs_name</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;P&#39;</span><span class="p">,</span><span class="s1">&#39;vf&#39;</span><span class="p">,</span><span class="s1">&#39;Pm&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">getObs</span><span class="p">(</span><span class="n">comp_type</span><span class="p">,</span><span class="n">comp_name</span><span class="p">,</span> <span class="n">obs_name</span><span class="p">)</span>
+<span class="go">[199.73704732259995,</span>
+<span class="go">1.3372945282585218,</span>
+<span class="go">0.816671075203357]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="PyRAMSES.sim.getPrm">
+<code class="descname">getPrm</code><span class="sig-paren">(</span><em>comp_type</em>, <em>comp_name</em>, <em>prm_name</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/simulator.html#sim.getPrm"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.sim.getPrm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the value of a named parameter</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>comp_type</strong> (<em>list of str</em>) – the types of components (EXC, TOR, INJ, DCTL, TWOP)</li>
+<li><strong>comp_name</strong> (<em>list of str</em>) – the names of components</li>
+<li><strong>prm_name</strong> (<em>list of str</em>) – the names of parameters</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">list of parameter values</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">list of floats</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">sim</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">case</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">(</span><span class="s2">&quot;cmd.txt&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">execSim</span><span class="p">(</span><span class="n">case</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">)</span> <span class="c1"># simulate until 10 seconds and pause</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">comp_type</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;EXC&#39;</span><span class="p">,</span><span class="s1">&#39;EXC&#39;</span><span class="p">,</span><span class="s1">&#39;EXC&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">comp_name</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;g1&#39;</span><span class="p">,</span><span class="s1">&#39;g2&#39;</span><span class="p">,</span><span class="s1">&#39;g3&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">prm_name</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;V0&#39;</span><span class="p">,</span><span class="s1">&#39;V0&#39;</span><span class="p">,</span><span class="s1">&#39;V0&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">getPrm</span><span class="p">(</span><span class="n">comp_type</span><span class="p">,</span><span class="n">comp_name</span><span class="p">,</span> <span class="n">prm_name</span><span class="p">)</span>
+<span class="go">[1.0736851673414456,</span>
+<span class="go"> 1.0615442362180327,</span>
+<span class="go"> 1.064702686997689]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="PyRAMSES.sim.getPrmNames">
+<code class="descname">getPrmNames</code><span class="sig-paren">(</span><em>comp_type</em>, <em>comp_name</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/simulator.html#sim.getPrmNames"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.sim.getPrmNames" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the named parameters of a model</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>comp_type</strong> (<em>list of str</em><em> or </em><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – the types of components (EXC, TOR, INJ, DCTL, TWOP)</li>
+<li><strong>comp_name</strong> (<em>list of str</em><em> or </em><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – the names of component instances</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">list of parameter names</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">list of lists of strings</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">sim</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">case</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">(</span><span class="s2">&quot;cmd.txt&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">execSim</span><span class="p">(</span><span class="n">case</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="c1"># initialize and wait</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">comp_type</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;EXC&#39;</span><span class="p">,</span><span class="s1">&#39;EXC&#39;</span><span class="p">,</span><span class="s1">&#39;EXC&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">comp_name</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;g1&#39;</span><span class="p">,</span><span class="s1">&#39;g2&#39;</span><span class="p">,</span><span class="s1">&#39;g3&#39;</span><span class="p">]</span> <span class="c1"># name of synchronous machines</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">getPrmNames</span><span class="p">(</span><span class="n">comp_type</span><span class="p">,</span><span class="n">comp_name</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="PyRAMSES.sim.getSS">
+<code class="descname">getSS</code><span class="sig-paren">(</span><em>ssID</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/simulator.html#sim.getSS"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.sim.getSS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve the buses of a subsytem.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ssID</strong> (<a class="reference external" href="https://docs.python.org/3.7/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Number of the SS</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">list of buses</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list of str</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">sim</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">case</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">(</span><span class="s2">&quot;cmd.txt&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">execSim</span><span class="p">(</span><span class="n">case</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">defineSS</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;735&#39;</span><span class="p">],</span> <span class="p">[],</span> <span class="p">[])</span> <span class="c1"># SS 1 with all buses at 735 kV</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">getSS</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># get list of buses in SS 1</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="PyRAMSES.sim.getSimTime">
+<code class="descname">getSimTime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/simulator.html#sim.getSimTime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.sim.getSimTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current simulation time</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">current simulation time in RAMSES.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.7/library/functions.html#float" title="(in Python v3.7)">float</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="PyRAMSES.sim.getTrfoSS">
+<code class="descname">getTrfoSS</code><span class="sig-paren">(</span><em>ssID</em>, <em>location</em>, <em>in_service</em>, <em>rettype</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/simulator.html#sim.getTrfoSS"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.sim.getTrfoSS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve transformer information of subsystem after applying some filters</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>ssID</strong> (<a class="reference external" href="https://docs.python.org/3.7/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – Number of the SS</li>
+<li><strong>location</strong> (<a class="reference external" href="https://docs.python.org/3.7/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – 1 – both buses inside SS, 2 - tie transformers, 3 – 1 &amp; 2</li>
+<li><strong>in_service</strong> (<a class="reference external" href="https://docs.python.org/3.7/library/functions.html#int" title="(in Python v3.7)"><em>int</em></a>) – 1 – transformers in service, 2 - all transformers</li>
+<li><strong>rettype</strong> (<a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Type of response (NAME, From, To, Status, Tap, Currentf, Currentt, Pf, Qf, Pt, Qt).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">list of transformer names</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">list of str</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">sim</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">case</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">(</span><span class="s2">&quot;cmd.txt&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">execSim</span><span class="p">(</span><span class="n">case</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">defineSS</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;735&#39;</span><span class="p">],</span> <span class="p">[],</span> <span class="p">[])</span> <span class="c1"># SS 1 with all buses at 735 kV</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">getTrfoSS</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;Status&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Tap is not implemented yet.</p>
+</div>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">Implement Taps after discussing with Lester.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="PyRAMSES.sim.initObserv">
+<code class="descname">initObserv</code><span class="sig-paren">(</span><em>traj_filenm</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/simulator.html#sim.initObserv"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.sim.initObserv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize observable selection (structure and trajectory file)</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>traj_filenm</strong> (<a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – the file to save the trajectory at</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">sim</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">case</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">(</span><span class="s2">&quot;cmd.txt&quot;</span><span class="p">)</span> <span class="c1"># command file without any observables</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">execSim</span><span class="p">(</span><span class="n">case</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="c1"># start</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">traj_filenm</span> <span class="o">=</span> <span class="s1">&#39;obs.trj&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ram</span><span class="o">.</span><span class="n">initObserv</span><span class="p">(</span><span class="n">traj_filenm</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="PyRAMSES.sim.pauseSim">
+<code class="descname">pauseSim</code><span class="sig-paren">(</span><em>t_pause</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/simulator.html#sim.pauseSim"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.sim.pauseSim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pause the simulation at the t_pause time</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>t_pause</strong> (<a class="reference external" href="https://docs.python.org/3.7/library/functions.html#float" title="(in Python v3.7)"><em>float</em></a>) – pause time</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="test-case-description">
+<span id="code-cases-doc"></span><h2>3.3.5.2. Test-case description<a class="headerlink" href="#test-case-description" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="PyRAMSES.cfg">
+<em class="property">class </em><code class="descclassname">PyRAMSES.</code><code class="descname">cfg</code><span class="sig-paren">(</span><em>cmd=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/cases.html#cfg"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.cfg" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test case description class.</p>
+<dl class="method">
+<dt id="PyRAMSES.cfg.addCont">
+<code class="descname">addCont</code><span class="sig-paren">(</span><em>afile</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/cases.html#cfg.addCont"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.cfg.addCont" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add contrinuous trace file</p>
+<p>The continuous trace file saves information about the convergence of the solution algorithm
+used inside RAMSES. This is mainly used for debugging reasons and it can slow down the execution
+of the simulation.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>afile</strong> (<a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – the filename. The complete path can be given or a the path relative to the working directory (os.getcwd())</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">case1</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">case1</span><span class="o">.</span><span class="n">addCont</span><span class="p">(</span><span class="s2">&quot;cont.trace&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If the file already exists, it will be ovewritten without warning!</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="PyRAMSES.cfg.addData">
+<code class="descname">addData</code><span class="sig-paren">(</span><em>datafile</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/cases.html#cfg.addData"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.cfg.addData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add datafile in the dataset.</p>
+<p>The data files provide a description of the system to be simulated, along with the solver parameters.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>datafile</strong> (<a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – the filename. The complete path can be given or a the path relative to the working directory (os.getcwd())</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">case1</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">case1</span><span class="o">.</span><span class="n">addData</span><span class="p">(</span><span class="s2">&quot;dyn_A.dat&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">At least one file needs to be added.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="PyRAMSES.cfg.addDisc">
+<code class="descname">addDisc</code><span class="sig-paren">(</span><em>afile</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/cases.html#cfg.addDisc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.cfg.addDisc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add discrete trace file.</p>
+<p>The discrete trace file saves information about the discrete events in the system, these may be
+from the discrete controllers, events in the disturbance file, or from discrete variables inside
+the injector, twoport, torque, or exciter models.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>afile</strong> (<a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – the filename. The complete path can be given or a the path relative to the working directory (os.getcwd())</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">case1</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">case1</span><span class="o">.</span><span class="n">addDisc</span><span class="p">(</span><span class="s2">&quot;disc.trace&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If the file already exists, it will be ovewritten without warning!</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="PyRAMSES.cfg.addDst">
+<code class="descname">addDst</code><span class="sig-paren">(</span><em>dstfile</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/cases.html#cfg.addDst"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.cfg.addDst" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add dstfile in the dstset</p>
+<p>The disturbance file is where the disturbance to be simulated is described</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>dstfile</strong> (<a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – the filename. The complete path can be given or a the path relative to the working directory (os.getcwd())</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">case1</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">case1</span><span class="o">.</span><span class="n">addDst</span><span class="p">(</span><span class="s2">&quot;short.dst&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">A file needs to be provided for the simulation to start.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="PyRAMSES.cfg.addInit">
+<code class="descname">addInit</code><span class="sig-paren">(</span><em>afile</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/cases.html#cfg.addInit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.cfg.addInit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define the file where the simulation initialization will be saved.</p>
+<p>The initialization file is where the simulator will write the initialization procedure output.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>afile</strong> (<a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – the filename. The complete path can be given or a the path relative to the working directory (os.getcwd())</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">case1</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">case1</span><span class="o">.</span><span class="n">addInit</span><span class="p">(</span><span class="s2">&quot;init.trace&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If the file already exists, it will be ovewritten without warning!</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="PyRAMSES.cfg.addObs">
+<code class="descname">addObs</code><span class="sig-paren">(</span><em>ofile</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/cases.html#cfg.addObs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.cfg.addObs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add observables file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ofile</strong> (<a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – the filename. The complete path can be given or a the path relative to the working directory (os.getcwd())</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">case1</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">case1</span><span class="o">.</span><span class="n">addObs</span><span class="p">(</span><span class="s2">&quot;obs.dat&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="PyRAMSES.cfg.addOut">
+<code class="descname">addOut</code><span class="sig-paren">(</span><em>afile</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/cases.html#cfg.addOut"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.cfg.addOut" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define the file where the simulation output will be saved.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>afile</strong> (<a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – the filename. The complete path can be given or a the path relative to the working directory (os.getcwd())</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">case1</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">case1</span><span class="o">.</span><span class="n">addOut</span><span class="p">(</span><span class="s2">&quot;output.trace&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If the file already exists, the output will be appended to that file.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="PyRAMSES.cfg.addRunObs">
+<code class="descname">addRunObs</code><span class="sig-paren">(</span><em>runobs</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/cases.html#cfg.addRunObs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.cfg.addRunObs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add runtime observable.</p>
+<p>This defines some states that will be displayed during the simulation using gnuplot.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>runobs</strong> (<a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – Description of runtime observable as defined in the RAMSES userguide</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p class="first">BV BUSNAME: Voltage magnitude of bus:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">case</span><span class="o">.</span><span class="n">addRunObs</span><span class="p">(</span><span class="s1">&#39;BV 1041&#39;</span><span class="p">)</span> <span class="c1"># observe the bus voltage of bus 1041</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">MS SYNHRONOUS_MACHINE: Synchronous speed of machine:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">case</span><span class="o">.</span><span class="n">addRunObs</span><span class="p">(</span><span class="s1">&#39;MS g1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">RT RT: Real-time vs simulated time plot:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">case</span><span class="o">.</span><span class="n">addRunObs</span><span class="p">(</span><span class="s1">&#39;RT RT&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">BPE/BQE/BPO/BQO BRANCH_NAME: Branch active (P), reactive (Q) power at the origin (O) or extremity (E) of a branch:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">case</span><span class="o">.</span><span class="n">addRunObs</span><span class="p">(</span><span class="s1">&#39;BPE 1041-01&#39;</span><span class="p">)</span> <span class="c1"># active power at the origin of branch 1041-01</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">ON INJECTOR_NAME OBSERVABLE_NAME: Monitor a named observable from an injector</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">case</span><span class="o">.</span><span class="n">addRunObs</span><span class="p">(</span><span class="s1">&#39;ON WT1a Pw&#39;</span><span class="p">)</span> <span class="c1"># observable Pw from injector WT1a</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="PyRAMSES.cfg.addTrj">
+<code class="descname">addTrj</code><span class="sig-paren">(</span><em>afile</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/cases.html#cfg.addTrj"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.cfg.addTrj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add trajectory file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>afile</strong> (<a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – the filename. The complete path can be given or a the path relative to the working directory (os.getcwd())</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Example:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">PyRAMSES</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">case1</span> <span class="o">=</span> <span class="n">PyRAMSES</span><span class="o">.</span><span class="n">cfg</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">case1</span><span class="o">.</span><span class="n">addTrj</span><span class="p">(</span><span class="s2">&quot;output.trj&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If the file already exists, it will be ovewritten without warning!</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="PyRAMSES.cfg.clearData">
+<code class="descname">clearData</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/cases.html#cfg.clearData"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.cfg.clearData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Empty the dataset</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="PyRAMSES.cfg.clearDisc">
+<code class="descname">clearDisc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/cases.html#cfg.clearDisc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.cfg.clearDisc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear discrete trace file</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="PyRAMSES.cfg.clearDst">
+<code class="descname">clearDst</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/cases.html#cfg.clearDst"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.cfg.clearDst" title="Permalink to this definition">¶</a></dt>
+<dd><p>Empty the dstset</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="PyRAMSES.cfg.clearRunObs">
+<code class="descname">clearRunObs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/cases.html#cfg.clearRunObs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.cfg.clearRunObs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear runtime observables</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="PyRAMSES.cfg.delData">
+<code class="descname">delData</code><span class="sig-paren">(</span><em>datafile</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/cases.html#cfg.delData"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.cfg.delData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a specific datafile from dataset</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="PyRAMSES.cfg.getCont">
+<code class="descname">getCont</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/cases.html#cfg.getCont"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.cfg.getCont" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return contrinuous trace file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">name of file</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(in Python v3.7)">str</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="PyRAMSES.cfg.getData">
+<code class="descname">getData</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/cases.html#cfg.getData"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.cfg.getData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get datafile list</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">list of data file names</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#list" title="(in Python v3.7)">list</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="PyRAMSES.cfg.getDisc">
+<code class="descname">getDisc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/cases.html#cfg.getDisc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.cfg.getDisc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return discrete trace file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">name of discrete trace file</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(in Python v3.7)">str</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="PyRAMSES.cfg.getDst">
+<code class="descname">getDst</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/cases.html#cfg.getDst"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.cfg.getDst" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get disturbance</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">name of disturbance file</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(in Python v3.7)">str</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="PyRAMSES.cfg.getInit">
+<code class="descname">getInit</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/cases.html#cfg.getInit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.cfg.getInit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return initialization trace file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">name of file</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(in Python v3.7)">str</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="PyRAMSES.cfg.getObs">
+<code class="descname">getObs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/cases.html#cfg.getObs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.cfg.getObs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get observables file name</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">name of observables file</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(in Python v3.7)">str</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="PyRAMSES.cfg.getOut">
+<code class="descname">getOut</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/cases.html#cfg.getOut"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.cfg.getOut" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return output trace file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">name of file</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(in Python v3.7)">str</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="PyRAMSES.cfg.getTrj">
+<code class="descname">getTrj</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/cases.html#cfg.getTrj"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.cfg.getTrj" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return trajectory file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">name of file</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(in Python v3.7)">str</a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="PyRAMSES.cfg.writeCmdFile">
+<code class="descname">writeCmdFile</code><span class="sig-paren">(</span><em>userFile=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/PyRAMSES/cases.html#cfg.writeCmdFile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#PyRAMSES.cfg.writeCmdFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write command file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>userFile</strong> (<a class="reference external" href="https://docs.python.org/3.7/library/stdtypes.html#str" title="(in Python v3.7)"><em>str</em></a>) – The filename to write to (Optional). The complete path can be given or
+a the path relative to the working directory (os.getcwd()). If a file is not given, then a
+temporary is created and deleted when the object is destroyed.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="examples.html" class="btn btn-neutral" title="3.3.4. Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Petros Aristidou
+      Last updated on Nov 19, 2018.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../',
+              VERSION:'4',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

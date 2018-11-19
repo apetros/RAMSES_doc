@@ -162,7 +162,7 @@
 <span class="n">warnings</span><span class="o">.</span><span class="n">showwarning</span> <span class="o">=</span> <span class="n">CustomWarning</span>
 
 
-<div class="viewcode-block" id="cfg"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.cfg">[docs]</a><span class="k">class</span> <span class="nc">cfg</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="viewcode-block" id="cfg"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.cfg">[docs]</a><span class="k">class</span> <span class="nc">cfg</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Test case description class.&quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmd</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -241,7 +241,7 @@
             <span class="k">except</span> <span class="ne">IOError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">IOError</span><span class="p">(</span><span class="s2">&quot;RAMSES: I/O error(</span><span class="si">{0}</span><span class="s2">): </span><span class="si">{1}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">errno</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">strerror</span><span class="p">))</span>
 
-<div class="viewcode-block" id="cfg.writeCmdFile"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.cfg.writeCmdFile">[docs]</a>    <span class="k">def</span> <span class="nf">writeCmdFile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">userFile</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="cfg.writeCmdFile"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.cfg.writeCmdFile">[docs]</a>    <span class="k">def</span> <span class="nf">writeCmdFile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">userFile</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Write command file.</span>
 
 <span class="sd">        :param str userFile: The filename to write to (Optional). The complete path can be given or</span>
@@ -294,7 +294,7 @@
     <span class="k">def</span> <span class="nf">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">silentremove</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_cmdfile</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 
-<div class="viewcode-block" id="cfg.addInit"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.cfg.addInit">[docs]</a>    <span class="k">def</span> <span class="nf">addInit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">afile</span><span class="p">):</span>
+<div class="viewcode-block" id="cfg.addInit"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.cfg.addInit">[docs]</a>    <span class="k">def</span> <span class="nf">addInit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">afile</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Define the file where the simulation initialization will be saved.</span>
 <span class="sd">        </span>
 <span class="sd">        The initialization file is where the simulator will write the initialization procedure output.</span>
@@ -314,7 +314,7 @@
             <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;The file </span><span class="si">%s</span><span class="s1"> already exists. It will be overwritten!&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">afile</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_init</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">afile</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="cfg.getInit"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.cfg.getInit">[docs]</a>    <span class="k">def</span> <span class="nf">getInit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="cfg.getInit"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.cfg.getInit">[docs]</a>    <span class="k">def</span> <span class="nf">getInit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Return initialization trace file</span>
 <span class="sd">        </span>
 <span class="sd">        :returns: name of file</span>
@@ -326,7 +326,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="s1">&#39;&#39;</span></div>
 
-<div class="viewcode-block" id="cfg.addOut"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.cfg.addOut">[docs]</a>    <span class="k">def</span> <span class="nf">addOut</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">afile</span><span class="p">):</span>
+<div class="viewcode-block" id="cfg.addOut"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.cfg.addOut">[docs]</a>    <span class="k">def</span> <span class="nf">addOut</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">afile</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Define the file where the simulation output will be saved.</span>
 
 <span class="sd">        :param str afile: the filename. The complete path can be given or a the path relative to the working directory (os.getcwd())</span>
@@ -342,7 +342,7 @@
         <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_out</span><span class="p">[:]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">afile</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="cfg.getOut"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.cfg.getOut">[docs]</a>    <span class="k">def</span> <span class="nf">getOut</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="cfg.getOut"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.cfg.getOut">[docs]</a>    <span class="k">def</span> <span class="nf">getOut</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Return output trace file</span>
 <span class="sd">        </span>
 <span class="sd">        :returns: name of file</span>
@@ -354,7 +354,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="s1">&#39;&#39;</span></div>
 
-<div class="viewcode-block" id="cfg.addCont"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.cfg.addCont">[docs]</a>    <span class="k">def</span> <span class="nf">addCont</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">afile</span><span class="p">):</span>
+<div class="viewcode-block" id="cfg.addCont"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.cfg.addCont">[docs]</a>    <span class="k">def</span> <span class="nf">addCont</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">afile</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Add contrinuous trace file</span>
 <span class="sd">        </span>
 <span class="sd">        The continuous trace file saves information about the convergence of the solution algorithm</span>
@@ -376,7 +376,7 @@
             <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;The file </span><span class="si">%s</span><span class="s1"> already exists. It will be overwritten!&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">afile</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_cont</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">afile</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="cfg.getCont"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.cfg.getCont">[docs]</a>    <span class="k">def</span> <span class="nf">getCont</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="cfg.getCont"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.cfg.getCont">[docs]</a>    <span class="k">def</span> <span class="nf">getCont</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Return contrinuous trace file</span>
 <span class="sd">        </span>
 <span class="sd">        :returns: name of file</span>
@@ -388,7 +388,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="s1">&#39;&#39;</span></div>
 
-<div class="viewcode-block" id="cfg.addTrj"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.cfg.addTrj">[docs]</a>    <span class="k">def</span> <span class="nf">addTrj</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">afile</span><span class="p">):</span>
+<div class="viewcode-block" id="cfg.addTrj"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.cfg.addTrj">[docs]</a>    <span class="k">def</span> <span class="nf">addTrj</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">afile</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Add trajectory file</span>
 
 <span class="sd">        :param str afile: the filename. The complete path can be given or a the path relative to the working directory (os.getcwd())</span>
@@ -406,7 +406,7 @@
             <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;The file </span><span class="si">%s</span><span class="s1"> already exists. It will be overwritten!&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">afile</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_trj</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">afile</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="cfg.getTrj"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.cfg.getTrj">[docs]</a>    <span class="k">def</span> <span class="nf">getTrj</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="cfg.getTrj"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.cfg.getTrj">[docs]</a>    <span class="k">def</span> <span class="nf">getTrj</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Return trajectory file</span>
 <span class="sd">        </span>
 <span class="sd">        :returns: name of file</span>
@@ -418,7 +418,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="s1">&#39;&#39;</span></div>
 
-<div class="viewcode-block" id="cfg.addDisc"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.cfg.addDisc">[docs]</a>    <span class="k">def</span> <span class="nf">addDisc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">afile</span><span class="p">):</span>
+<div class="viewcode-block" id="cfg.addDisc"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.cfg.addDisc">[docs]</a>    <span class="k">def</span> <span class="nf">addDisc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">afile</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Add discrete trace file.</span>
 <span class="sd">        </span>
 <span class="sd">        The discrete trace file saves information about the discrete events in the system, these may be</span>
@@ -440,13 +440,13 @@
             <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;The file </span><span class="si">%s</span><span class="s1"> already exists. It will be overwritten!&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">afile</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_disc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">afile</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="cfg.clearDisc"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.cfg.clearDisc">[docs]</a>    <span class="k">def</span> <span class="nf">clearDisc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="cfg.clearDisc"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.cfg.clearDisc">[docs]</a>    <span class="k">def</span> <span class="nf">clearDisc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Clear discrete trace file</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_disc</span><span class="p">[:]</span></div>
 
-<div class="viewcode-block" id="cfg.getDisc"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.cfg.getDisc">[docs]</a>    <span class="k">def</span> <span class="nf">getDisc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="cfg.getDisc"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.cfg.getDisc">[docs]</a>    <span class="k">def</span> <span class="nf">getDisc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Return discrete trace file</span>
 <span class="sd">        </span>
 <span class="sd">        :returns: name of discrete trace file</span>
@@ -458,7 +458,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="s1">&#39;&#39;</span></div>
 
-<div class="viewcode-block" id="cfg.addRunObs"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.cfg.addRunObs">[docs]</a>    <span class="k">def</span> <span class="nf">addRunObs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">runobs</span><span class="p">):</span>
+<div class="viewcode-block" id="cfg.addRunObs"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.cfg.addRunObs">[docs]</a>    <span class="k">def</span> <span class="nf">addRunObs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">runobs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Add runtime observable.</span>
 <span class="sd">        </span>
 <span class="sd">        This defines some states that will be displayed during the simulation using gnuplot.</span>
@@ -495,13 +495,13 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;Gnuplot is not the path, so runtime observables are disabled.&#39;</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="cfg.clearRunObs"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.cfg.clearRunObs">[docs]</a>    <span class="k">def</span> <span class="nf">clearRunObs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="cfg.clearRunObs"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.cfg.clearRunObs">[docs]</a>    <span class="k">def</span> <span class="nf">clearRunObs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Clear runtime observables</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_runobs</span><span class="p">[:]</span></div>
 
-<div class="viewcode-block" id="cfg.addObs"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.cfg.addObs">[docs]</a>    <span class="k">def</span> <span class="nf">addObs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ofile</span><span class="p">):</span>
+<div class="viewcode-block" id="cfg.addObs"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.cfg.addObs">[docs]</a>    <span class="k">def</span> <span class="nf">addObs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ofile</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Add observables file</span>
 
 <span class="sd">        :param str ofile: the filename. The complete path can be given or a the path relative to the working directory (os.getcwd())</span>
@@ -519,7 +519,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">IOError</span><span class="p">(</span><span class="s1">&#39;RAMSES: The observables file </span><span class="si">%s</span><span class="s1"> does not exist or is not valid.&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">ofile</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="cfg.getObs"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.cfg.getObs">[docs]</a>    <span class="k">def</span> <span class="nf">getObs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="cfg.getObs"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.cfg.getObs">[docs]</a>    <span class="k">def</span> <span class="nf">getObs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Get observables file name</span>
 <span class="sd">        </span>
 <span class="sd">        :returns: name of observables file</span>
@@ -531,7 +531,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="s1">&#39;&#39;</span></div>
 
-<div class="viewcode-block" id="cfg.addData"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.cfg.addData">[docs]</a>    <span class="k">def</span> <span class="nf">addData</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">datafile</span><span class="p">):</span>
+<div class="viewcode-block" id="cfg.addData"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.cfg.addData">[docs]</a>    <span class="k">def</span> <span class="nf">addData</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">datafile</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Add datafile in the dataset.</span>
 <span class="sd">        </span>
 <span class="sd">        The data files provide a description of the system to be simulated, along with the solver parameters.</span>
@@ -552,7 +552,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">IOError</span><span class="p">(</span><span class="s1">&#39;RAMSES: The datafile </span><span class="si">%s</span><span class="s1"> does not exist or is not valid.&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">datafile</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="cfg.getData"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.cfg.getData">[docs]</a>    <span class="k">def</span> <span class="nf">getData</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="cfg.getData"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.cfg.getData">[docs]</a>    <span class="k">def</span> <span class="nf">getData</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Get datafile list</span>
 <span class="sd">        </span>
 <span class="sd">        :returns: list of data file names</span>
@@ -561,20 +561,20 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dataset</span></div>
 
-<div class="viewcode-block" id="cfg.delData"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.cfg.delData">[docs]</a>    <span class="k">def</span> <span class="nf">delData</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">datafile</span><span class="p">):</span>
+<div class="viewcode-block" id="cfg.delData"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.cfg.delData">[docs]</a>    <span class="k">def</span> <span class="nf">delData</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">datafile</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Remove a specific datafile from dataset</span>
 <span class="sd">        </span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">datafile</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dataset</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_dataset</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">datafile</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="cfg.clearData"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.cfg.clearData">[docs]</a>    <span class="k">def</span> <span class="nf">clearData</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="cfg.clearData"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.cfg.clearData">[docs]</a>    <span class="k">def</span> <span class="nf">clearData</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Empty the dataset</span>
 <span class="sd">        </span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dataset</span><span class="p">[:]</span></div>
 
-<div class="viewcode-block" id="cfg.addDst"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.cfg.addDst">[docs]</a>    <span class="k">def</span> <span class="nf">addDst</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dstfile</span><span class="p">):</span>
+<div class="viewcode-block" id="cfg.addDst"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.cfg.addDst">[docs]</a>    <span class="k">def</span> <span class="nf">addDst</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dstfile</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Add dstfile in the dstset</span>
 <span class="sd">        </span>
 <span class="sd">        The disturbance file is where the disturbance to be simulated is described</span>
@@ -595,7 +595,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">IOError</span><span class="p">(</span><span class="s1">&#39;RAMSES: The dstfile </span><span class="si">%s</span><span class="s1"> does not exist or is not valid.&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">dstfile</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="cfg.getDst"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.cfg.getDst">[docs]</a>    <span class="k">def</span> <span class="nf">getDst</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="cfg.getDst"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.cfg.getDst">[docs]</a>    <span class="k">def</span> <span class="nf">getDst</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Get disturbance</span>
 <span class="sd">        </span>
 <span class="sd">        :returns: name of disturbance file</span>
@@ -607,7 +607,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="s1">&#39;&#39;</span></div>
 
-<div class="viewcode-block" id="cfg.clearDst"><a class="viewcode-back" href="../../interfaces/PyRAMSES/code_documentation.html#PyRAMSES.cfg.clearDst">[docs]</a>    <span class="k">def</span> <span class="nf">clearDst</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="cfg.clearDst"><a class="viewcode-back" href="../../interfaces/python/code_documentation.html#PyRAMSES.cfg.clearDst">[docs]</a>    <span class="k">def</span> <span class="nf">clearDst</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Empty the dstset</span>
 <span class="sd">        </span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -624,8 +624,8 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, Petros Aristidou.
-      Last updated on Oct 09, 2018.
+        &copy; Copyright 2018, Petros Aristidou
+      Last updated on Nov 19, 2018.
 
     </p>
   </div>
@@ -644,21 +644,24 @@
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../../',
-            VERSION:'4',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../../_static/jquery.js"></script>
-      <script type="text/javascript" src="../../_static/underscore.js"></script>
-      <script type="text/javascript" src="../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../../',
+              VERSION:'4',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
 
   
 

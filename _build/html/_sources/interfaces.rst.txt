@@ -6,6 +6,6 @@ RAMSES Interface
 .. toctree::
    :hidden:
    
-   interfaces/cmd.rst
-   interfaces/gui.rst
-   interfaces/PyRAMSES.rst
+   interfaces/cmd/cmd.rst
+   interfaces/java/gui.rst
+   interfaces/python/PyRAMSES.rst
