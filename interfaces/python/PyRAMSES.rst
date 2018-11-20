@@ -18,4 +18,3 @@ and using PyRAMSES.
    case.rst
    simul.rst
    examples.rst
-   :ref:`PyRAMSES/PyRAMSES.ipynb`
