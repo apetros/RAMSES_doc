@@ -19,4 +19,4 @@ and using PyRAMSES.
    simul.rst
    examples.rst
    :ref:`PyRAMSES/PyRAMSES.ipynb`
-   code_documentation.rst
+..   code_documentation.rst
