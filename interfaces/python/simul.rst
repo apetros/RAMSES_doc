@@ -27,19 +27,19 @@ class are fully documented in :ref:`code_simulator_doc`.
 Start, Pause and progress
 -------------------------
 
-To run a simulation, we first need to setup a proper test case (see :ref:`_use_test_case`). Then we can start the simulation with:
+To run a simulation, we first need to setup a proper test case (see :ref:`_use_test_case`). Then we can start the simulation with::
 
    ram.execSim(case) # start and run until the end of the simulation
 
-If we want to pause the simulation at a particular point, we can use:
+If we want to pause the simulation at a particular point, we can use::
 
    ram.execSim(case, 10.0) # start the simulation and pause at time t=10 seconds
 
-To continue the simulaion and pause at a new point, we use: 
+To continue the simulaion and pause at a new point, we use::
 
    ram.contSim(20.0) # continue simulation until t=20.0 seconds
 
-To simulate until the end:
+To simulate until the end::
 
    ram.contSim(ram.getInfTime()) # simulate until the end (time horizon was reached or an early stop happened due to system violations or collapse)
 
