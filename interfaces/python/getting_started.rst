@@ -29,11 +29,13 @@ which should give something like::
 Installing PyRAMSES
 ===================
 
-You may already have PyRAMSES installed -- you can check by doing::
+Install the latest version with::
+
+  conda install PyRAMSES -c apetros
+  
+I suggest you install it in a virtual environment.
+
+You can check the installation with::
 
   python -c 'import PyRAMSES'
 
-If that fails grab the latest version of PyRAMSES module and install it with::
-
-  python setup.py install
-  
