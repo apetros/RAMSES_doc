@@ -8,12 +8,12 @@ A description of the simulation needs to be provided to the simulator.
 Initializing
 ------------
 
-We can initialize an instance of the test-case decriptor by importing PyRAMSES and invoking the :class:`PyRAMSES.cfg` class of PyRAMSES::
+We can initialize an instance of the test-case decriptor by importing pyramses and invoking the :class:`pyramses.cfg` class of pyramses::
 
-   import PyRAMSES   
-   case = PyRAMSES.cfg()
+   import pyramses   
+   case = pyramses.cfg()
 
-The available calls to the :class:`PyRAMSES.cfg` class are fully documented in :ref:`code_cases_doc`. The most important
+The available calls to the :class:`pyramses.cfg` class are fully documented in :ref:`code_cases_doc`. The most important
 are detailed below.
 
 Loading and saving test-case to configuration file
@@ -21,8 +21,8 @@ Loading and saving test-case to configuration file
    
 If a previously saved configuration file exists, it can be used to initialize the descriptor::
 
-   import PyRAMSES   
-   case = PyRAMSES.cfg("cmd.txt") # where cmd.txt is the file with the test-case description
+   import pyramses   
+   case = pyramses.cfg("cmd.txt") # where cmd.txt is the file with the test-case description
 
 Similarly, a test-case can be saved into a configuration file::
 
@@ -30,10 +30,10 @@ Similarly, a test-case can be saved into a configuration file::
    
 Many files can be loaded as follows::
 
-   import PyRAMSES
+   import pyramses
    list_of_cases = []
    for i in range(12):
-      list_of_cases.append(PyRAMSES.cfg('cmd'+str(i)+'.txt')) # loads 12 test-cases from files named 'cmd0.txt', ..., 'cmd11.txt'
+      list_of_cases.append(pyramses.cfg('cmd'+str(i)+'.txt')) # loads 12 test-cases from files named 'cmd0.txt', ..., 'cmd11.txt'
       
 Or saved::
 
@@ -50,7 +50,7 @@ Data files
 ~~~~~~~~~~
 
 The data files provide a description of the system to be simulated, along with the solver parameters. These files have to be defined
-in the :class:`PyRAMSES.cfg` class::
+in the :class:`pyramses.cfg` class::
 
    case.addData('data1.dat')
    case.addData('data2.dat')

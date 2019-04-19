@@ -12,8 +12,8 @@ Running a simulation
 First, the test case should be defined. We assume to open an ipython command window in the folder containing
 the data and disturbance file::
 
-   import PyRAMSES
-   case = PyRAMSES.cfg()
+   import pyramses
+   case = pyramses.cfg()
    case.addOut('output.trace') # save the simulation output
    case.addData('dyn_A.dat') # Dynamic data
    case.addData('volt_rat_A.dat') # power-flow data
@@ -28,7 +28,7 @@ the data and disturbance file::
    
 Next, a simulator instance should be initialized::
 
-   ram = PyRAMSES.sim()
+   ram = pyramses.sim()
    
 Finally, the simulation is executed::
 
@@ -101,7 +101,7 @@ For the syntax of all events you should check the documentation of RAMSES.
 Running multiple simulations in parallel
 ========================================
 
-Simulations can be performed in parallel by using several instances of :class:`PyRAMSES.simulator.sim`. This allows two levels of parallelization.
+Simulations can be performed in parallel by using several instances of :class:`pyramses.simulator.sim`. This allows two levels of parallelization.
 In the Python level, each instance of the simulator should be executed in a different process. In the lower level, inside RAMSES,
 each simulation can be parallelized using the $NBTHREADS solver setting. The latter is implemented with multithreading (OpenMP).
 

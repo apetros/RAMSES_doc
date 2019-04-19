@@ -10,18 +10,16 @@ Welcome to RAMSES documentation! RAMSES is time-domain, dynamic, simulator for f
 Installing runtime libraries
 ============================
 
-The simulator depends on the Intel redistributable libraries. You can install
-the runtime libraries for your system from `Intel <https://software.intel.com/en-us/articles/intelr-composer-redistributable-libraries-by-version>`_.
+The simulator depends on the Intel redistributable libraries. You can install the runtime libraries for your system from `Intel <https://software.intel.com/en-us/articles/intelr-composer-redistributable-libraries-by-version>`_.
 
-Alternatively, you can install [Anaconda Python](https://www.anaconda.com/download/) which come with MKL library installed. Make sure that Anaconda [is added to the path](https://github.com/mGalarnyk/Installations_Mac_Ubuntu_Windows) so that RAMSES can find the file mkl_rt.dll in Windows or mkl_rt.so in Linux.
+Alternatively, and the recommended way, is to install `Anaconda Python <https://www.anaconda.com/download/>`_ which comes with MKL library installed. Make sure that Anaconda `is added to the path <https://github.com/mGalarnyk/Installations_Mac_Ubuntu_Windows>`_ so that RAMSES can find the file mkl_rt.dll in Windows or mkl_rt.so in Linux.
 
 .. _start_install_gnuplot:
 
 Installing Gnuplot
 ==================
 
-To display the runtime observables, gnuplot should be installed and available in the path. You can install
-gnuplot from `the official website <http://www.gnuplot.info/>`_.
+To display the runtime observables, gnuplot should be installed and available in the path. You can install gnuplot from `the official website <http://www.gnuplot.info/>`_.
 
 Under Linux, you can install with your package manager. For example, under Ubuntu or Debian:
 

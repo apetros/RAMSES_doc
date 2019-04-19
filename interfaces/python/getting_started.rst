@@ -9,7 +9,7 @@ Getting started
 Installing Anaconda
 ===================
 
-Although PyRAMSES can work with various Python versions, it has been developed and tested with Anaconda3. This is convenient since it is bundled with Intel MKL, so there is no need to install the libraries separately.
+Although *pyramses* can work with various Python versions, it has been developed and tested with Anaconda3. This is convenient since it is bundled with Intel MKL, so there is no need to install the libraries separately.
 
 To make sure that you have the MKL libraries installed, you can use::
 
@@ -31,11 +31,8 @@ Installing PyRAMSES
 
 Install the latest version with::
 
-  conda install PyRAMSES -c apetros
+  conda install pyramses -c apetros
   
-I suggest you install it in a virtual environment.
-
-You can check the installation with::
-
-  python -c 'import PyRAMSES'
+I suggest you install it in a `virtual environment 
+<https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html>`_ to avoid conflicts with other packages.
 

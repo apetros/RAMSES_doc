@@ -8,4 +8,4 @@ RAMSES Interface
    
    interfaces/cmd/cmd.rst
    interfaces/java/gui.rst
-   interfaces/python/PyRAMSES.rst
+   interfaces/python/pyramses.rst
