@@ -15,7 +15,12 @@
 import sys
 import os
 import shlex
-# import PyRAMSES
+try:
+    import PyRAMSES
+except ImportError:
+    import pyramses
+import os
+
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -57,7 +62,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'RAMSES'
-copyright = u'2018, Petros Aristidou'
+copyright = u'2019, Petros Aristidou'
 author = u'Petros Aristidou'
 
 # The version info for the project you're documenting, acts as replacement for
