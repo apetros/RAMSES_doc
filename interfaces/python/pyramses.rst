@@ -19,3 +19,4 @@ and using pyramses.
    simul.rst
    examples.rst
    code_documentation.rst
+   PyRAMSES.ipynb
