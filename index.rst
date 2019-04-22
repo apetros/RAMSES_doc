@@ -37,9 +37,9 @@ Under Linux, you can install with your package manager. For example, under Ubunt
    :caption: Table of Contents
 
    self
-   data
-   codegen
-   interfaces
+   data/data.rst
+   codegen/codegen.rst
+   interfaces/interfaces.rst
 
    
 
