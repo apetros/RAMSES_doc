@@ -5,6 +5,8 @@ RAMSES
 
 Welcome to RAMSES documentation! RAMSES is time-domain, dynamic, simulator for future electric power systems.
 
+RAMSES is only available under Windows and Linux. Unfortunately, other OS are not supported at the moment.
+
 .. _start_installing-runtime-libraries:
 
 Installing runtime libraries
