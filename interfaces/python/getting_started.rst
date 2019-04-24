@@ -29,6 +29,12 @@ which should give something like::
 Installing PyRAMSES
 ===================
 
+.. image:: https://anaconda.org/apetros/pyramses/badges/version.svg
+.. image:: https://anaconda.org/apetros/pyramses/badges/latest_release_date.svg
+.. image:: https://anaconda.org/apetros/pyramses/badges/platforms.svg
+
+https://anaconda.org/apetros/pyramses/badges/version.svg
+
 Install the latest version with::
 
   conda install pyramses -c apetros
