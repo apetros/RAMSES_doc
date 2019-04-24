@@ -29,9 +29,9 @@ which should give something like::
 Installing PyRAMSES
 ===================
 
-.. image:: https://anaconda.org/apetros/pyramses/badges/version.svg   :target: https://anaconda.org/apetros/pyramses
-.. image:: https://anaconda.org/apetros/pyramses/badges/latest_release_date.svg   :target: https://anaconda.org/apetros/pyramses
-.. image:: https://anaconda.org/apetros/pyramses/badges/platforms.svg   :target: https://anaconda.org/apetros/pyramses
+.. raw:: html
+
+  <a href="https://anaconda.org/apetros/pyramses"> <img src="https://anaconda.org/apetros/pyramses/badges/version.svg" /> </a> <a href="https://anaconda.org/apetros/pyramses"> <img src="https://anaconda.org/apetros/pyramses/badges/platforms.svg" /> </a>
 
 Install the latest version with::
 
