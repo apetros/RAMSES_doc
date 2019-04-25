@@ -21,8 +21,7 @@ To run a simulation, we first need to setup a proper test case (see use_test_cas
 
    ram.execSim(case) # start and run until the end of the simulation
 
-.. autoclass:: pyramses.sim
-   :members: execSim
+.. automethod:: pyramses.sim.execSim
 
 If we want to pause the simulation at a particular point, we can use::
 
