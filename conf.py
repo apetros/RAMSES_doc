@@ -36,13 +36,11 @@ extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.mathjax',
     'sphinx.ext.viewcode',
-    'sphinx.ext.intersphinx',
-    'sphinxcontrib.disqus'
+    'sphinx.ext.intersphinx'
 ]
 
 intersphinx_mapping = {'python': ('https://docs.python.org/3.7', None)}
 
-disqus_shortname = 'paristidou'
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
