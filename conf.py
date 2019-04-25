@@ -37,7 +37,7 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.viewcode',
     'sphinx.ext.intersphinx',
-    'sphinxcontrib-disqus'
+    'sphinxcontrib.disqus'
 ]
 
 intersphinx_mapping = {'python': ('https://docs.python.org/3.7', None)}
