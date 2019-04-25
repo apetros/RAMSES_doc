@@ -15,11 +15,7 @@
 import sys
 import os
 import shlex
-try:
-    import PyRAMSES
-except ImportError:
-    import pyramses
-import os
+import pyramses
 
 
 # If extensions (or modules to document with autodoc) are in another directory,
