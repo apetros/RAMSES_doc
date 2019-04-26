@@ -25,7 +25,7 @@ If we want to pause the simulation at a particular point, we can use::
 
    ram.execSim(case, 10.0) # start the simulation and pause at time t=10 seconds
 
-To continue the simulation and pause at a new point, we use::
+To continue the simulation and pause at a new point, we use :class:`pyramses.sim.contSim`::
 
    ram.contSim(20.0) # continue simulation until t=20.0 seconds
 
@@ -37,7 +37,7 @@ To simulate until the end::
 End simulation
 --------------
 
-To end the simulation without simulating to the end of the time horizon, we can use::
+To end the simulation without simulating to the end of the time horizon, we can use :class:`pyramses.sim.endSim`::
 
    ram.endSim() # end simulation and exit
 
