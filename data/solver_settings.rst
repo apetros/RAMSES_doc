@@ -57,3 +57,33 @@ The following options change how the solver behaves.
 
    :param num: Number of threads. Should be less than the physical cores of your system. Default is 1.
    :type num: int
+
+.. function:: $FIN_DIFFER C1 C2 ;
+
+   Defines numerical differentiation step used for the Jacobian calculations.
+
+   :param C1: constant C1 for numerical evaluation of Jacobian (user-defined blocks). Default 1e-5.
+   :type C1: float
+   :param C2: constant C2 for numerical evaluation of Jacobian. where change in x = max( C1 |x|, C2). Default 1e-5.
+   :type C2: float
+
+.. function:: $SPARSE_SOLVER name ;
+
+   Defines the solver used for the sparse system solution.
+
+   :param name: 'ma41' or 'KLU'. Default is 'KLU'.
+   :type name: str
+
+.. function:: $SKIP_CONV bool ;
+
+   Defines if the converged blocks are skipped to accelerate the simulation.
+
+   :param bool: T of F. Default is F.
+   :type bool: boolean
+
+.. function:: $FULL_UPDATE bool ;
+
+   Defines if the Jacobian matrices will be updated at every iteration.
+
+   :param bool: T of F. Default is F.
+   :type bool: boolean
