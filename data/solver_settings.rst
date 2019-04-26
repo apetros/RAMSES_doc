@@ -94,3 +94,10 @@ List of settings
 
    :param bool: T of F. Default is F.
    :type bool: boolean
+
+.. function:: $DISP_PROF bool ;
+
+   Displays the profiling of the execution to identify the computationally intensive parts.
+
+   :param bool: T of F. Default is F.
+   :type bool: boolean
