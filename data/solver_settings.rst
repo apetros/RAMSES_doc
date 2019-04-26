@@ -3,7 +3,7 @@ Solver settings
 
 The following options change how the solver behaves.
 
-.. confval:: $LATENCY 
+.. confval:: LATENCY 
 
     :type: boolean
     :default: ``True``
