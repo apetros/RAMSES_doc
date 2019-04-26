@@ -1,7 +1,14 @@
 Solver settings
 ===============
 
-The following options change how the solver behaves.
+The following options change how the solver behaves. These should be added to a data file and loaded to the simulation cases through :class:`pyramses.case.addData`. For instance::
+
+   import pyramses   
+   case = pyramses.cfg()
+   case.addData('settings.rdat')
+
+List of settings
+----------------
 
 .. function:: $LATENCY aver_time_window latency_early_stop ;
 
