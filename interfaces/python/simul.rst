@@ -19,7 +19,7 @@ Start, Pause and progress
 
 To run a simulation, we first need to setup a proper test case (see :ref:`use_test_case`). Then we can start the simulation with :class:`pyramses.sim.execSim` ::
 
-   ram.execSim(case) # start and run until the end of the simulation
+   ram.execSim(case) # start and run until the end of the simulation 
 
 If we want to pause the simulation at a particular point, we can use::
 
