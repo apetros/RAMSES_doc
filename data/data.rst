@@ -9,6 +9,6 @@ This is where we show how to setup the data
    :maxdepth: 1
 
    input_data.rst
-   settings.rst
+   solver_settings.rst
    disturbances.rst
    
