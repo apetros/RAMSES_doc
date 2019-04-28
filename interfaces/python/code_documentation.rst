@@ -21,3 +21,11 @@ Test-case description
 
 .. autoclass:: pyramses.cfg
    :members:
+   
+.. _code_extractor_doc:
+   
+Simulation result processing
+============================
+
+.. autoclass:: pyramses.extractor
+   :members:

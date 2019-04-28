@@ -17,5 +17,6 @@ and using pyramses.
    getting_started.rst
    case.rst
    simul.rst
+   extractor.rst
    examples.rst
    code_documentation.rst
