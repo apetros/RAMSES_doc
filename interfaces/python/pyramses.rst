@@ -1,3 +1,5 @@
+.. _py_inter:
+
 Python Interface
 ================
 

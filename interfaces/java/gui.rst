@@ -1,3 +1,5 @@
+.. _gui:
+
 Java Interface
 ==============
 
