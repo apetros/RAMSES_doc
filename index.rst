@@ -41,6 +41,7 @@ Under Linux, you can install with your package manager. For example, under Ubunt
    codegen/codegen.rst
    interfaces/java/gui.rst
    interfaces/python/pyramses.rst
+   LICENSE.rst
 
    
 
