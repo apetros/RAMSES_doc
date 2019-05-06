@@ -38,7 +38,6 @@ which should give something like::
 Installing pyramses
 ===================
 
-
 .. raw:: html
 
   <a href="https://anaconda.org/apetros/pyramses"> <img src="https://anaconda.org/apetros/pyramses/badges/version.svg" /> </a> <a href="https://anaconda.org/apetros/pyramses"> <img src="https://anaconda.org/apetros/pyramses/badges/platforms.svg" /> </a>
