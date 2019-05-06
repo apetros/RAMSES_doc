@@ -57,7 +57,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'RAMSES'
+project = u'PyRAMSES'
 copyright = u'2019, Petros Aristidou'
 author = u'Petros Aristidou'
 
@@ -273,8 +273,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  (master_doc, 'RAMSES', u'RAMSES Documentation',
-   author, 'RAMSES', 'Python library for RAMSES dynamic simulator.',
+  (master_doc, 'PyRAMSES', u'PyRAMSES Documentation',
+   author, 'PyRAMSES', 'Python library for RAMSES dynamic simulator.',
    'Miscellaneous'),
 ]
 

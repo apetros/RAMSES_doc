@@ -1,13 +1,12 @@
 .. _index:
    
-RAMSES
-======
+PyRAMSES
+========
 
-Welcome to RAMSES documentation! RAMSES is time-domain, dynamic, simulator for future electric power systems. RAMSES is only available under Windows and Linux. Unfortunately, other OS are not supported at the moment.
+Welcome to PyRAMSES documentation! RAMSES is time-domain, dynamic, simulator for future electric power systems. RAMSES is only available under Windows and Linux.
 
-RAMSES provides two main ways of running simulations. The first one is through a `Java GUI interface <http://www.montefiore.ulg.ac.be/~vct/software.html>`_. The second method is through a :ref:`py_inter`.
+This website is for with the Python extension of RAMSES, named PyRAMSES. If you are looking for the Java GUI interface, then please head to `Java GUI interface <http://www.montefiore.ulg.ac.be/~vct/software.html>`_.
 
-This website is only considered with the Python extension of RAMSES, named PyRAMSES.
 
 Installing runtime libraries
 ============================

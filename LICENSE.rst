@@ -3,12 +3,12 @@ ACADEMIC PUBLIC LICENSE
 
 Copyright (c) Dr Thierry Van Cutsem (RAMSES) and Dr Petros Aristidou (PyRAMSES). All rights reserved.
 
-The following license governs the use of RAMSES and PyRAMSES in academic and educational environments. For uses outside this scope, or if you are unsure, contact the copyright owners.
+The following license governs the use of PyRAMSES in academic and educational environments. For uses outside this scope, or if you are unsure, contact the copyright owners.
 
 Definitions
 -----------
 
-"Software" means a copy of RAMSES or PyRAMSES, which is distributed under this Academic Public License.
+"Software" means a copy of PyRAMSES, which is distributed under this Academic Public License.
 "Work based on the Software" means either the Software or any derivative work under copyright law: that is to say, a work containing the Software or a portion of it, either verbatim or with modifications.
 "Using the Software" means any act of creating executables that contain or directly use libraries that are part of the Software, running any of the tools that are part of the Software, or creating works based on the Software.
 "You" refers to each licensee.
