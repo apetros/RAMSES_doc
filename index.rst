@@ -9,29 +9,12 @@ RAMSES provides two main ways of running simulations. The first one is through a
 
 This website is only considered with the Python extension of RAMSES, named PyRAMSES.
 
-.. _start_installing-runtime-libraries: 
-
 Installing runtime libraries
 ============================
 
 The simulator depends on the Intel redistributable libraries. You can install the runtime libraries for your system from `Intel <https://software.intel.com/en-us/articles/intelr-composer-redistributable-libraries-by-version>`_.
 
-Alternatively, and the recommended way, is to install `Anaconda Python <https://www.anaconda.com/download/>`_ which comes with MKL library installed. Make sure that Anaconda `is added to the path <https://github.com/mGalarnyk/Installations_Mac_Ubuntu_Windows>`_ so that RAMSES can find the file mkl_rt.dll in Windows or mkl_rt.so in Linux.
-
-.. _start_install_gnuplot:
-
-Installing Gnuplot
-==================
-
-To display the runtime observables, gnuplot should be installed and available in the path. You can install gnuplot from `the official website <http://www.gnuplot.info/>`_.
-
-Under Linux, you can install with your package manager. For example, under Ubuntu or Debian:
-
-.. code-block:: bash
-
-   sudo apt-get install gnuplot-x11
-
-.. _start_installing-Anaconda:
+Alternatively, and the recommended way, is to install `Anaconda Python <https://www.anaconda.com/download/>`_ which comes with MKL library installed. Make sure that Anaconda `is added to the path <https://github.com/mGalarnyk/Installations_Mac_Ubuntu_Windows>`_ so that RAMSES can find the file *mkl_rt.dll* in Windows or *mkl_rt.so* in Linux.
 
 Installing Anaconda
 ===================
@@ -51,10 +34,11 @@ which should give something like::
     define_macros = [('SCIPY_MKL_H', None), ('HAVE_CBLAS', None)]
     include_dirs = ['C:\\Program Files (x86)\\IntelSWTools\\compilers_and_libraries_2016.4.246\\windows\\mkl', 'C:\\Program Files (x86)\\IntelSWTools\\compilers_and_libraries_2016.4.246\\windows\\mkl\\include', 'C:\\Program Files (x86)\\IntelSWTools\\compilers_and_libraries_2016.4.246\\windows\\mkl\\lib', 'C:/Users/eenpar/AppData/Local/Continuum/anaconda3\\Library\\include']
 
-.. _start_installing-PyRAMSES:
+.. _start_installing_pyramses:
 
-Installing PyRAMSES
+Installing pyramses
 ===================
+
 
 .. raw:: html
 
@@ -67,6 +51,21 @@ Install the latest version with::
 I suggest you install it in a `virtual environment 
 <https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html>`_ to avoid conflicts with other packages.
 
+Alternatively, you can install through pypi::
+
+  pip install matplotlib scipy numpy mkl pyramses
+
+
+Installing Gnuplot
+==================
+
+To display the runtime observables, gnuplot should be installed and available in the path. You can install gnuplot from `the official website <http://www.gnuplot.info/>`_.
+
+Under Linux, you can install with your package manager. For example, under Ubuntu or Debian:
+
+.. code-block:: bash
+
+   sudo apt-get install gnuplot-x11
 
 .. toctree::
    :hidden:
@@ -77,7 +76,7 @@ I suggest you install it in a `virtual environment
    self
    data/data.rst
    codegen/codegen.rst
-   interface/python/pyramses.rst
+   interface/pyramses.rst
    LICENSE.rst 
 
    
