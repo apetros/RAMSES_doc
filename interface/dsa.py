@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 """Example of Dynamic Security Assessment (DSA) analysis using PyRAMSES"""
 
-from PyRAMSES import sim, cfg
-from PyRAMSES.globals import RAMSESError
+from pyramses import sim, cfg
+from pyramses.globals import RAMSESError
 import multiprocessing as mp
 import os
 import sys
