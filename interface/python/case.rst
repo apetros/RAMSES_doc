@@ -1,7 +1,7 @@
 .. _use_test_case:
 
-Test-case description
-=====================
+Building a scenario and loading data
+====================================
 
 A description of the simulation needs to be provided to the simulator.
 

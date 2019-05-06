@@ -1,7 +1,7 @@
 .. _use_simulator:
 
-Simulator
-=========
+Running simulations
+===================
 
 Initializing
 ------------
