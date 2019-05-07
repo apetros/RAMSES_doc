@@ -9,8 +9,6 @@ The following options change how the solver behaves. These should be added to a 
    case = pyramses.cfg()
    case.addData('settings.rdat')
 
-List of settings
-----------------
 
 .. function:: $LATENCY aver_time_window latency_early_stop ;
 
