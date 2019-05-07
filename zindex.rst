@@ -82,13 +82,4 @@ Under Linux, you can install with your package manager. For example, under Ubunt
 .. rubric:: Suggested References for RAMSES
 
 .. bibliography:: refs.bib
-   :list: bullet
    :all:
-
-.. [AVC2015]  P. Aristidou, T. Van Cutsem, "A Parallel Processing Approach to Dynamic Simulations of Combined Transmission and Distribution Systems", In International Journal of Electrical Power & Energy Systems, vol. 72, pp. 58-65, 2015.
-
-.. [ALVC2015] P. Aristidou, S. Lebeau, T. Van Cutsem, "Power System Dynamic Simulations using a Parallel Two-level Schur-complement Decomposition", In IEEE Transactions on Power Systems (in press), 2015.
-
-.. [AFVC2014] P. Aristidou, D. Fabozzi, T. Van Cutsem, "A Schur Complement Method for DAE Systems in Power System Dynamic Simulations", Chapter in Domain Decomposition Methods in Science and Engineering XXI, Springer International Publishing, vol. 98, pp. 719-727, 2014.
-
-.. [AFVC2013] P. Aristidou, D. Fabozzi, T. Van Cutsem, "Dynamic Simulation of Large-scale Power Systems Using a Parallel Schur-complement-based Decomposition Method", In IEEE Transactions on Parallel and Distributed Systems, IEEE Computer Society, vol. 25, no. 10, Los Alamitos, CA, USA, pp. 2561-2570, 2013.
