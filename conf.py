@@ -36,7 +36,8 @@ extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.mathjax',
     'sphinx.ext.viewcode',
-    'sphinx.ext.intersphinx'
+    'sphinx.ext.intersphinx',
+    'sphinxcontrib.bibtex'
 ]
 
 intersphinx_mapping = {'python': ('https://docs.python.org/3.7', None)}
