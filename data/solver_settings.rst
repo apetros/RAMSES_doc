@@ -14,7 +14,7 @@ List of settings
 
 .. function:: $LATENCY aver_time_window latency_early_stop ;
 
-   Parameters for latency [AVC2015]_.
+   Parameters for latency :cite:`AFC2014ja`.
 
    :param aver_time_window: The averaging window that we compute latency on.
    :type aver_time_window: float (seconds)
