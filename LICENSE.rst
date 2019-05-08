@@ -1,7 +1,7 @@
 ACADEMIC PUBLIC LICENSE
 =======================
 
-Copyright (c) Dr Thierry Van Cutsem (RAMSES) and Dr Petros Aristidou (PyRAMSES). All rights reserved.
+Copyright (c) Dr Petros Aristidou (PyRAMSES) and Dr Thierry Van Cutsem (RAMSES). All rights reserved.
 
 The following license governs the use of PyRAMSES in academic and educational environments. For uses outside this scope, or if you are unsure, contact the copyright owners.
 

@@ -71,7 +71,7 @@ The following options change how the solver behaves. These should be added to a 
 
    :param C1: constant C1 for numerical evaluation of Jacobian (user-defined blocks). Default 1e-5.
    :type C1: float
-   :param C2: constant C2 for numerical evaluation of Jacobian. where change in x = max( C1 |x|, C2). Default 1e-5.
+   :param C2: constant C2 for numerical evaluation of Jacobian. where change in x = max( C1 abs(x), C2). Default 1e-5.
    :type C2: float
 
 .. function:: $SPARSE_SOLVER name ;
