@@ -95,34 +95,3 @@ With the same time we can add other events to the simulation::
    ram.contSim(ram.getInfTime()) # simulate until the end (time horizon was reached or an early stop happened due to system violations or collapse)
 
 For the syntax of all events you should check the documentation of RAMSES.
-
-.. _examples_dsa:
-
-Running multiple simulations in parallel
-========================================
-
-Simulations can be performed in parallel by using several instances of :class:`pyramses.simulator.sim`. This allows two levels of parallelization.
-In the Python level, each instance of the simulator should be executed in a different process. In the lower level, inside RAMSES,
-each simulation can be parallelized using the $NBTHREADS solver setting. The latter is implemented with multithreading (OpenMP).
-
-An example is shown below (:download:`dsa.py <dsa.py>`), using the package :py:mod:`multiprocessing`:
-
-.. literalinclude:: dsa.py
-   :language: python
-   :linenos:
-   
-The script can be copied in the directory where the command files are located and executed as::
-
-   $ python dsa.py cmd1.txt cmd2.txt cmd3.txt cmd4.txt cmd5.txt cmd6.txt cmd7.txt cmd8.txt
-   Daemons started and initialized:  4
-   Waiting for current jobs to finish
-   Waiting for  4  daemons to close
-   Finished everything....
-
-The following figure outlines the operation of the script:
-
-.. figure:: dsa.png
-   :scale: 100 %
-   :alt: flowchart of dsa.py
-
-
