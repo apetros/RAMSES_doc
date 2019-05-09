@@ -41,3 +41,8 @@ To end the simulation without simulating to the end of the time horizon, we can 
 
    ram.endSim() # end simulation and exit
 
+Full list of functions
+----------------------
+
+.. autoclass:: pyramses.sim
+   :members:

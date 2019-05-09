@@ -16,4 +16,3 @@ and using pyramses.
    simul.rst
    extractor.rst
    examples.rst
-   code_documentation.rst 

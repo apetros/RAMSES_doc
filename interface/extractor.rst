@@ -16,6 +16,10 @@ We can initialize an instance by importing pyramses and invoking the :class:`pyr
 
 The available calls to the :class:`pyramses.extractor` class are fully documented in :ref:`code_extractor_doc`. The most important are detailed below.
 
-.. automethod:: pyramses.extractor.getBus
+Full list of functions
+----------------------
+
+.. autoclass:: pyramses.extractor
+   :members:
 
 
