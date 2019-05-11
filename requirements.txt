@@ -5,4 +5,4 @@ numpy
 matplotlib
 pyramses
 sphinxcontrib-bibtex
-sphinxcontrib-disqus
+-e git://github.com/rmk135/sphinxcontrib-disqus.git#egg=sphinxcontrib-disqus
