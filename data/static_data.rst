@@ -26,20 +26,20 @@ The static data describe the topology of the network and an initial power flow s
    :param str name: (max 20 characters) name of the line
    :param str from: (max 8 characters) name of the "from" bus (the line orientation is arbitrary)
    :param str to: (max 8 characters) name of the "to" bus
-   :param float R: resistance R, in Ω
-   :param float X: reactance X, in Ω
-   :param float WC2: half shunt susceptance ωC/2, in μS
+   :param float R: resistance R, in :math:`\Omega`
+   :param float X: reactance X, in :math:`\Omega`
+   :param float WC2: half shunt susceptance  :math:`\Omega C/2`, in μS
    :param float SNOM: nominal apparent power, in MVA. This value should be set to zero if one does not want to specify this power; this will be interpreted as an infinite power.
    :param int BR: on/off status of the line breakers. A zero value indicates that the breakers are open at both ends; any other value means that both breakers are closed.
 
 .. function:: TRFO name from to con R X B N SNOM NFIRST NLAST NBPOS TOLV VDES BR ;
 
-   The TRFO record is a simplified variant of the TRANSFO and LTC-V records combined. n vary linearly with the tap position while X is constant. B2 and :math:`$\phi$` are zero.
+   The TRFO record is a simplified variant of the TRANSFO and LTC-V records combined. n vary linearly with the tap position while X is constant. B2 and :math:`\phi` are zero.
    
    :param str name: (max 20 characters) name of transformer
    :param str from: (max 8 characters) name of the bus on the "1" side of the ideal transformer
    :param str to: (max 8 characters) name of the bus on the "n" side of the ideal transformer
-   :param str con: name of the bus whose voltage is controlled by adjusting the transformer ratio n. This must be one of the two terminal buses of the transformer, otherwise the program stops. An empty or blank string of characters2 is used to indicate that no voltage is controlled, i.e. the transformer ratio is fixed
+   :param str con: name of the bus whose voltage is controlled by adjusting the transformer ratio n. This must be one of the two terminal buses of the transformer, otherwise the program stops. An empty or blank string of characters is used to indicate that no voltage is controlled, i.e. the transformer ratio is fixed
    :param float R: resistance R, in % on the (VB1, SNOM) base
    :param float X: reactance X, in % on the (VB1, SNOM) base
    :param float B: susceptance B, in % on the (VB1, SNOM) base. This is normally a negative value. It can be set to zero
@@ -48,7 +48,7 @@ The static data describe the topology of the network and an initial power flow s
    :param float NFIRST: ratio n, in %, corresponding to the first tap position
    :param float NLAST: ratio n, in %, corresponding to the last tap position
    :param float NBPOS: the number of tap positions
-   :param float TOLV: tolerance :math:`$\epsilon$` (or half deadband) of the voltage control, in per unit
+   :param float TOLV: tolerance :math:`\epsilon` (or half deadband) of the voltage control, in per unit
    :param float VDES: the setpoint voltage at the controlled bus, in per unit. As long as the controlled voltage differs from VDES by less than TOLV, the tap position remains unchanged
    :param int BR: on/off status of the line breakers. A zero value indicates that the breakers are open at both ends; any other value means that both breakers are closed.
 
