@@ -24,12 +24,6 @@ The static data describe the topology of the network and an initial power flow s
    The LINE record describes a line, a cable or a series capacitor
 
    :param str name: (max 20 characters) name of the line
-   :param float vnom: base voltage, in kV . VNOM is used to set in per unit the parameters of the lines and transformers incident to the bus
-   :param float pload: active power load, en MW
-   :param float qload: reactive power load, en Mvar
-   :param float bshunt: nominal reactive power, in Mvar, of the shunt compensation treated as constant admittance. This is the reactive power produced under a 1 pu voltage. A positive (resp. negative) value corresponds to a capacitor (resp. an inductor)
-   :param float qshunt: nominal reactive power, in Mvar, of the shunt compensation treated as constant power in load flow computation. A positive (resp. negative) value corresponds to a capacitor (resp. an inductor).
-   
    :param str from: (max 8 characters) name of the "from" bus (the line orientation is arbitrary)
    :param str to: (max 8 characters) name of the "to" bus
    :param float R: resistance R, in Ω
