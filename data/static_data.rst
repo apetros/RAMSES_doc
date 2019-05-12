@@ -31,6 +31,22 @@ The static data describe the topology of the network and an initial power flow s
    :param float WC2: half shunt susceptance  :math:`\omega C/2`, in μS
    :param float SNOM: nominal apparent power, in MVA. This value should be set to zero if one does not want to specify this power; this will be interpreted as an infinite power.
    :param int BR: on/off status of the line breakers. A zero value indicates that the breakers are open at both ends; any other value means that both breakers are closed.
+   
+.. function:: TRANSFO name from to R X B1 B2 N PHI SNOM BR ;
+
+   Transformer record.
+   
+   :param str name: (max 20 characters) name of transformer
+   :param str from: (max 8 characters) name of the bus on the "1" side of the ideal transformer
+   :param str to: (max 8 characters) name of the bus on the "n" side of the ideal transformer
+   :param float R: resistance R, in % on the (VB1, SNOM) base
+   :param float X: reactance X, in % on the (VB1, SNOM) base
+   :param float B1: susceptance B1, in % on the (VB1, SNOM) base. This is normally a negative value. It can be set to zero to account for the fact that in some phase-shifting transformers, n varies with the phase angle shift φ
+   :param float B2: susceptance B2, in % on the (VB1, SNOM) base. This is normally a negative value. It can be set to zero
+   :param float N: ratio n, in % on the (VB1,VB2) base
+   :param float phi: phase angle φ, in degrees
+   :param float SNOM: apparent nominal power of the transformer, in MVA. This value must not be zero
+   :param int BR: on/off status of the line breakers. A zero value indicates that the breakers are open at both ends; any other value means that both breakers are closed.
 
 .. function:: TRFO name from to con R X B N SNOM NFIRST NLAST NBPOS TOLV VDES BR ;
 
