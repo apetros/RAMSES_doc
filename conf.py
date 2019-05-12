@@ -37,7 +37,6 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.viewcode',
     'sphinx.ext.intersphinx',
-    'tinkerer.ext.disqus',
     'sphinxcontrib.bibtex'
 ]
 
