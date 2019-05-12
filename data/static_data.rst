@@ -28,7 +28,7 @@ The static data describe the topology of the network and an initial power flow s
    :param str to: (max 8 characters) name of the "to" bus
    :param float R: resistance R, in :math:`\Omega`
    :param float X: reactance X, in :math:`\Omega`
-   :param float WC2: half shunt susceptance  :math:`\Omega C/2`, in μS
+   :param float WC2: half shunt susceptance  :math:`\omega C/2`, in μS
    :param float SNOM: nominal apparent power, in MVA. This value should be set to zero if one does not want to specify this power; this will be interpreted as an infinite power.
    :param int BR: on/off status of the line breakers. A zero value indicates that the breakers are open at both ends; any other value means that both breakers are closed.
 
