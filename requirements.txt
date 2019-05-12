@@ -1,9 +1,9 @@
 setuptools
 sphinx 
 sphinx_rtd_theme
--e git://github.com/rmk135/sphinxcontrib-disqus.git#egg=sphinxcontrib-disqus
 scipy
 numpy
 matplotlib
 pyramses
 sphinxcontrib-bibtex
+tinkerer
