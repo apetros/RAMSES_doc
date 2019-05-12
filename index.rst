@@ -83,3 +83,5 @@ Under Linux, you can install with your package manager. For example, under Ubunt
 
 .. bibliography:: refs.bib
    :all:
+
+.. disqus::
