@@ -84,4 +84,18 @@ Under Linux, you can install with your package manager. For example, under Ubunt
 .. bibliography:: refs.bib
    :all:
 
-.. disqus::
+.. raw:: html
+
+   <div id="disqus_thread"></div>
+   <script>
+   var disqus_config = function () {
+        this.page.url = 'https://paristidou.info/';  
+        this.page.identifier = 'paristidou'; 
+   };
+   (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://paristidou.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+   </script>
