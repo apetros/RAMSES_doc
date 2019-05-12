@@ -35,6 +35,7 @@ The static data describe the topology of the network and an initial power flow s
 .. function:: TRFO name from to con R X B N SNOM NFIRST NLAST NBPOS TOLV VDES BR ;
 
    The TRFO record is a simplified variant of the TRANSFO and LTC-V records combined. n vary linearly with the tap position while X is constant. B2 and :math:`$\phi$` are zero.
+   
    :param str name: (max 20 characters) name of transformer
    :param str from: (max 8 characters) name of the bus on the "1" side of the ideal transformer
    :param str to: (max 8 characters) name of the bus on the "n" side of the ideal transformer
@@ -43,8 +44,7 @@ The static data describe the topology of the network and an initial power flow s
    :param float X: reactance X, in % on the (VB1, SNOM) base
    :param float B: susceptance B, in % on the (VB1, SNOM) base. This is normally a negative value. It can be set to zero
    :param float N: ratio n, in % on the (VB1,VB2) base
-   :param float SNOM: apparent nominal power of the transformer, in MVA. This value must not be
-zero
+   :param float SNOM: apparent nominal power of the transformer, in MVA. This value must not be zero
    :param float NFIRST: ratio n, in %, corresponding to the first tap position
    :param float NLAST: ratio n, in %, corresponding to the last tap position
    :param float NBPOS: the number of tap positions
