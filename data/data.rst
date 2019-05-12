@@ -21,3 +21,18 @@ To perform a dynamic simulation, we require the following data:
    disturbances.rst
    test_systems/example_test_systems.rst
    
+.. raw:: html
+
+   <div id="disqus_thread"></div>
+   <script>
+   var disqus_config = function () {
+        this.page.url = 'https://pyramses.paristidou.info/data/data.html';  
+        this.page.identifier = 'data'; 
+   };
+   (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://paristidou.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+   </script>

@@ -89,8 +89,8 @@ Under Linux, you can install with your package manager. For example, under Ubunt
    <div id="disqus_thread"></div>
    <script>
    var disqus_config = function () {
-        this.page.url = 'https://paristidou.info/';  
-        this.page.identifier = 'paristidou'; 
+        this.page.url = 'https://pyramses.paristidou.info/';  
+        this.page.identifier = 'index'; 
    };
    (function() {
         var d = document, s = d.createElement('script');
