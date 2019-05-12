@@ -10,7 +10,7 @@ The static data describe the topology of the network and an initial power flow s
    Defines a bus in the network.
 
    :param str name: (max 8 characters) name of the bus
-   :param float vnom: base voltage, in kV . VNOM is used to set in per unit the parameters of the lines and transformers incident to the bus
+   :param float vnom: base voltage, in kV. VNOM is used to set in per unit the parameters of the lines and transformers incident to the bus
    :param float pload: active power load, en MW
    :param float qload: reactive power load, en Mvar
    :param float bshunt: nominal reactive power, in Mvar, of the shunt compensation treated as constant admittance. This is the reactive power produced under a 1 pu voltage. A positive (resp. negative) value corresponds to a capacitor (resp. an inductor)
@@ -52,7 +52,17 @@ The static data describe the topology of the network and an initial power flow s
    :param float VDES: the setpoint voltage at the controlled bus, in per unit. As long as the controlled voltage differs from VDES by less than TOLV, the tap position remains unchanged
    :param int BR: on/off status of the line breakers. A zero value indicates that the breakers are open at both ends; any other value means that both breakers are closed.
 
+   ..  note::
+       The parameters NFIRST NLAST NBPOS TOLV VDE are ignored in RAMSES. Any LTC type behaviour should be implemented in the dynamic data as a discrete controller.
 
+
+.. function:: LFRESV name mag phase ;
+
+   A LFRESV record specifies the voltage magnitude and phase angle at a bus.
+
+   :param str name: (max 8 characters) name of the bus
+   :param float mag: voltage magnitude, in per unit
+   :param float phase: voltage phase angle, in radian.
 
 .. raw:: html
 
