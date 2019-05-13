@@ -5,6 +5,10 @@ Static data
 
 The static data describe the topology of the network and an initial power flow solution from which the dynamic models are initialised. The static data are the parameters related to the buses, lines, and transformers of the system. The initial operating point is defined by the voltage magnitude and phase on each node.
 
+Data used by RAMSES
+-------------------
+
+
 .. function:: BUS name vnom pload qload bshunt qshunt ;
 
    Defines a bus in the network.
@@ -83,6 +87,29 @@ The static data describe the topology of the network and an initial power flow s
    :param str name: (max 8 characters) name of the bus
    :param float mag: voltage magnitude, in per unit
    :param float phase: voltage phase angle, in radian.
+
+
+Data used only for the Power Flow and ignored by RAMSES
+-------------------------------------------------------
+
+.. function:: GENER name bus mon p q vimp snom qmin qmax br ;
+
+   In load flow computation, generators are described by GENER records, as follows.
+
+   :param str name: (max 10 characters) name of the generator
+   :param str bus: (max 8 characters) name of the bus to which the generator is connected
+   :param str mon: (max 8 characters) not used by ARTERE. To be set to CON BUS
+   :param str p: active power production, in MW
+   :param str q: reactive power production, in Mvar
+   :param str vamp: imposed voltage, in per unit. If VIMP is zero, the generator is treated as a PQ bus with the reactive power production set at the Q value. Otherwise, it is treated as a PV bus and the Q field is ignored
+   :param str snom: nominal apparent power, in MVA. This parameter must not be zero if one is willing to model the generator in detail (i.e. through a GROUP3 record) in the dynamic simulation
+   :param str qmin: lower reactive power limit, in Mvar
+   :param str qmax: upper reactive power limit, in Mvar
+   :param str br: on/off status of the generator breaker. A zero value indicates that the breaker is open, any other value means that it is closed.
+
+
+
+
 
 .. raw:: html
 
