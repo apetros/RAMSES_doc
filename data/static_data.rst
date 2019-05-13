@@ -38,7 +38,7 @@ The static data describe the topology of the network and an initial power flow s
 
    Transformer record.
    
-   .. image:: trio.jpg
+   .. image:: trfo.jpg
    
    :param str name: (max 20 characters) name of transformer
    :param str from: (max 8 characters) name of the bus on the "1" side of the ideal transformer
