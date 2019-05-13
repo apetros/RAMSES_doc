@@ -101,7 +101,7 @@ Data used only for the Power Flow and ignored by RAMSES
    :param str mon: (max 8 characters) not used by ARTERE. To be set to CON BUS
    :param str p: active power production, in MW
    :param str q: reactive power production, in Mvar
-   :param str vamp: imposed voltage, in per unit. If VIMP is zero, the generator is treated as a PQ bus with the reactive power production set at the Q value. Otherwise, it is treated as a PV bus and the Q field is ignored
+   :param str vimp: imposed voltage, in per unit. If VIMP is zero, the generator is treated as a PQ bus with the reactive power production set at the Q value. Otherwise, it is treated as a PV bus and the Q field is ignored
    :param str snom: nominal apparent power, in MVA. This parameter must not be zero if one is willing to model the generator in detail (i.e. through a GROUP3 record) in the dynamic simulation
    :param str qmin: lower reactive power limit, in Mvar
    :param str qmax: upper reactive power limit, in Mvar
