@@ -23,7 +23,7 @@ The static data describe the topology of the network and an initial power flow s
 
    The LINE record describes a line, a cable or a series capacitor.
    
-   .. image:: line.png
+   .. image:: line.jpg
 
    :param str name: (max 20 characters) name of the line
    :param str from: (max 8 characters) name of the "from" bus (the line orientation is arbitrary)
@@ -37,6 +37,8 @@ The static data describe the topology of the network and an initial power flow s
 .. function:: TRANSFO name from to R X B1 B2 N PHI SNOM BR ;
 
    Transformer record.
+   
+   .. image:: trio.jpg
    
    :param str name: (max 20 characters) name of transformer
    :param str from: (max 8 characters) name of the bus on the "1" side of the ideal transformer
