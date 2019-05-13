@@ -21,7 +21,9 @@ The static data describe the topology of the network and an initial power flow s
       
 .. function:: LINE name from to R X WC2 SNOM BR ;
 
-   The LINE record describes a line, a cable or a series capacitor
+   The LINE record describes a line, a cable or a series capacitor.
+   
+   .. image:: line.png
 
    :param str name: (max 20 characters) name of the line
    :param str from: (max 8 characters) name of the "from" bus (the line orientation is arbitrary)
