@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# PyRAMSES documentation build configuration file, created by
+# pyramses documentation build configuration file, created by
 # sphinx-quickstart on Tue Dec 08 14:05:03 2015.
 #
 # This file is execfile()d with the current directory set to its
@@ -60,7 +60,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'PyRAMSES'
+project = u'pyramses'
 copyright = u'2019, Petros Aristidou'
 author = u'Petros Aristidou'
 
@@ -232,7 +232,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-  (master_doc, 'ramses_doc.tex', u'PyRAMSES Documentation',
+  (master_doc, 'ramses_doc.tex', u'pyramses Documentation',
    u'Petros Aristidou', 'manual'),
 ]
 
@@ -262,7 +262,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'ramses_doc', u'PyRAMSES Documentation',
+    (master_doc, 'ramses_doc', u'pyramses Documentation',
      [author], 1)
 ]
 
@@ -276,8 +276,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-  (master_doc, 'PyRAMSES', u'PyRAMSES Documentation',
-   author, 'PyRAMSES', 'Python library for RAMSES dynamic simulator.',
+  (master_doc, 'pyramses', u'pyramses Documentation',
+   author, 'pyramses', 'Python library for RAMSES dynamic simulator.',
    'Miscellaneous'),
 ]
 
