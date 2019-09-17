@@ -3,6 +3,12 @@
 Dynamic data
 ============
 
+.. function:: Synchronous machine
+
+   The synchronous generator model used in RAMSES is detailed in this :download:`pdf <models/sync_mac_model.pdf>`
+
+   
+
 .. raw:: html
 
    <div id="disqus_thread"></div>
