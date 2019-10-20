@@ -72,7 +72,7 @@ Under Linux, you can install with your package manager. For example, under Ubunt
    :caption: Table of Contents
 
    self
-   data/data.rst
+   data/data.rst 
    codegen/codegen.rst
    interface/pyramses.rst
    LICENSE.rst 
