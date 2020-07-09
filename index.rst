@@ -11,14 +11,17 @@ This website is for with the Python extension of RAMSES, named PyRAMSES. If you 
 Installing runtime libraries
 ============================
 
-The simulator depends on the Intel redistributable libraries. You can install the runtime libraries for your system from `Intel <https://software.intel.com/en-us/articles/intelr-composer-redistributable-libraries-by-version>`_.
+The simulator depends on the Intel redistributable libraries for the MKL Lapack/BLAS and the openmp implementation. 
 
-Alternatively, and the recommended way, is to install `Anaconda Python <https://www.anaconda.com/download/>`_ which comes with MKL library installed. Make sure that Anaconda `is added to the path <https://github.com/mGalarnyk/Installations_Mac_Ubuntu_Windows>`_ so that RAMSES can find the file *mkl_rt.dll* in Windows or *mkl_rt.so* in Linux.
+The recommended way to get the dependencies, is to install `Anaconda Python <https://www.anaconda.com/download/>`_ which comes with MKL library installed. Make sure that Anaconda `is added to the path <https://github.com/mGalarnyk/Installations_Mac_Ubuntu_Windows>`_ so that RAMSES can find the file *mkl_rt.dll* in Windows or *mkl_rt.so* in Linux.
+
+Alternatively, you can install the runtime libraries for your system from `Intel <https://software.intel.com/en-us/articles/intelr-composer-redistributable-libraries-by-version>`_.
+ 
 
 Installing Anaconda
 ===================
 
-Although *pyramses* can work with various Python versions, it has been developed and tested with Anaconda3. This is convenient since it is bundled with Intel MKL, so there is no need to install the libraries separately.
+Although *pyramses* should work with various Python versions, it has been developed and tested with Anaconda3. This is convenient since it is bundled with Intel MKL, so there is no need to install the libraries separately.
 
 To make sure that you have the MKL libraries installed, you can use::
 
@@ -42,22 +45,25 @@ Installing pyramses
 
   <a href="https://anaconda.org/apetros/pyramses"> <img src="https://anaconda.org/apetros/pyramses/badges/version.svg" /> </a> <a href="https://anaconda.org/apetros/pyramses"> <img src="https://anaconda.org/apetros/pyramses/badges/platforms.svg" /> </a>
 
-Install the latest version with::
-
-  conda install pyramses -c apetros
-  
-I suggest you install it in a `virtual environment 
+I suggest you install pyramses in a `virtual environment 
 <https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html>`_ to avoid conflicts with other packages.
 
-Alternatively, you can install through pypi::
+Install the latest version in a new virtual environment, run::
 
-  pip install matplotlib scipy numpy mkl pyramses
+  conda create --name ramenv python=3.7 matplotlib scipy numpy mkl jupyter ipython
+  conda install pyramses -c apetros
+  
 
+Alternatively, you can install it through pypi::
+
+  pip install matplotlib scipy numpy mkl jupyter ipython pyramses
+
+.. _start_installing_gnuplot:
 
 Installing Gnuplot
 ==================
 
-To display the runtime observables, gnuplot should be installed and available in the path. You can install gnuplot from `the official website <http://www.gnuplot.info/>`_.
+pyramses has the ability to display in real-time (i.e., during the simulation) some outputs. This is useful especially in slow simulations to see that something is actually happening (check :ref:`runtime_obs_example`). For this, gnuplot should be installed and available in the path. You can install gnuplot from `the official website <http://www.gnuplot.info/>`_.
 
 Under Linux, you can install with your package manager. For example, under Ubuntu or Debian:
 

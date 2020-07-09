@@ -118,6 +118,9 @@ the injector, twoport, torque, or exciter models. It's defined as::
 
 .. note:: This is optional. It can remain empty and the simulator will skip this step.
 
+
+.. _runtime_obs_example:
+
 Runtime observables
 ~~~~~~~~~~~~~~~~~~~
 
@@ -144,7 +147,7 @@ available commands are:
 
    case.addRunObs('ON WT1a Pw') # observable Pw from injector WT1a
 
-.. warning:: Gnuplot should be installed and the executable in the OS Path. Please see :ref:`start_install_gnuplot`.
+.. warning:: Gnuplot should be installed and the executable in the OS Path. Please see :ref:`start_installing_gnuplot`.
 
 Full list of functions
 ----------------------
