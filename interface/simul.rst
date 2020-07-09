@@ -41,6 +41,8 @@ To end the simulation without simulating to the end of the time horizon, we can 
 
    ram.endSim() # end simulation and exit
 
+.. _code_simulator_doc:
+
 Full list of functions
 ----------------------
 

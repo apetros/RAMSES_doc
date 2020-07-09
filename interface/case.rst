@@ -149,6 +149,8 @@ available commands are:
 
 .. warning:: Gnuplot should be installed and the executable in the OS Path. Please see :ref:`start_installing_gnuplot`.
 
+.. _code_cases_doc:
+
 Full list of functions
 ----------------------
 
