@@ -18,7 +18,7 @@ The recommended way to get the dependencies, is to install `Anaconda Python <htt
 Alternatively, you can install the runtime libraries for your system from `Intel <https://software.intel.com/en-us/articles/intelr-composer-redistributable-libraries-by-version>`_.
  
 
-Installing Anaconda
+Installing Anaconda 
 ===================
 
 Although *pyramses* should work with various Python versions, it has been developed and tested with Anaconda3. This is convenient since it is bundled with Intel MKL, so there is no need to install the libraries separately.
