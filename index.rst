@@ -19,9 +19,7 @@ The recommended way to install PyRAMSES is through the Conda tool. So, first hea
   <a href="https://anaconda.org/apetros/pyramses"> <img src="https://anaconda.org/apetros/pyramses/badges/version.svg" /> </a> <a href="https://anaconda.org/apetros/pyramses"> <img src="https://anaconda.org/apetros/pyramses/badges/platforms.svg" /> </a>
   
 We suggest you install PyRAMSES in a `virtual environment 
-<https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html>`_ to avoid conflicts with other packages.
-
-To install the latest version in a new virtual environment, run::
+<https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html>`_ to avoid conflicts with other packages. To install the latest version in a new virtual environment, run::
 
   conda create --name ramenv python=3.7 matplotlib scipy numpy mkl jupyter ipython
   conda activate ramenv
@@ -38,9 +36,7 @@ If you cannot use Conda for some reason, you can install PyRAMSES through pypi::
 MKL dependencies
 ================
 
-The simulator depends on the Intel redistributable libraries for the MKL Lapack/BLAS and the openmp implementation. These should be automatically installed as dependencies when you install PyRAMSES with Conda.
-
-To make sure that you have the MKL libraries installed, you can use::
+The simulator depends on the Intel redistributable libraries for the MKL Lapack/BLAS and the openmp implementation. These should be automatically installed as dependencies when you install PyRAMSES with Conda. To make sure that you have the MKL libraries installed, you can use::
 
    import numpy as np
    np.__config__.show()
