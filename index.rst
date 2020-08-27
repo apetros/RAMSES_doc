@@ -23,7 +23,7 @@ We suggest you install PyRAMSES in a `virtual environment
 
   conda create --name ramenv python=3.7 matplotlib scipy numpy mkl jupyter ipython
   conda activate ramenv
-  conda install pyramses -c apetros
+  conda install -c apetros pyramses
   
 Alternative installation
 ========================
