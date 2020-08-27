@@ -1,27 +1,19 @@
 .. _index:
    
-PyRAMSES
-========
+Getting started
+===============
 
-Welcome to PyRAMSES documentation! RAMSES is time-domain, dynamic, simulator for future electric power systems. RAMSES is only available under Windows and Linux.
+Welcome to pyramses documentation! pyramses (Python-based RApid Multithreaded Simulation of Electric power Systems) is a time-domain, dynamic, simulator for future electric power systems. If you are interested in the inner workings of the simulator, head at the end of this page to find some papers explaining the algorithms.
 
-This website is for with the Python extension of RAMSES, named PyRAMSES. If you are looking for the Java GUI interface, then please head to `Java GUI interface <http://www.montefiore.ulg.ac.be/~vct/software.html>`_.
+This website is for with the Python version of RAMSES, named pyramses. If you are looking for the Java GUI interface, then please head to `Java GUI interface <http://www.montefiore.ulg.ac.be/~vct/software.html>`_.
 
 
-Installing runtime libraries
-============================
+Installation prerequisites
+==========================
 
-The simulator depends on the Intel redistributable libraries for the MKL Lapack/BLAS and the openmp implementation. 
+The recommended way to install pyramses is through the Conda tool. So, first head to  `Anaconda Python <https://www.anaconda.com/download/>`_ and install Python 3 version for your computer.
 
-The recommended way to get the dependencies, is to install `Anaconda Python <https://www.anaconda.com/download/>`_ which comes with MKL library installed. Make sure that Anaconda `is added to the path <https://github.com/mGalarnyk/Installations_Mac_Ubuntu_Windows>`_ so that RAMSES can find the file *mkl_rt.dll* in Windows or *mkl_rt.so* in Linux.
-
-Alternatively, you can install the runtime libraries for your system from `Intel <https://software.intel.com/en-us/articles/intelr-composer-redistributable-libraries-by-version>`_.
- 
-
-Installing Anaconda 
-===================
-
-Although *pyramses* should work with various Python versions, it has been developed and tested with Anaconda3. This is convenient since it is bundled with Intel MKL, so there is no need to install the libraries separately.
+The simulator depends on the Intel redistributable libraries for the MKL Lapack/BLAS and the openmp implementation. So, make sure that Anaconda `is added to the path <https://github.com/mGalarnyk/Installations_Mac_Ubuntu_Windows>`_ so that PyRAMSES can find the file *mkl_rt.dll* in Windows or *mkl_rt.so* in Linux.
 
 To make sure that you have the MKL libraries installed, you can use::
 
@@ -61,8 +53,8 @@ Alternatively, you can install it through pypi::
 
 .. _start_installing_gnuplot:
 
-Installing Gnuplot
-==================
+Installing Gnuplot (optional)
+============================ 
 
 pyramses has the ability to display in real-time (i.e., during the simulation) some outputs. This is useful especially in slow simulations to see that something is actually happening (check :ref:`runtime_obs_example`). For this, gnuplot should be installed and available in the path. You can install gnuplot from `the official website <http://www.gnuplot.info/>`_.
 
