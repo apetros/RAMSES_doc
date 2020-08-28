@@ -16,7 +16,7 @@ The recommended way to install PyRAMSES is through the Conda tool. So, first hea
 
 .. raw:: html
 
-  <a href="https://anaconda.org/apetros/pyramses"> <img src="https://anaconda.org/apetros/pyramses/badges/version.svg" /> </a> <a href="https://anaconda.org/apetros/pyramses"> <img src="https://anaconda.org/apetros/pyramses/badges/platforms.svg" /> </a>
+  <a href="https://anaconda.org/apetros/pyramses"> <img src="https://anaconda.org/apetros/pyramses/badges/version.svg" /> </a> <a href="https://pypi.org/project/pyramses"><img src="https://badge.fury.io/py/pyramses.svg" alt="PyPI version" height="18"></a> <a href="https://anaconda.org/apetros/pyramses"> <img src="https://anaconda.org/apetros/pyramses/badges/platforms.svg" /> </a>
   
 We suggest you install PyRAMSES in a `virtual environment 
 <https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html>`_ to avoid conflicts with other packages. To install the latest version in a new virtual environment, run::
