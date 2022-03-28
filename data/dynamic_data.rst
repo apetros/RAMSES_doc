@@ -37,7 +37,7 @@ Discrete controllers
    <div id="disqus_thread"></div>
    <script>
    var disqus_config = function () {
-        this.page.url = 'https://pyramses.paristidou.info/data/dynamic_data.html';  
+        this.page.url = 'https://pyramses.sps-lab.org/data/dynamic_data.html';  
         this.page.identifier = 'dynamic_data'; 
    };
    (function() {

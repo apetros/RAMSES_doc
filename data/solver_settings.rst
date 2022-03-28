@@ -109,7 +109,7 @@ The following options change how the solver behaves. These should be added to a 
    <div id="disqus_thread"></div>
    <script>
    var disqus_config = function () {
-        this.page.url = 'https://pyramses.paristidou.info/data/solver_settings.html';  
+        this.page.url = 'https://pyramses.sps-lab.org/data/solver_settings.html';  
         this.page.identifier = 'solver_settings'; 
    };
    (function() {
