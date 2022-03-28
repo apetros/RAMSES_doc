@@ -1,7 +1,7 @@
 Modelling new components
 ========================
 
-Please check `CODEGEN <https://www.dropbox.com/sh/ml7sboh46dwd9lv/AAB-Kt-5CKrKSh92Q854rRg4a?dl=0>`_.
+Please check `CODEGEN <https://www.dropbox.com/sh/ml7sboh46dwd9lv/AAB-Kt-5CKrKSh92Q854rRg4a?dl=0>`_. For the compilation, check `URAMSES <https://github.com/SPS-L/URAMSES>`_. 
 
 .. raw:: html
 
