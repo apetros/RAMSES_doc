@@ -1,10 +1,10 @@
-.. _examples:
+.. _example_test_systems:
 
 Example test systems
 ====================
 
-:download:`5bus system <data/test_systems/5bus_syst.zip>`
-:download:`Nordic <data/test_systems/Nordic.zip>`
+:download:`5bus system <5bus_syst.zip>`
+:download:`Nordic <Nordic.zip>`
 
 .. raw:: html
 
