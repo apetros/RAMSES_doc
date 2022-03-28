@@ -53,7 +53,7 @@ which should give something like::
 .. _start_installing_gnuplot:
 
 Installing Gnuplot (optional)
-============================ 
+=============================
 
 PyRAMSES has the ability to display in real-time (i.e., during the simulation) some outputs. This is useful especially in slow simulations to see that something is actually happening (check :ref:`runtime_obs_example`). For this, gnuplot should be installed and available in the path. You can install gnuplot from `the official website <http://www.gnuplot.info/>`_.
 
