@@ -5,4 +5,4 @@ scipy
 numpy
 matplotlib
 pyramses
-sphinxcontrib-bibtex<2.0.0
+sphinxcontrib-bibtex>=2.0.0

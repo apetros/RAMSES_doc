@@ -42,7 +42,7 @@ extensions = [
 
 disqus_shortname = 'paristidou'
 
-intersphinx_mapping = {'python': ('https://docs.python.org/3.7', None)}
+intersphinx_mapping = {'python': ('https://docs.python.org/3.11', None)}
 
 
 # Add any paths that contain templates here, relative to this directory.
