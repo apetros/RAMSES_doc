@@ -157,20 +157,3 @@ Full list of functions
 .. autoclass:: pyramses.cfg
    :members:
 
-.. raw:: html
-
-   <div id="disqus_thread"></div>
-   <script>
-   var disqus_config = function () {
-        this.page.url = 'https://pyramses.paristidou.info/interface/case.html';  
-        this.page.identifier = 'case'; 
-   };
-   (function() {
-        var d = document, s = d.createElement('script');
-        s.src = 'https://paristidou.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-   </script>
-
-

@@ -104,18 +104,4 @@ If you are looking how to put distrubance description in an interactive manner, 
    :param name_of_filename: Name of output file.
    :type name_of_filename: str
 
-.. raw:: html
 
-   <div id="disqus_thread"></div>
-   <script>
-   var disqus_config = function () {
-        this.page.url = 'https://pyramses.sps-lab.org/data/disturbances.html';  
-        this.page.identifier = 'disturbances'; 
-   };
-   (function() {
-        var d = document, s = d.createElement('script');
-        s.src = 'https://paristidou.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-   </script>
