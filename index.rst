@@ -5,7 +5,7 @@ Getting started
 
 Welcome to PyRAMSES documentation! PyRAMSES (Python-based RApid Multithreaded Simulation of Electric power Systems) is a time-domain, dynamic, simulator for future electric power systems. If you are interested in the inner workings of the simulator, head at the end of this page to find some papers explaining the algorithms.
 
-This website is for the Python version of RAMSES, named PyRAMSES. If you are looking for the Java version, then please head to `Java GUI interface <http://www.montefiore.ulg.ac.be/~vct/software.html>`_.
+This website is for the Python version of RAMSES, named PyRAMSES. If you are looking for the Java version, then please head to `Java GUI interface <https://thierryvancutsem.github.io/home/software.html>`_.
 
 .. _start_installing_pyramses:
 
