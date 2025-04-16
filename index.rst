@@ -9,28 +9,17 @@ This website is for the Python version of RAMSES, named PyRAMSES. If you are loo
 
 .. _start_installing_pyramses:
 
+
 Recommended installation
 ========================
 
-The recommended way to install PyRAMSES is through the Conda tool. So, first head to  `Anaconda <https://www.anaconda.com/download/>`_ and install Python 3 version for your computer.
+You can install PyRAMSES through pypi::
+
+  pip install matplotlib scipy numpy mkl jupyter ipython pyramses
 
 .. raw:: html
 
-  <a href="https://anaconda.org/apetros/pyramses"> <img src="https://anaconda.org/apetros/pyramses/badges/version.svg" /> </a> <a href="https://pypi.org/project/pyramses"><img src="https://badge.fury.io/py/pyramses.svg" alt="PyPI version" height="18"></a> <a href="https://anaconda.org/apetros/pyramses"> <img src="https://anaconda.org/apetros/pyramses/badges/platforms.svg" /> </a>
-  
-We suggest you install PyRAMSES in a `virtual environment 
-<https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html>`_ to avoid conflicts with other packages. To install the latest version in a new virtual environment, run::
-
-  conda create --name ramenv python=3.7 matplotlib scipy numpy mkl jupyter ipython
-  conda activate ramenv
-  conda install -c apetros pyramses
-  
-Alternative installation
-========================
-
-If you cannot use Conda for some reason, you can install PyRAMSES through pypi::
-
-  pip install matplotlib scipy numpy mkl jupyter ipython pyramses
+  <a href="https://pypi.org/project/pyramses"><img src="https://badge.fury.io/py/pyramses.svg" alt="PyPI version" height="18"></a>
 
 
 MKL dependencies
@@ -81,19 +70,3 @@ Under Linux, you can install with your package manager. For example, under Ubunt
 
 .. bibliography:: refs.bib
    :all:
-
-.. raw:: html
-
-   <div id="disqus_thread"></div>
-   <script>
-   var disqus_config = function () {
-        this.page.url = 'https://pyramses.paristidou.info/';  
-        this.page.identifier = 'index'; 
-   };
-   (function() {
-        var d = document, s = d.createElement('script');
-        s.src = 'https://paristidou.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-   </script>
